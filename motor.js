@@ -2,7 +2,7 @@
 //
 // O mundo é dividido em BLOCOS (Bloco A, B e C), como as áreas do Stardew
 // Valley: só o bloco onde o jogador está fica montado na tela. Os dados de
-// cada bloco moram num arquivo próprio (vila-pixel/blocos/<id>.js) e só são
+// cada bloco moram num arquivo próprio (blocos/<id>.js, ao lado deste arquivo) e só são
 // baixados quando o jogador entra nele pela primeira vez — ver carregarBloco().
 //
 // Formato de um bloco (VilaPixel.registrarBloco):
@@ -37,6 +37,10 @@ window.VilaPixel = (function () {
   const NOME_ALUNO = (new URLSearchParams(location.search).get('name') || '').trim().split(/\s+/)[0] || 'aluno';
   const preencher = fala => fala.replace(/\{nome\}/g, NOME_ALUNO);
 
+  // Pasta onde este motor.js está: os blocos ficam em <pasta>/blocos/.
+  // Assim funciona tanto com o jogo na raiz quanto dentro de vila-pixel/ no portal.
+  const BASE = ((document.currentScript && document.currentScript.src) || '').replace(/[^/]*$/, '');
+
   const blocos = {};          // dados já carregados, por id
   const memoria = {};         // o que muda enquanto se joga (posição dos NPCs, conversas)
   const idx = nome => VilaArte.TILES.indexOf(nome);
@@ -48,7 +52,7 @@ window.VilaPixel = (function () {
     console.log('[VilaPixel] carregando dados do ' + id + '...');
     return new Promise((ok, falha) => {
       const s = document.createElement('script');
-      s.src = 'vila-pixel/blocos/' + id + '.js';
+      s.src = BASE + 'blocos/' + id + '.js';
       s.onload = () => blocos[id] ? ok(blocos[id]) : falha(new Error('O arquivo de ' + id + ' não registrou o bloco.'));
       s.onerror = () => falha(new Error('Não deu para carregar ' + s.src));
       document.head.appendChild(s);
@@ -89,7 +93,7 @@ window.VilaPixel = (function () {
 
   // ---------- tela de carregamento com "Você sabia?" ----------
   // Fica pelo menos TEMPO_CURIOSIDADE na tela, para dar tempo de ler a frase
-  // (lista em vila-pixel/curiosidades.js), e espera o bloco terminar de baixar.
+  // (lista em curiosidades.js), e espera o bloco terminar de baixar.
   const TEMPO_CURIOSIDADE = 2500;
   let ultimaFrase = -1;
   function sortearCuriosidade() {
@@ -119,7 +123,9 @@ window.VilaPixel = (function () {
       this.textures.addCanvas('seta', VilaArte.gerarSeta());
       this.textures.addCanvas('grade', VilaArte.gerarGrade());
       const primeiro = window.VILA_BLOCO_INICIAL || 'bloco-a';
-      telaCarregando(primeiro).then(b => this.scene.start('Mundo', { bloco: b.id, chegada: b.inicio }));
+      telaCarregando(primeiro)
+        .then(b => this.scene.start('Mundo', { bloco: b.id, chegada: b.inicio }))
+        .catch(err => { ui.carregandoTitulo.textContent = '⚠ ' + err.message; console.error(err); });
     }
   }
 
