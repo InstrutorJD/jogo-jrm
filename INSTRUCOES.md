@@ -1,5 +1,24 @@
 # Instruções para os alunos — Vila Pixel
 
+# Grupos 
+- Frases 
+> Juliano
+> Yasmin
+> Gabriella
+
+- Pesquisas (Musicas, efeitos sonoros, fases, enigmas, conteudo das aulas)
+> Maycon
+> Leon
+> Iago
+> Thiago
+
+- Personagens
+- João
+- Miguel
+- Engel
+- Breno
+- Josuel
+
 Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começar.
 
 | O que você vai fazer | Pasta | Formato |

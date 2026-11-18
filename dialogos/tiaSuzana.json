@@ -1,0 +1,15 @@
+{
+  "nome": "Tia Suzana",
+  "conversas": [
+    ["Bom-Dia, flor! como vai?"],
+    ["Você deve usar o uniforme completo. Incluindo o sapato"],
+    ["Bom estudo, {nome}!"],
+    # entrada sala
+    ["Bora pra sala, já deu a hora"],
+    ["Vamos {nome}! Onde fica sua sala?"],
+    ["Sua sala não é aqui."],
+    # Fila lanche
+    ["Se continuar furando a fila vou lhe dar advertência"],
+    ["Eii! Bora! Hoje é {cafeDaManha}"]
+  ]
+}

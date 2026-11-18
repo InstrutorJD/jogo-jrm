@@ -1,0 +1,12 @@
+{
+  "nome": "Seu Zé",
+  "conversas": [
+    ["Fala, {nome}. Tudo Bom?"],
+    ["Como foi o final de semana? {aluno}"],
+    ["Bom estudo, {nome}!"],
+    # durante cafe da manha
+    ["Fala! {nome}, tudo bacana?"],
+    ["São {horario}"],
+    ["Sabe, não pode ficar aqui. O Josimar vai brigar."]
+  ]
+}
