@@ -2,6 +2,8 @@
 // Vila Pixel — verifica e corrige os tiles de chão entregues pelos alunos.
 //
 // Uso:   node ferramentas/verificar-tiles.js [pasta]      (padrão: entregas/)
+//        node ferramentas/verificar-tiles.js --pastas     confere sprites/, sons/ e dialogos/ do jogo
+//                                                          (só aponta problemas, não altera nada)
 //
 // Coloque na pasta os .png e/ou .piskel dos alunos (pode ter subpastas, por
 // turma ou por aluno). Nome sugerido: nome-do-aluno_grama.png
@@ -266,7 +268,9 @@ function listar(pasta, ignorar) {
 }
 
 function main() {
-  const raiz = path.resolve(process.argv[2] || path.join(__dirname, '..', 'entregas'));
+  const args = process.argv.slice(2), pasta = args.find(a => !a.startsWith('--'));
+  if (args.includes('--pastas')) return verificarPastas(path.resolve(pasta || path.join(__dirname, '..')));
+  const raiz = path.resolve(pasta || path.join(__dirname, '..', 'entregas'));
   if (!fs.existsSync(raiz)) {
     fs.mkdirSync(raiz, { recursive: true });
     console.log(`Criei a pasta ${raiz}\nColoque nela os .png/.piskel dos alunos e rode de novo.`);
@@ -381,6 +385,140 @@ function relatorio(resultados) {
 <br>Gerado em ${new Date().toLocaleString('pt-BR')}. Escolha o melhor de cada tile e copie para <code>sprites/tiles/&lt;tile&gt;.png</code>.</p>
 ${grupos || '<p>Nenhum arquivo encontrado.</p>'}
 </main></body></html>`;
+}
+
+// ================= verificação das pastas do jogo (--pastas) =================
+// Confere o que já está em sprites/, sons/ e dialogos/. Não altera nada: só
+// aponta os problemas. Termina com código 1 se houver algum erro.
+const QUADROS_PERSONAGEM = 7;                       // ver sprites/LEIA-ME.md
+const LIMITE_EFEITO = 300 * 1024, LIMITE_MUSICA = 5 * 1024 * 1024;
+
+// ids dos personagens = 'jogador' + os NPCs declarados em blocos/*.js
+function idsDosPersonagens(raizJogo) {
+  const ids = new Set(['jogador']), pasta = path.join(raizJogo, 'blocos');
+  if (!fs.existsSync(pasta)) return ids;
+  const vm = require('vm');
+  for (const f of fs.readdirSync(pasta).filter(f => f.endsWith('.js'))) {
+    const ctx = { VilaPixel: { registrarBloco: b => (b.npcs || []).forEach(n => ids.add(n.id)) } };
+    try { vm.runInNewContext(fs.readFileSync(path.join(pasta, f), 'utf8'), ctx); } catch { /* bloco com erro: ignora */ }
+  }
+  return ids;
+}
+
+function verificarPastas(raizJogo) {
+  const saida = []; let erros = 0, avisos = 0, problemasDoArquivo = 0;
+  const rel = p => path.relative(raizJogo, p).split(path.sep).join('/');
+  const erro = (f, msg) => { erros++; problemasDoArquivo++; saida.push(`  ✗ ${rel(f)}: ${msg}`); };
+  const aviso = (f, msg) => { avisos++; problemasDoArquivo++; saida.push(`  ⚠ ${rel(f)}: ${msg}`); };
+  const info = msg => saida.push(`  · ${msg}`);
+  const secao = t => saida.push('', t);
+  // cada arquivo: roda as checagens e, se nada apareceu, marca ✔
+  const conferir = (f, checar) => { problemasDoArquivo = 0; checar(); if (!problemasDoArquivo) saida.push(`  ✔ ${rel(f)}`); };
+  const conteudo = pasta => {
+    if (!fs.existsSync(pasta)) { erro(pasta, 'a pasta não existe'); return null; }
+    return listar(pasta).filter(f => path.basename(f) !== 'LEIA-ME.md');
+  };
+  // o site diferencia maiúsculas e não gosta de espaço/acento no nome
+  const nomeSeguro = (f) => {
+    const n = path.basename(f);
+    if (!/^[a-z0-9._-]+$/.test(n)) aviso(f, `use nome em minúsculas, sem espaço nem acento (ex.: ${normalizar(n).replace(/[^a-z0-9.]+/g, '-')})`);
+  };
+  const abrirPNG = f => { try { return lerPNG(fs.readFileSync(f)); } catch (e) { erro(f, e.message); return null; } };
+  const contarAlfa = (img, teste) => { let n = 0; for (let i = 3; i < img.d.length; i += 4) if (teste(img.d[i])) n++; return n; };
+  const ehPiskel = (f, ext) => {
+    if (ext !== '.piskel') return false;
+    if (!fs.existsSync(f.replace(/\.piskel$/i, '.png'))) aviso(f, 'tem o .piskel mas falta o .png (exporte em PNG pelo Piskel)');
+    return true;
+  };
+
+  // ---------- sprites/tiles ----------
+  secao('sprites/tiles/');
+  const tiles = conteudo(path.join(raizJogo, 'sprites', 'tiles'));
+  if (tiles) {
+    const achados = new Set();
+    for (const f of tiles) conferir(f, () => {
+      const ext = path.extname(f).toLowerCase(), nome = path.basename(f, path.extname(f));
+      if (ehPiskel(f, ext)) return;
+      if (ext !== '.png') return aviso(f, 'o jogo não usa este arquivo (só .png e .piskel)');
+      nomeSeguro(f);
+      if (!TILES.includes(nome)) aviso(f, `nome não reconhecido — use: ${TILES.join(', ')}`);
+      const img = abrirPNG(f); if (!img) return;
+      if (img.w !== TAM || img.h !== TAM) return erro(f, `tem ${img.w}×${img.h}, precisa ter 16×16 — passe pelas entregas para corrigir`);
+      const transp = contarAlfa(img, a => a < 255);
+      if (transp) erro(f, `${transp} pixel(s) transparente(s): viram buraco preto no jogo`);
+      const e = emenda(img);
+      if (e.horizontal) aviso(f, 'a borda esquerda não emenda com a direita');
+      if (e.vertical) aviso(f, 'a borda de cima não emenda com a de baixo');
+      achados.add(nome);
+    });
+    const faltam = ['terra', 'cimento'].filter(t => !achados.has(t));
+    if (!['grama', 'grama1', 'grama2', 'grama3'].some(t => achados.has(t))) faltam.unshift('grama');
+    if (faltam.length) info(`ainda faltam (o jogo usa a arte do código): ${faltam.join(', ')}`);
+  }
+
+  // ---------- sprites/personagens ----------
+  secao('sprites/personagens/');
+  const personagens = conteudo(path.join(raizJogo, 'sprites', 'personagens'));
+  if (personagens) {
+    const ids = idsDosPersonagens(raizJogo), achados = new Set(), larg = TAM * QUADROS_PERSONAGEM;
+    for (const f of personagens) conferir(f, () => {
+      const ext = path.extname(f).toLowerCase(), nome = path.basename(f, path.extname(f));
+      if (ehPiskel(f, ext)) return;
+      if (ext !== '.png') return aviso(f, 'o jogo não usa este arquivo (só .png e .piskel)');
+      nomeSeguro(f);
+      if (!ids.has(nome)) aviso(f, `não existe personagem com o id "${nome}" — ids: ${[...ids].join(', ')}`);
+      const img = abrirPNG(f); if (!img) return;
+      if (img.w !== larg || img.h !== TAM) {
+        const s = img.h / TAM;
+        if (Number.isInteger(s) && s > 1 && img.w === larg * s) return erro(f, `exportado em escala ${s}x (${img.w}×${img.h}): exporte em 1x (112×16)`);
+        if (img.h === TAM && img.w % TAM === 0) return erro(f, `tem ${img.w / TAM} frame(s), precisa de ${QUADROS_PERSONAGEM} (112×16)`);
+        return erro(f, `tem ${img.w}×${img.h}, precisa ter 112×16 (${QUADROS_PERSONAGEM} frames de 16×16 numa linha)`);
+      }
+      const ROTULOS = ['baixo parado', 'baixo passo A', 'cima parado', 'cima passo A', 'direita parado', 'direita passo A', 'direita passo B'];
+      const vazios = ROTULOS.filter((_, i) => contarAlfa(recortar(img, i * TAM, 0, TAM, TAM), a => a > 0) === 0);
+      if (vazios.length) erro(f, `frame(s) vazio(s): ${vazios.join(', ')}`);
+      if (!contarAlfa(img, a => a === 0)) aviso(f, 'o fundo não é transparente: o personagem vai aparecer dentro de um quadrado');
+      achados.add(nome);
+    });
+    const semSprite = [...ids].filter(id => !achados.has(id));
+    if (semSprite.length) info(`usam a arte do código por enquanto: ${semSprite.join(', ')}`);
+  }
+
+  // ---------- sons ----------
+  secao('sons/');
+  const sons = conteudo(path.join(raizJogo, 'sons'));
+  if (sons) {
+    for (const f of sons) conferir(f, () => {
+      const ext = path.extname(f).toLowerCase(), tipo = path.basename(path.dirname(f));
+      nomeSeguro(f);
+      if (!['musicas', 'efeitos'].includes(tipo)) aviso(f, 'coloque dentro de sons/musicas/ ou sons/efeitos/');
+      if (ext === '.wav') aviso(f, '.wav é pesado demais para o site: converta para .ogg (e .mp3)');
+      else if (!['.ogg', '.mp3'].includes(ext)) return aviso(f, 'formato não suportado: use .ogg e .mp3');
+      const tam = fs.statSync(f).size, limite = tipo === 'efeitos' ? LIMITE_EFEITO : LIMITE_MUSICA;
+      if (tam > limite) aviso(f, `${(tam / 1024 / 1024).toFixed(1)} MB é grande demais (limite ${(limite / 1024 / 1024).toFixed(1)} MB): encurte ou comprima`);
+      if (ext === '.ogg' && !fs.existsSync(f.replace(/\.ogg$/i, '.mp3'))) aviso(f, 'falta a cópia .mp3 (o Safari/iPhone não toca .ogg)');
+    });
+    if (!sons.length) info('nenhum som ainda');
+  }
+
+  // ---------- dialogos ----------
+  secao('dialogos/');
+  const dialogos = conteudo(path.join(raizJogo, 'dialogos'));
+  if (dialogos) {
+    const vm = require('vm');
+    for (const f of dialogos) conferir(f, () => {
+      const ext = path.extname(f).toLowerCase(), texto = fs.readFileSync(f, 'utf8');
+      nomeSeguro(f);
+      if (ext === '.json') { try { JSON.parse(texto); } catch (e) { erro(f, 'JSON com erro: ' + e.message); } }
+      else if (ext === '.js') { try { new vm.Script(texto, { filename: rel(f) }); } catch (e) { erro(f, 'erro de sintaxe: ' + e.message); } }
+      else aviso(f, 'o jogo não usa este arquivo (só .json e .js)');
+    });
+    if (!dialogos.length) info('nenhum diálogo ainda (as falas continuam em blocos/*.js)');
+  }
+
+  console.log(`Verificando as pastas do jogo em ${raizJogo}` + saida.join('\n'));
+  console.log(`\n${erros} erro(s), ${avisos} aviso(s).`);
+  process.exitCode = erros ? 1 : 0;
 }
 
 if (require.main === module) main();

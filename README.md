@@ -38,3 +38,12 @@ pode ser copiada para dentro de outro site (ex.: `vila-pixel/`) sem mudar nada.
 4. Os tiles aproveitáveis ficam em `entregas/corrigidos/<tile>/<aluno>.png`. Copie o escolhido para `sprites/tiles/<tile>.png`.
 
 A pasta `entregas/` não vai para o git (tem nomes de alunos).
+
+## Conferir as pastas do jogo
+
+`node ferramentas/verificar-tiles.js --pastas` confere o que já está em `sprites/`, `sons/` e `dialogos/`:
+tamanho dos tiles e personagens, frames vazios, fundo transparente, nomes de arquivo, ids de
+personagem que não existem, formato e tamanho dos sons, JSON/JS com erro. Não altera nada e
+termina com código 1 se encontrar erro. Rode antes de cada commit.
+
+
