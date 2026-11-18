@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Educação Digital e Tecnologia",
+  "conteudos": [
+    {
+      "titulo": "IA e sociedade",
+      "aula": "A inteligência artificial pode apoiar saúde, educação, indústria e comunicação, mas também apresenta desafios como vieses, privacidade, transparência e impactos no trabalho."
+    },
+    {
+      "titulo": "Programação",
+      "aula": "Programar é escrever instruções para que um computador execute tarefas. Variáveis armazenam valores, condicionais permitem decisões e laços repetem comandos."
+    },
+    {
+      "titulo": "Cibersegurança e hacker ético",
+      "aula": "Cibersegurança protege sistemas, redes e dados contra ataques. Hackers éticos testam sistemas com autorização para encontrar falhas e ajudar a corrigi-las."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Um risco social da IA é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reproduzir vieses presentes nos dados"
+        },
+        {
+          "id": "B",
+          "texto": "Garantir decisões sempre perfeitas"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar toda necessidade de avaliação"
+        },
+        {
+          "id": "D",
+          "texto": "Não utilizar dados"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Sistemas podem reproduzir ou ampliar vieses dos dados usados no desenvolvimento."
+    },
+    {
+      "pergunta": "Em programação, uma variável serve para:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Armazenar um valor"
+        },
+        {
+          "id": "B",
+          "texto": "Desligar a internet"
+        },
+        {
+          "id": "C",
+          "texto": "Substituir o processador"
+        },
+        {
+          "id": "D",
+          "texto": "Imprimir sempre uma imagem"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Variáveis guardam informações que podem ser usadas e modificadas pelo programa."
+    },
+    {
+      "pergunta": "O hacker ético deve atuar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Com autorização e limites definidos"
+        },
+        {
+          "id": "B",
+          "texto": "Invadindo qualquer sistema"
+        },
+        {
+          "id": "C",
+          "texto": "Para roubar dados"
+        },
+        {
+          "id": "D",
+          "texto": "Sem comunicar vulnerabilidades"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A autorização e o respeito ao escopo são essenciais para um teste ético."
+    }
+  ]
+}

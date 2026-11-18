@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Projeto de Vida e Educação Financeira",
+  "conteudos": [
+    {
+      "titulo": "Autoconhecimento",
+      "aula": "Autoconhecimento envolve reconhecer interesses, habilidades, valores e pontos a desenvolver. Isso ajuda a estabelecer objetivos coerentes com o próprio projeto de vida."
+    },
+    {
+      "titulo": "Planejamento financeiro",
+      "aula": "Planejar as finanças significa registrar receitas e despesas, definir prioridades e organizar o uso do dinheiro para alcançar objetivos."
+    },
+    {
+      "titulo": "Consumo consciente",
+      "aula": "Consumo consciente considera necessidade, orçamento, durabilidade e impactos sociais e ambientais antes de comprar."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Autoconhecimento ajuda a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Escolher objetivos sem reflexão"
+        },
+        {
+          "id": "B",
+          "texto": "Reconhecer interesses e habilidades"
+        },
+        {
+          "id": "C",
+          "texto": "Evitar qualquer planejamento"
+        },
+        {
+          "id": "D",
+          "texto": "Copiar decisões de outras pessoas"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Conhecer a si mesmo ajuda a definir metas mais adequadas."
+    },
+    {
+      "pergunta": "Qual é uma prática de planejamento financeiro?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ignorar despesas"
+        },
+        {
+          "id": "B",
+          "texto": "Anotar receitas e gastos"
+        },
+        {
+          "id": "C",
+          "texto": "Comprar por impulso"
+        },
+        {
+          "id": "D",
+          "texto": "Gastar todo o dinheiro imediatamente"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Registrar entradas e saídas permite acompanhar o orçamento."
+    },
+    {
+      "pergunta": "Consumo consciente envolve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Comprar sempre o mais caro"
+        },
+        {
+          "id": "B",
+          "texto": "Considerar necessidade e impacto da compra"
+        },
+        {
+          "id": "C",
+          "texto": "Desperdiçar recursos"
+        },
+        {
+          "id": "D",
+          "texto": "Ignorar o orçamento"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A decisão de compra deve considerar necessidade, custo e consequências."
+    }
+  ]
+}

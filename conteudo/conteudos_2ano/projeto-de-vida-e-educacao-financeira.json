@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Projeto de Vida e Educação Financeira",
+  "conteudos": [
+    {
+      "titulo": "Planejamento de carreira",
+      "aula": "Planejar a carreira envolve conhecer áreas profissionais, pesquisar formação e mercado de trabalho e estabelecer metas flexíveis de curto e longo prazo."
+    },
+    {
+      "titulo": "Juros simples e compostos",
+      "aula": "Juros simples são calculados sobre o capital inicial. Juros compostos incidem sobre o montante acumulado, produzindo o chamado efeito de juros sobre juros."
+    },
+    {
+      "titulo": "Investimentos e reserva de emergência",
+      "aula": "A reserva de emergência é uma quantia guardada para imprevistos e deve priorizar segurança e facilidade de resgate. Investimentos precisam considerar risco, prazo e liquidez."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Uma etapa importante do planejamento de carreira é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Pesquisar profissões e formações"
+        },
+        {
+          "id": "B",
+          "texto": "Escolher sem conhecer a área"
+        },
+        {
+          "id": "C",
+          "texto": "Ignorar habilidades"
+        },
+        {
+          "id": "D",
+          "texto": "Evitar estabelecer metas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Pesquisar ajuda a comparar caminhos profissionais e requisitos."
+    },
+    {
+      "pergunta": "Nos juros compostos, os juros são calculados sobre:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Somente o capital inicial"
+        },
+        {
+          "id": "B",
+          "texto": "O montante acumulado"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas os impostos"
+        },
+        {
+          "id": "D",
+          "texto": "Um valor sempre fixo"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Nos juros compostos, os juros de cada período incidem sobre o montante acumulado."
+    },
+    {
+      "pergunta": "A reserva de emergência deve priorizar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Alto risco e baixa liquidez"
+        },
+        {
+          "id": "B",
+          "texto": "Segurança e acesso ao dinheiro"
+        },
+        {
+          "id": "C",
+          "texto": "Prazo muito longo sem resgate"
+        },
+        {
+          "id": "D",
+          "texto": "Apostas de retorno incerto"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A reserva deve estar disponível para imprevistos e priorizar baixo risco."
+    }
+  ]
+}

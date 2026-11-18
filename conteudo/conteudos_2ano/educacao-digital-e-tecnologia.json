@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Educação Digital e Tecnologia",
+  "conteudos": [
+    {
+      "titulo": "Redes de computadores",
+      "aula": "Redes conectam dispositivos para compartilhar dados e recursos. A internet é uma rede mundial que utiliza protocolos para permitir a comunicação entre sistemas."
+    },
+    {
+      "titulo": "Banco de dados",
+      "aula": "Banco de dados organiza informações para facilitar armazenamento, consulta e atualização. Tabelas podem estruturar dados em linhas e colunas."
+    },
+    {
+      "titulo": "Privacidade e LGPD",
+      "aula": "A Lei Geral de Proteção de Dados estabelece regras para o tratamento de dados pessoais no Brasil, buscando proteger direitos e dar transparência ao uso dessas informações."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Uma rede de computadores permite:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Compartilhar dados e recursos"
+        },
+        {
+          "id": "B",
+          "texto": "Eliminar toda comunicação"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas editar imagens"
+        },
+        {
+          "id": "D",
+          "texto": "Substituir eletricidade"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Redes conectam dispositivos para troca de informações e compartilhamento."
+    },
+    {
+      "pergunta": "Em uma tabela de banco de dados, uma linha normalmente representa:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Um registro"
+        },
+        {
+          "id": "B",
+          "texto": "Uma senha universal"
+        },
+        {
+          "id": "C",
+          "texto": "Um cabo de rede"
+        },
+        {
+          "id": "D",
+          "texto": "Um programa executável"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Cada linha reúne os valores de um registro."
+    },
+    {
+      "pergunta": "A LGPD trata principalmente de:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Proteção de dados pessoais"
+        },
+        {
+          "id": "B",
+          "texto": "Regras de trânsito"
+        },
+        {
+          "id": "C",
+          "texto": "Construção civil"
+        },
+        {
+          "id": "D",
+          "texto": "Produção de energia"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A LGPD regula o tratamento de dados pessoais no Brasil."
+    }
+  ]
+}

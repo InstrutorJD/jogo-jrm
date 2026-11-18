@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Educação Digital e Tecnologia",
+  "conteudos": [
+    {
+      "titulo": "Segurança na internet",
+      "aula": "Segurança digital envolve proteger contas, dispositivos e informações. Senhas fortes, autenticação em duas etapas e atenção a links suspeitos reduzem riscos."
+    },
+    {
+      "titulo": "Algoritmos",
+      "aula": "Algoritmo é uma sequência organizada de instruções para resolver um problema ou realizar uma tarefa. Receitas e instruções de montagem são exemplos cotidianos."
+    },
+    {
+      "titulo": "Inteligência artificial",
+      "aula": "Inteligência artificial reúne técnicas que permitem a sistemas executar tarefas como reconhecer padrões, gerar textos e apoiar decisões. Seus resultados precisam ser avaliados criticamente."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual atitude aumenta a segurança de uma conta?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reutilizar a mesma senha em tudo"
+        },
+        {
+          "id": "B",
+          "texto": "Compartilhar a senha"
+        },
+        {
+          "id": "C",
+          "texto": "Ativar autenticação em duas etapas"
+        },
+        {
+          "id": "D",
+          "texto": "Clicar em qualquer link"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "A autenticação em duas etapas adiciona uma camada de proteção."
+    },
+    {
+      "pergunta": "Um algoritmo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Uma sequência de instruções"
+        },
+        {
+          "id": "B",
+          "texto": "Um tipo de monitor"
+        },
+        {
+          "id": "C",
+          "texto": "Uma rede social"
+        },
+        {
+          "id": "D",
+          "texto": "Uma peça do computador"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Algoritmos descrevem passos para executar tarefas ou resolver problemas."
+    },
+    {
+      "pergunta": "Ao usar uma resposta gerada por IA, é importante:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Aceitar tudo sem conferir"
+        },
+        {
+          "id": "B",
+          "texto": "Verificar informações e possíveis erros"
+        },
+        {
+          "id": "C",
+          "texto": "Compartilhar dados pessoais"
+        },
+        {
+          "id": "D",
+          "texto": "Desativar o pensamento crítico"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Sistemas de IA podem errar; verificar fontes e informações é essencial."
+    }
+  ]
+}
