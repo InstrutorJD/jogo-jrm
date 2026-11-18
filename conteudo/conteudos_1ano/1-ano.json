@@ -1,0 +1,1326 @@
+{
+  "ano": "1º ano",
+  "descricao": "Material didático de apoio para jogo educativo. Conteúdos e questões organizados por matéria.",
+  "materias": [
+    {
+      "nome": "Matemática",
+      "conteudos": [
+        {
+          "titulo": "Conjuntos numéricos",
+          "aula": "Os números naturais são usados para contar; os inteiros incluem negativos; os racionais podem ser escritos como fração; os irracionais não podem ser escritos como fração exata; e os reais reúnem racionais e irracionais."
+        },
+        {
+          "titulo": "Equação do primeiro grau",
+          "aula": "Uma equação do primeiro grau tem incógnita elevada a 1. Resolver significa encontrar o valor que mantém a igualdade verdadeira, realizando operações equivalentes nos dois lados."
+        },
+        {
+          "titulo": "Funções",
+          "aula": "Uma função relaciona cada elemento do domínio a exatamente um elemento do contradomínio. Ela pode ser representada por tabelas, gráficos ou expressões, como f(x)=2x+1."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual número é natural na convenção que inclui o zero?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "-3"
+            },
+            {
+              "id": "B",
+              "texto": "0"
+            },
+            {
+              "id": "C",
+              "texto": "1,5"
+            },
+            {
+              "id": "D",
+              "texto": "-1"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O zero e os inteiros positivos pertencem aos naturais nessa convenção."
+        },
+        {
+          "pergunta": "Qual é a solução de 2x + 4 = 10?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "2"
+            },
+            {
+              "id": "B",
+              "texto": "3"
+            },
+            {
+              "id": "C",
+              "texto": "4"
+            },
+            {
+              "id": "D",
+              "texto": "7"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Subtraindo 4, temos 2x=6; dividindo por 2, x=3."
+        },
+        {
+          "pergunta": "Se f(x)=2x+1, quanto vale f(3)?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "5"
+            },
+            {
+              "id": "B",
+              "texto": "6"
+            },
+            {
+              "id": "C",
+              "texto": "7"
+            },
+            {
+              "id": "D",
+              "texto": "8"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "Substituindo x por 3: 2·3+1=7."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Portuguesa",
+      "conteudos": [
+        {
+          "titulo": "Classes gramaticais",
+          "aula": "As classes gramaticais agrupam palavras conforme sua função. Substantivos nomeiam seres e coisas; verbos indicam ações ou estados; adjetivos caracterizam; pronomes substituem ou acompanham nomes."
+        },
+        {
+          "titulo": "Interpretação de texto",
+          "aula": "Interpretar é compreender informações explícitas e implícitas, identificar o tema, a intenção do autor e as relações entre as ideias. O contexto ajuda a entender palavras e sentidos."
+        },
+        {
+          "titulo": "Gêneros textuais",
+          "aula": "Gêneros textuais são formas de comunicação com objetivos e estruturas próprios, como notícia, crônica, receita, carta, reportagem e anúncio."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual palavra é um verbo?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Beleza"
+            },
+            {
+              "id": "B",
+              "texto": "Correr"
+            },
+            {
+              "id": "C",
+              "texto": "Azul"
+            },
+            {
+              "id": "D",
+              "texto": "Mesa"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Correr indica uma ação e, portanto, é verbo."
+        },
+        {
+          "pergunta": "Uma informação que está escrita diretamente no texto é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Implícita"
+            },
+            {
+              "id": "B",
+              "texto": "Inferida"
+            },
+            {
+              "id": "C",
+              "texto": "Explícita"
+            },
+            {
+              "id": "D",
+              "texto": "Figurada"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "Informações explícitas aparecem diretamente no texto."
+        },
+        {
+          "pergunta": "Qual é a principal finalidade de uma notícia?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ensinar uma receita"
+            },
+            {
+              "id": "B",
+              "texto": "Informar sobre um acontecimento"
+            },
+            {
+              "id": "C",
+              "texto": "Contar uma fábula"
+            },
+            {
+              "id": "D",
+              "texto": "Vender um produto"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A notícia apresenta informações sobre fatos e acontecimentos."
+        }
+      ]
+    },
+    {
+      "nome": "Biologia",
+      "conteudos": [
+        {
+          "titulo": "Características dos seres vivos",
+          "aula": "Seres vivos apresentam organização celular, metabolismo, crescimento, reprodução e capacidade de responder ao ambiente. Essas características ajudam a diferenciar vida de matéria sem vida."
+        },
+        {
+          "titulo": "Células e estruturas",
+          "aula": "A célula é a unidade básica dos seres vivos. A membrana controla a entrada e saída de substâncias, o citoplasma abriga estruturas celulares e o material genético guarda informações hereditárias."
+        },
+        {
+          "titulo": "Ecologia",
+          "aula": "Ecologia estuda as relações dos seres vivos entre si e com o ambiente. Populações, comunidades, ecossistemas e biosfera representam diferentes níveis de organização."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual é a unidade básica da vida?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Átomo"
+            },
+            {
+              "id": "B",
+              "texto": "Célula"
+            },
+            {
+              "id": "C",
+              "texto": "Órgão"
+            },
+            {
+              "id": "D",
+              "texto": "Ecossistema"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A célula é a menor unidade estrutural e funcional dos seres vivos."
+        },
+        {
+          "pergunta": "Qual estrutura controla a entrada e saída de substâncias da célula?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Membrana plasmática"
+            },
+            {
+              "id": "B",
+              "texto": "Parede óssea"
+            },
+            {
+              "id": "C",
+              "texto": "Núcleo externo"
+            },
+            {
+              "id": "D",
+              "texto": "Clorofila"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A membrana plasmática regula as trocas entre a célula e o ambiente."
+        },
+        {
+          "pergunta": "O conjunto de populações de espécies diferentes em uma área é chamado de:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Organismo"
+            },
+            {
+              "id": "B",
+              "texto": "Comunidade"
+            },
+            {
+              "id": "C",
+              "texto": "Tecido"
+            },
+            {
+              "id": "D",
+              "texto": "Órgão"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Uma comunidade reúne populações de diferentes espécies."
+        }
+      ]
+    },
+    {
+      "nome": "Física",
+      "conteudos": [
+        {
+          "titulo": "Grandezas físicas",
+          "aula": "Grandezas físicas são propriedades que podem ser medidas, como comprimento, massa, tempo e temperatura. Medidas devem apresentar número e unidade."
+        },
+        {
+          "titulo": "Movimento e velocidade média",
+          "aula": "Um corpo está em movimento quando sua posição muda em relação a um referencial. A velocidade média é calculada dividindo a distância percorrida pelo intervalo de tempo."
+        },
+        {
+          "titulo": "Leis de Newton",
+          "aula": "As leis de Newton explicam movimentos: a inércia, a relação entre força resultante e aceleração e a ação e reação entre corpos."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual destas é uma unidade de tempo?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Metro"
+            },
+            {
+              "id": "B",
+              "texto": "Quilograma"
+            },
+            {
+              "id": "C",
+              "texto": "Segundo"
+            },
+            {
+              "id": "D",
+              "texto": "Newton"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "O segundo é a unidade básica de tempo no Sistema Internacional."
+        },
+        {
+          "pergunta": "Um veículo percorre 100 km em 2 horas. Sua velocidade média é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "25 km/h"
+            },
+            {
+              "id": "B",
+              "texto": "50 km/h"
+            },
+            {
+              "id": "C",
+              "texto": "100 km/h"
+            },
+            {
+              "id": "D",
+              "texto": "200 km/h"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Velocidade média = 100 ÷ 2 = 50 km/h."
+        },
+        {
+          "pergunta": "A terceira lei de Newton trata de:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Inércia"
+            },
+            {
+              "id": "B",
+              "texto": "Ação e reação"
+            },
+            {
+              "id": "C",
+              "texto": "Conservação da massa"
+            },
+            {
+              "id": "D",
+              "texto": "Gravitação universal"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Toda ação corresponde a uma reação de mesma intensidade e direção, mas sentido oposto."
+        }
+      ]
+    },
+    {
+      "nome": "Química",
+      "conteudos": [
+        {
+          "titulo": "Matéria e propriedades",
+          "aula": "Matéria é tudo que possui massa e ocupa espaço. Propriedades como massa, volume, densidade e temperatura ajudam a identificar e comparar materiais."
+        },
+        {
+          "titulo": "Estados físicos",
+          "aula": "A matéria pode ser encontrada principalmente nos estados sólido, líquido e gasoso. Mudanças de temperatura e pressão podem provocar fusão, vaporização, condensação e solidificação."
+        },
+        {
+          "titulo": "Átomos e elementos",
+          "aula": "O átomo é formado por prótons, nêutrons e elétrons. Um elemento químico é definido pelo número de prótons de seus átomos."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Matéria é aquilo que:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Não ocupa espaço"
+            },
+            {
+              "id": "B",
+              "texto": "Tem massa e ocupa espaço"
+            },
+            {
+              "id": "C",
+              "texto": "Só existe como sólido"
+            },
+            {
+              "id": "D",
+              "texto": "Não pode ser medido"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Matéria possui massa e ocupa lugar no espaço."
+        },
+        {
+          "pergunta": "A passagem do estado líquido para o gasoso é chamada de:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Fusão"
+            },
+            {
+              "id": "B",
+              "texto": "Solidificação"
+            },
+            {
+              "id": "C",
+              "texto": "Vaporização"
+            },
+            {
+              "id": "D",
+              "texto": "Condensação"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "Vaporização é a transformação de líquido em gás."
+        },
+        {
+          "pergunta": "O número de prótons define:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "A cor do átomo"
+            },
+            {
+              "id": "B",
+              "texto": "O elemento químico"
+            },
+            {
+              "id": "C",
+              "texto": "A quantidade de moléculas"
+            },
+            {
+              "id": "D",
+              "texto": "O estado físico"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O número de prótons, chamado número atômico, identifica o elemento."
+        }
+      ]
+    },
+    {
+      "nome": "História",
+      "conteudos": [
+        {
+          "titulo": "Pré-História",
+          "aula": "A Pré-História corresponde ao período anterior ao uso da escrita em determinada sociedade. Costuma ser estudada por vestígios materiais, como ferramentas, pinturas e fósseis."
+        },
+        {
+          "titulo": "Civilizações antigas",
+          "aula": "Sociedades como Egito e Mesopotâmia desenvolveram agricultura, cidades, governos, comércio e sistemas de escrita, geralmente ligados a grandes rios."
+        },
+        {
+          "titulo": "Grécia Antiga",
+          "aula": "A Grécia Antiga era formada por cidades-Estado, como Atenas e Esparta. Sua cultura influenciou a filosofia, a política, o teatro e os esportes ocidentais."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual fonte é muito usada para estudar a Pré-História?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Mensagens digitais"
+            },
+            {
+              "id": "B",
+              "texto": "Vestígios arqueológicos"
+            },
+            {
+              "id": "C",
+              "texto": "Jornais modernos"
+            },
+            {
+              "id": "D",
+              "texto": "Registros de televisão"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Ferramentas, pinturas e fósseis são vestígios arqueológicos importantes."
+        },
+        {
+          "pergunta": "A Mesopotâmia desenvolveu-se entre quais rios?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Nilo e Jordão"
+            },
+            {
+              "id": "B",
+              "texto": "Tigre e Eufrates"
+            },
+            {
+              "id": "C",
+              "texto": "Amazonas e Paraná"
+            },
+            {
+              "id": "D",
+              "texto": "Indo e Ganges"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A região mesopotâmica ficava entre os rios Tigre e Eufrates."
+        },
+        {
+          "pergunta": "A Grécia Antiga era organizada em:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Estados nacionais unificados"
+            },
+            {
+              "id": "B",
+              "texto": "Cidades-Estado"
+            },
+            {
+              "id": "C",
+              "texto": "Províncias romanas"
+            },
+            {
+              "id": "D",
+              "texto": "Feudos medievais"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Atenas e Esparta são exemplos de cidades-Estado gregas."
+        }
+      ]
+    },
+    {
+      "nome": "Geografia",
+      "conteudos": [
+        {
+          "titulo": "Cartografia",
+          "aula": "Cartografia é a ciência de produzir e interpretar mapas. Escala, legenda, orientação e símbolos ajudam a representar informações sobre o espaço geográfico."
+        },
+        {
+          "titulo": "Coordenadas geográficas",
+          "aula": "Latitude e longitude permitem localizar pontos na superfície terrestre. A latitude é medida a partir do Equador; a longitude, a partir do meridiano de Greenwich."
+        },
+        {
+          "titulo": "Relevo e clima",
+          "aula": "Relevo corresponde às formas da superfície terrestre. Clima é o comportamento médio das condições atmosféricas ao longo de períodos prolongados."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual elemento do mapa explica o significado dos símbolos?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Legenda"
+            },
+            {
+              "id": "B",
+              "texto": "Título de eleitor"
+            },
+            {
+              "id": "C",
+              "texto": "Escala musical"
+            },
+            {
+              "id": "D",
+              "texto": "Bússola digital"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A legenda informa o significado das cores e dos símbolos do mapa."
+        },
+        {
+          "pergunta": "A latitude é medida a partir de qual linha?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Meridiano de Greenwich"
+            },
+            {
+              "id": "B",
+              "texto": "Linha do Equador"
+            },
+            {
+              "id": "C",
+              "texto": "Trópico de Capricórnio"
+            },
+            {
+              "id": "D",
+              "texto": "Círculo Polar Ártico"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A Linha do Equador é a referência para medir a latitude."
+        },
+        {
+          "pergunta": "Clima representa:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "A condição do tempo em uma hora"
+            },
+            {
+              "id": "B",
+              "texto": "A média das condições atmosféricas por longos períodos"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas a quantidade de chuva de um dia"
+            },
+            {
+              "id": "D",
+              "texto": "Somente a temperatura noturna"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Clima é observado por séries longas de dados atmosféricos."
+        }
+      ]
+    },
+    {
+      "nome": "Filosofia",
+      "conteudos": [
+        {
+          "titulo": "O que é Filosofia",
+          "aula": "Filosofia é uma atividade de reflexão crítica que investiga questões sobre conhecimento, existência, justiça, verdade e valores."
+        },
+        {
+          "titulo": "Mito e razão",
+          "aula": "Mitos explicam o mundo por narrativas tradicionais e simbólicas. A investigação racional procura argumentos, causas e justificativas que possam ser debatidos."
+        },
+        {
+          "titulo": "Sócrates",
+          "aula": "Sócrates valorizava o diálogo e o questionamento. Seu método ajudava as pessoas a examinar ideias e reconhecer contradições no próprio pensamento."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A Filosofia busca principalmente:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Aceitar toda opinião sem questionar"
+            },
+            {
+              "id": "B",
+              "texto": "Investigar questões por reflexão e argumentos"
+            },
+            {
+              "id": "C",
+              "texto": "Substituir todas as ciências"
+            },
+            {
+              "id": "D",
+              "texto": "Evitar perguntas difíceis"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A Filosofia estimula a reflexão crítica e a argumentação."
+        },
+        {
+          "pergunta": "Uma explicação baseada em argumentos e investigação racional se aproxima do:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Pensamento racional"
+            },
+            {
+              "id": "B",
+              "texto": "Mito exclusivamente"
+            },
+            {
+              "id": "C",
+              "texto": "Boato"
+            },
+            {
+              "id": "D",
+              "texto": "Preconceito"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A razão procura justificar ideias por meio de argumentos."
+        },
+        {
+          "pergunta": "O método associado a Sócrates valorizava:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "O diálogo e o questionamento"
+            },
+            {
+              "id": "B",
+              "texto": "A força militar"
+            },
+            {
+              "id": "C",
+              "texto": "A memorização sem reflexão"
+            },
+            {
+              "id": "D",
+              "texto": "A riqueza material"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Sócrates utilizava perguntas para examinar ideias e estimular a reflexão."
+        }
+      ]
+    },
+    {
+      "nome": "Sociologia",
+      "conteudos": [
+        {
+          "titulo": "O que é Sociologia",
+          "aula": "Sociologia estuda a vida em sociedade, as relações entre grupos, as instituições e as transformações sociais."
+        },
+        {
+          "titulo": "Cultura e sociedade",
+          "aula": "Cultura inclui conhecimentos, valores, costumes, crenças, linguagens e práticas compartilhadas por grupos. Ela é aprendida e transmitida socialmente."
+        },
+        {
+          "titulo": "Socialização",
+          "aula": "Socialização é o processo pelo qual as pessoas aprendem normas, valores e comportamentos necessários à convivência social, por meio da família, escola e outros grupos."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A Sociologia estuda:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Somente os planetas"
+            },
+            {
+              "id": "B",
+              "texto": "As relações e os fenômenos sociais"
+            },
+            {
+              "id": "C",
+              "texto": "A composição das rochas"
+            },
+            {
+              "id": "D",
+              "texto": "Apenas o corpo humano"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A Sociologia investiga a organização e as relações da sociedade."
+        },
+        {
+          "pergunta": "Qual item faz parte da cultura?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Somente características biológicas"
+            },
+            {
+              "id": "B",
+              "texto": "Costumes e valores compartilhados"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas o clima"
+            },
+            {
+              "id": "D",
+              "texto": "A gravidade"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Cultura reúne práticas, conhecimentos, valores e costumes aprendidos."
+        },
+        {
+          "pergunta": "Socialização é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "O isolamento completo"
+            },
+            {
+              "id": "B",
+              "texto": "A aprendizagem de normas e valores sociais"
+            },
+            {
+              "id": "C",
+              "texto": "Uma mudança climática"
+            },
+            {
+              "id": "D",
+              "texto": "Um tipo de comércio"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A socialização ensina formas de viver e interagir em sociedade."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Inglesa",
+      "conteudos": [
+        {
+          "titulo": "Verb to be",
+          "aula": "O verbo to be significa ser ou estar. No presente, suas formas principais são am, is e are, escolhidas conforme o sujeito."
+        },
+        {
+          "titulo": "Simple Present",
+          "aula": "O Simple Present é usado para hábitos, rotinas e fatos gerais. Na terceira pessoa do singular, geralmente se acrescenta -s ou -es ao verbo."
+        },
+        {
+          "titulo": "Personal pronouns",
+          "aula": "Pronomes pessoais como I, you, he, she, it, we e they indicam quem pratica ou recebe a ação na frase."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual é a forma correta: 'She ___ happy'?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "am"
+            },
+            {
+              "id": "B",
+              "texto": "is"
+            },
+            {
+              "id": "C",
+              "texto": "are"
+            },
+            {
+              "id": "D",
+              "texto": "be"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Com she, usamos is no presente do verbo to be."
+        },
+        {
+          "pergunta": "Qual frase expressa um hábito?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "I am sleeping now."
+            },
+            {
+              "id": "B",
+              "texto": "I play soccer every Saturday."
+            },
+            {
+              "id": "C",
+              "texto": "I played yesterday."
+            },
+            {
+              "id": "D",
+              "texto": "I will travel tomorrow."
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O Simple Present pode expressar hábitos e rotinas."
+        },
+        {
+          "pergunta": "Qual pronome significa 'nós'?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "They"
+            },
+            {
+              "id": "B",
+              "texto": "He"
+            },
+            {
+              "id": "C",
+              "texto": "We"
+            },
+            {
+              "id": "D",
+              "texto": "She"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "We é o pronome pessoal correspondente a 'nós'."
+        }
+      ]
+    },
+    {
+      "nome": "Artes",
+      "conteudos": [
+        {
+          "titulo": "Elementos da linguagem visual",
+          "aula": "Ponto, linha, forma, cor, textura e espaço são elementos visuais usados para construir imagens e comunicar ideias."
+        },
+        {
+          "titulo": "História da arte",
+          "aula": "A história da arte estuda produções artísticas de diferentes épocas e culturas, relacionando estilos, técnicas e obras ao contexto em que surgiram."
+        },
+        {
+          "titulo": "Arte e cultura",
+          "aula": "A arte expressa experiências, identidades e visões de mundo. Ela pode preservar memórias, questionar problemas e representar a diversidade cultural."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual é um elemento da linguagem visual?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Linha"
+            },
+            {
+              "id": "B",
+              "texto": "Aceleração"
+            },
+            {
+              "id": "C",
+              "texto": "Densidade"
+            },
+            {
+              "id": "D",
+              "texto": "Latitude"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A linha é um dos elementos básicos da composição visual."
+        },
+        {
+          "pergunta": "A história da arte relaciona obras principalmente:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ao contexto histórico e cultural"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas ao preço"
+            },
+            {
+              "id": "C",
+              "texto": "Somente à idade do artista"
+            },
+            {
+              "id": "D",
+              "texto": "À previsão do tempo"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O contexto ajuda a compreender as escolhas e os significados das obras."
+        },
+        {
+          "pergunta": "A arte pode:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Expressar ideias e identidades"
+            },
+            {
+              "id": "B",
+              "texto": "Ter apenas uma função decorativa"
+            },
+            {
+              "id": "C",
+              "texto": "Ser igual em todas as culturas"
+            },
+            {
+              "id": "D",
+              "texto": "Existir sem contexto"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A arte comunica experiências, valores e diferentes visões de mundo."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Física",
+      "conteudos": [
+        {
+          "titulo": "Atividade física e saúde",
+          "aula": "A prática regular de atividade física contribui para a saúde do coração, músculos, ossos e saúde mental. Deve respeitar as condições e os limites de cada pessoa."
+        },
+        {
+          "titulo": "Esportes coletivos",
+          "aula": "Esportes coletivos envolvem equipes, regras, cooperação e estratégias. Futebol, basquete, vôlei e handebol são exemplos."
+        },
+        {
+          "titulo": "Capacidades físicas",
+          "aula": "Força, resistência, velocidade, flexibilidade, agilidade e equilíbrio são capacidades físicas que podem ser desenvolvidas com práticas adequadas."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Um benefício da atividade física regular é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Aumentar sempre o risco de doenças"
+            },
+            {
+              "id": "B",
+              "texto": "Melhorar a saúde cardiovascular"
+            },
+            {
+              "id": "C",
+              "texto": "Eliminar a necessidade de sono"
+            },
+            {
+              "id": "D",
+              "texto": "Impedir qualquer lesão"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A atividade física pode melhorar o funcionamento do coração e da circulação."
+        },
+        {
+          "pergunta": "Qual é um esporte coletivo?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Natação individual"
+            },
+            {
+              "id": "B",
+              "texto": "Corrida de 100 metros"
+            },
+            {
+              "id": "C",
+              "texto": "Voleibol"
+            },
+            {
+              "id": "D",
+              "texto": "Salto em distância"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "O voleibol é praticado por equipes que cooperam para vencer."
+        },
+        {
+          "pergunta": "A capacidade de manter esforço por mais tempo é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Resistência"
+            },
+            {
+              "id": "B",
+              "texto": "Flexibilidade"
+            },
+            {
+              "id": "C",
+              "texto": "Precisão visual"
+            },
+            {
+              "id": "D",
+              "texto": "Altura"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Resistência permite sustentar uma atividade por determinado período."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Digital e Tecnologia",
+      "conteudos": [
+        {
+          "titulo": "Segurança na internet",
+          "aula": "Segurança digital envolve proteger contas, dispositivos e informações. Senhas fortes, autenticação em duas etapas e atenção a links suspeitos reduzem riscos."
+        },
+        {
+          "titulo": "Algoritmos",
+          "aula": "Algoritmo é uma sequência organizada de instruções para resolver um problema ou realizar uma tarefa. Receitas e instruções de montagem são exemplos cotidianos."
+        },
+        {
+          "titulo": "Inteligência artificial",
+          "aula": "Inteligência artificial reúne técnicas que permitem a sistemas executar tarefas como reconhecer padrões, gerar textos e apoiar decisões. Seus resultados precisam ser avaliados criticamente."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual atitude aumenta a segurança de uma conta?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Reutilizar a mesma senha em tudo"
+            },
+            {
+              "id": "B",
+              "texto": "Compartilhar a senha"
+            },
+            {
+              "id": "C",
+              "texto": "Ativar autenticação em duas etapas"
+            },
+            {
+              "id": "D",
+              "texto": "Clicar em qualquer link"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "A autenticação em duas etapas adiciona uma camada de proteção."
+        },
+        {
+          "pergunta": "Um algoritmo é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Uma sequência de instruções"
+            },
+            {
+              "id": "B",
+              "texto": "Um tipo de monitor"
+            },
+            {
+              "id": "C",
+              "texto": "Uma rede social"
+            },
+            {
+              "id": "D",
+              "texto": "Uma peça do computador"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Algoritmos descrevem passos para executar tarefas ou resolver problemas."
+        },
+        {
+          "pergunta": "Ao usar uma resposta gerada por IA, é importante:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Aceitar tudo sem conferir"
+            },
+            {
+              "id": "B",
+              "texto": "Verificar informações e possíveis erros"
+            },
+            {
+              "id": "C",
+              "texto": "Compartilhar dados pessoais"
+            },
+            {
+              "id": "D",
+              "texto": "Desativar o pensamento crítico"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Sistemas de IA podem errar; verificar fontes e informações é essencial."
+        }
+      ]
+    },
+    {
+      "nome": "Redação",
+      "conteudos": [
+        {
+          "titulo": "Estrutura dissertativo-argumentativa",
+          "aula": "Esse tipo de texto apresenta um tema, defende uma tese e desenvolve argumentos para sustentá-la. Em geral, organiza-se em introdução, desenvolvimento e conclusão."
+        },
+        {
+          "titulo": "Tese e argumentação",
+          "aula": "A tese é o ponto de vista central defendido pelo autor. Os argumentos apresentam razões, exemplos e dados que ajudam a convencer o leitor."
+        },
+        {
+          "titulo": "Coesão e coerência",
+          "aula": "Coesão conecta partes do texto por recursos linguísticos, como pronomes e conectivos. Coerência garante que as ideias tenham sentido e não se contradigam."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A tese de uma redação é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "O título"
+            },
+            {
+              "id": "B",
+              "texto": "O ponto de vista defendido"
+            },
+            {
+              "id": "C",
+              "texto": "A lista de referências"
+            },
+            {
+              "id": "D",
+              "texto": "A frase final obrigatória"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A tese apresenta a posição central que o texto pretende defender."
+        },
+        {
+          "pergunta": "Qual recurso ajuda a conectar ideias?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Conectivo"
+            },
+            {
+              "id": "B",
+              "texto": "Número de página"
+            },
+            {
+              "id": "C",
+              "texto": "Fonte tipográfica"
+            },
+            {
+              "id": "D",
+              "texto": "Margem"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Conectivos expressam relações como causa, oposição e conclusão."
+        },
+        {
+          "pergunta": "Um texto coerente deve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Apresentar ideias contraditórias sem explicação"
+            },
+            {
+              "id": "B",
+              "texto": "Manter uma sequência lógica de ideias"
+            },
+            {
+              "id": "C",
+              "texto": "Repetir a mesma frase"
+            },
+            {
+              "id": "D",
+              "texto": "Não ter tema"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A coerência depende da relação lógica entre as informações."
+        }
+      ]
+    },
+    {
+      "nome": "Projeto de Vida e Educação Financeira",
+      "conteudos": [
+        {
+          "titulo": "Autoconhecimento",
+          "aula": "Autoconhecimento envolve reconhecer interesses, habilidades, valores e pontos a desenvolver. Isso ajuda a estabelecer objetivos coerentes com o próprio projeto de vida."
+        },
+        {
+          "titulo": "Planejamento financeiro",
+          "aula": "Planejar as finanças significa registrar receitas e despesas, definir prioridades e organizar o uso do dinheiro para alcançar objetivos."
+        },
+        {
+          "titulo": "Consumo consciente",
+          "aula": "Consumo consciente considera necessidade, orçamento, durabilidade e impactos sociais e ambientais antes de comprar."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Autoconhecimento ajuda a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Escolher objetivos sem reflexão"
+            },
+            {
+              "id": "B",
+              "texto": "Reconhecer interesses e habilidades"
+            },
+            {
+              "id": "C",
+              "texto": "Evitar qualquer planejamento"
+            },
+            {
+              "id": "D",
+              "texto": "Copiar decisões de outras pessoas"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Conhecer a si mesmo ajuda a definir metas mais adequadas."
+        },
+        {
+          "pergunta": "Qual é uma prática de planejamento financeiro?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ignorar despesas"
+            },
+            {
+              "id": "B",
+              "texto": "Anotar receitas e gastos"
+            },
+            {
+              "id": "C",
+              "texto": "Comprar por impulso"
+            },
+            {
+              "id": "D",
+              "texto": "Gastar todo o dinheiro imediatamente"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Registrar entradas e saídas permite acompanhar o orçamento."
+        },
+        {
+          "pergunta": "Consumo consciente envolve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Comprar sempre o mais caro"
+            },
+            {
+              "id": "B",
+              "texto": "Considerar necessidade e impacto da compra"
+            },
+            {
+              "id": "C",
+              "texto": "Desperdiçar recursos"
+            },
+            {
+              "id": "D",
+              "texto": "Ignorar o orçamento"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A decisão de compra deve considerar necessidade, custo e consequências."
+        }
+      ]
+    }
+  ]
+}

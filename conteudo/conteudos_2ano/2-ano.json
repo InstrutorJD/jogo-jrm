@@ -1,0 +1,1326 @@
+{
+  "ano": "2º ano",
+  "descricao": "Material didático de apoio para jogo educativo. Conteúdos e questões organizados por matéria.",
+  "materias": [
+    {
+      "nome": "Matemática",
+      "conteudos": [
+        {
+          "titulo": "Função quadrática",
+          "aula": "A função quadrática tem forma f(x)=ax²+bx+c, com a diferente de zero. Seu gráfico é uma parábola, que pode ter ponto de máximo ou mínimo chamado vértice."
+        },
+        {
+          "titulo": "Progressão aritmética",
+          "aula": "Progressão aritmética é uma sequência em que a diferença entre termos consecutivos é constante. Essa diferença é chamada razão."
+        },
+        {
+          "titulo": "Trigonometria",
+          "aula": "A trigonometria relaciona ângulos e lados de triângulos. No triângulo retângulo, seno, cosseno e tangente são razões entre seus lados."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O gráfico de uma função quadrática é uma:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Reta"
+            },
+            {
+              "id": "B",
+              "texto": "Parábola"
+            },
+            {
+              "id": "C",
+              "texto": "Circunferência"
+            },
+            {
+              "id": "D",
+              "texto": "Hipérbole sempre"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Funções do segundo grau têm gráfico em forma de parábola."
+        },
+        {
+          "pergunta": "Na sequência 2, 5, 8, 11, a razão é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "2"
+            },
+            {
+              "id": "B",
+              "texto": "3"
+            },
+            {
+              "id": "C",
+              "texto": "5"
+            },
+            {
+              "id": "D",
+              "texto": "8"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A diferença entre termos consecutivos é 3."
+        },
+        {
+          "pergunta": "Em um triângulo retângulo, seno de um ângulo é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Cateto adjacente/hipotenusa"
+            },
+            {
+              "id": "B",
+              "texto": "Cateto oposto/hipotenusa"
+            },
+            {
+              "id": "C",
+              "texto": "Hipotenusa/cateto oposto"
+            },
+            {
+              "id": "D",
+              "texto": "Soma dos catetos"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O seno é a razão entre o cateto oposto e a hipotenusa."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Portuguesa",
+      "conteudos": [
+        {
+          "titulo": "Romantismo",
+          "aula": "O Romantismo valorizou emoções, subjetividade, idealização amorosa e nacionalismo. No Brasil, teve diferentes gerações e ajudou a construir imagens de identidade nacional."
+        },
+        {
+          "titulo": "Realismo e Naturalismo",
+          "aula": "O Realismo buscou observar criticamente a sociedade e o comportamento humano. O Naturalismo aproximou a literatura de explicações ligadas ao meio, à hereditariedade e aos instintos."
+        },
+        {
+          "titulo": "Orações coordenadas e subordinadas",
+          "aula": "Orações coordenadas têm relação sintática independente entre si; subordinadas exercem função em relação a outra oração, completando ou caracterizando seu sentido."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma característica frequente do Romantismo é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Objetividade científica exclusiva"
+            },
+            {
+              "id": "B",
+              "texto": "Valorização da emoção"
+            },
+            {
+              "id": "C",
+              "texto": "Ausência de subjetividade"
+            },
+            {
+              "id": "D",
+              "texto": "Rejeição da imaginação"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O Romantismo destaca sentimentos, subjetividade e idealização."
+        },
+        {
+          "pergunta": "O Naturalismo frequentemente enfatiza:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Meio e hereditariedade"
+            },
+            {
+              "id": "B",
+              "texto": "Mitos medievais apenas"
+            },
+            {
+              "id": "C",
+              "texto": "Fantasia sem observação"
+            },
+            {
+              "id": "D",
+              "texto": "Linguagem matemática"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O Naturalismo observa o comportamento humano ligado ao ambiente e à hereditariedade."
+        },
+        {
+          "pergunta": "Uma oração subordinada:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Não se relaciona a outra oração"
+            },
+            {
+              "id": "B",
+              "texto": "Exerce função em relação a uma oração principal"
+            },
+            {
+              "id": "C",
+              "texto": "É sempre uma palavra"
+            },
+            {
+              "id": "D",
+              "texto": "Não possui verbo"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A oração subordinada depende sintaticamente de outra oração."
+        }
+      ]
+    },
+    {
+      "nome": "Biologia",
+      "conteudos": [
+        {
+          "titulo": "Genética",
+          "aula": "Genética estuda a hereditariedade e a transmissão de características. Genes são segmentos de DNA que influenciam características dos organismos."
+        },
+        {
+          "titulo": "Evolução biológica",
+          "aula": "A evolução corresponde a mudanças nas características hereditárias das populações ao longo das gerações. Seleção natural pode favorecer características que aumentam o sucesso reprodutivo em certo ambiente."
+        },
+        {
+          "titulo": "Corpo humano e sistemas",
+          "aula": "O corpo humano possui sistemas integrados, como digestório, respiratório, circulatório e nervoso. Eles trabalham em conjunto para manter o organismo funcionando."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O material genético que compõe os genes é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "DNA"
+            },
+            {
+              "id": "B",
+              "texto": "Amido"
+            },
+            {
+              "id": "C",
+              "texto": "Gordura"
+            },
+            {
+              "id": "D",
+              "texto": "Água"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Os genes são segmentos de DNA."
+        },
+        {
+          "pergunta": "A seleção natural atua sobre:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Características hereditárias que afetam sobrevivência e reprodução"
+            },
+            {
+              "id": "B",
+              "texto": "Escolhas conscientes dos organismos"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas características adquiridas durante a vida"
+            },
+            {
+              "id": "D",
+              "texto": "Indivíduos sem relação com o ambiente"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Características hereditárias podem se tornar mais comuns quando favorecem o sucesso reprodutivo."
+        },
+        {
+          "pergunta": "Qual sistema transporta sangue pelo corpo?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Digestório"
+            },
+            {
+              "id": "B",
+              "texto": "Circulatório"
+            },
+            {
+              "id": "C",
+              "texto": "Esquelético"
+            },
+            {
+              "id": "D",
+              "texto": "Tegumentar"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O sistema circulatório transporta sangue, gases e substâncias pelo organismo."
+        }
+      ]
+    },
+    {
+      "nome": "Física",
+      "conteudos": [
+        {
+          "titulo": "Termologia e temperatura",
+          "aula": "Termologia estuda fenômenos relacionados à temperatura e ao calor. Temperatura está associada ao estado térmico; calor é energia transferida por diferença de temperatura."
+        },
+        {
+          "titulo": "Calorimetria",
+          "aula": "Calorimetria estuda as trocas de calor. O calor sensível altera a temperatura sem mudar o estado físico; o calor latente provoca mudança de estado."
+        },
+        {
+          "titulo": "Óptica geométrica",
+          "aula": "Óptica geométrica estuda a propagação da luz por meio de raios. Reflexão ocorre quando a luz retorna ao meio; refração ocorre quando muda de meio e sua velocidade se altera."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Calor é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "A temperatura de um corpo"
+            },
+            {
+              "id": "B",
+              "texto": "Energia transferida por diferença de temperatura"
+            },
+            {
+              "id": "C",
+              "texto": "A massa de um objeto"
+            },
+            {
+              "id": "D",
+              "texto": "A quantidade de matéria"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Calor é energia em trânsito entre corpos com temperaturas diferentes."
+        },
+        {
+          "pergunta": "Durante a fusão de uma substância pura, em condições constantes, o calor recebido é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Latente"
+            },
+            {
+              "id": "B",
+              "texto": "Sempre nulo"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas mecânico"
+            },
+            {
+              "id": "D",
+              "texto": "Elétrico"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O calor latente permite a mudança de estado sem variar a temperatura durante o processo."
+        },
+        {
+          "pergunta": "A mudança da direção da luz ao passar de um meio para outro é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Reflexão difusa"
+            },
+            {
+              "id": "B",
+              "texto": "Refração"
+            },
+            {
+              "id": "C",
+              "texto": "Absorção total"
+            },
+            {
+              "id": "D",
+              "texto": "Convecção"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Na refração, a luz muda de velocidade e pode mudar de direção ao trocar de meio."
+        }
+      ]
+    },
+    {
+      "nome": "Química",
+      "conteudos": [
+        {
+          "titulo": "Ligações químicas",
+          "aula": "Ligações químicas mantêm átomos unidos. Na ligação iônica há transferência de elétrons; na covalente há compartilhamento; na metálica, elétrons ficam deslocalizados."
+        },
+        {
+          "titulo": "Funções inorgânicas",
+          "aula": "As principais funções inorgânicas estudadas são ácidos, bases, sais e óxidos. Elas apresentam propriedades e comportamentos químicos característicos."
+        },
+        {
+          "titulo": "Reações químicas",
+          "aula": "Reações químicas transformam reagentes em produtos. A equação deve ser balanceada para representar a conservação dos átomos e da massa."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Na ligação covalente, os átomos:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Compartilham elétrons"
+            },
+            {
+              "id": "B",
+              "texto": "Sempre perdem todos os elétrons"
+            },
+            {
+              "id": "C",
+              "texto": "Compartilham prótons"
+            },
+            {
+              "id": "D",
+              "texto": "Desaparecem"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A ligação covalente envolve compartilhamento de pares de elétrons."
+        },
+        {
+          "pergunta": "Qual é uma função inorgânica?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Proteína"
+            },
+            {
+              "id": "B",
+              "texto": "Ácido"
+            },
+            {
+              "id": "C",
+              "texto": "Carboidrato"
+            },
+            {
+              "id": "D",
+              "texto": "Lipídio"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Ácidos, bases, sais e óxidos são funções inorgânicas."
+        },
+        {
+          "pergunta": "Balancear uma equação química respeita a conservação:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Dos átomos"
+            },
+            {
+              "id": "B",
+              "texto": "Da cor"
+            },
+            {
+              "id": "C",
+              "texto": "Do volume do recipiente"
+            },
+            {
+              "id": "D",
+              "texto": "Da temperatura"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O balanceamento mantém a mesma quantidade de átomos de cada elemento nos dois lados."
+        }
+      ]
+    },
+    {
+      "nome": "História",
+      "conteudos": [
+        {
+          "titulo": "Idade Média",
+          "aula": "A Idade Média europeia foi marcada por relações feudais, forte influência da Igreja, vida rural e diversidade de poderes políticos. O período teve transformações ao longo de cerca de mil anos."
+        },
+        {
+          "titulo": "Renascimento Cultural",
+          "aula": "O Renascimento valorizou referências clássicas greco-romanas, observação da natureza, humanismo e novas técnicas artísticas e científicas."
+        },
+        {
+          "titulo": "Expansão Marítima Europeia",
+          "aula": "A expansão marítima europeia, a partir do século XV, envolveu comércio, busca por rotas, conquista territorial e colonização, conectando regiões do mundo de forma desigual."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma característica do feudalismo europeu foi:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Predomínio de relações rurais e senhoriais"
+            },
+            {
+              "id": "B",
+              "texto": "Industrialização em massa"
+            },
+            {
+              "id": "C",
+              "texto": "Democracia universal"
+            },
+            {
+              "id": "D",
+              "texto": "Fim da agricultura"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A sociedade feudal tinha economia predominantemente agrária e relações de dependência."
+        },
+        {
+          "pergunta": "O Renascimento valorizou:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Humanismo e referências clássicas"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas tradição oral"
+            },
+            {
+              "id": "C",
+              "texto": "Rejeição da arte"
+            },
+            {
+              "id": "D",
+              "texto": "Isolamento científico"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O humanismo e o estudo da Antiguidade foram importantes no Renascimento."
+        },
+        {
+          "pergunta": "A expansão marítima europeia buscava, entre outros objetivos:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Novas rotas comerciais"
+            },
+            {
+              "id": "B",
+              "texto": "Acabar com todo comércio"
+            },
+            {
+              "id": "C",
+              "texto": "Evitar contatos entre continentes"
+            },
+            {
+              "id": "D",
+              "texto": "Eliminar a navegação"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A busca por rotas comerciais e riquezas impulsionou as navegações."
+        }
+      ]
+    },
+    {
+      "nome": "Geografia",
+      "conteudos": [
+        {
+          "titulo": "Globalização",
+          "aula": "Globalização intensifica conexões econômicas, culturais, tecnológicas e políticas entre lugares. Seus benefícios e impactos são distribuídos de forma desigual."
+        },
+        {
+          "titulo": "Urbanização",
+          "aula": "Urbanização é o crescimento da população que vive em cidades e a expansão do espaço urbano. Pode gerar oportunidades, mas também desafios de moradia, mobilidade e saneamento."
+        },
+        {
+          "titulo": "Industrialização",
+          "aula": "Industrialização amplia a produção por meio de máquinas, fábricas e novas tecnologias. Ela transforma o trabalho, a economia e a organização do território."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Globalização está associada a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Maior conexão entre regiões do mundo"
+            },
+            {
+              "id": "B",
+              "texto": "Fim das comunicações"
+            },
+            {
+              "id": "C",
+              "texto": "Isolamento total dos países"
+            },
+            {
+              "id": "D",
+              "texto": "Desaparecimento do comércio"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A globalização amplia fluxos de mercadorias, informações, pessoas e capitais."
+        },
+        {
+          "pergunta": "Um desafio comum do crescimento urbano acelerado é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ausência de qualquer transporte"
+            },
+            {
+              "id": "B",
+              "texto": "Déficit de moradia e saneamento"
+            },
+            {
+              "id": "C",
+              "texto": "Fim da necessidade de planejamento"
+            },
+            {
+              "id": "D",
+              "texto": "Redução automática da população"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O crescimento rápido pode pressionar serviços e infraestrutura urbana."
+        },
+        {
+          "pergunta": "Industrialização envolve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Produção fabril e uso de máquinas"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas caça e coleta"
+            },
+            {
+              "id": "C",
+              "texto": "Fim da tecnologia"
+            },
+            {
+              "id": "D",
+              "texto": "Somente atividades domésticas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A industrialização amplia a produção com máquinas, fábricas e tecnologia."
+        }
+      ]
+    },
+    {
+      "nome": "Filosofia",
+      "conteudos": [
+        {
+          "titulo": "Platão",
+          "aula": "Platão foi filósofo grego e discípulo de Sócrates. Em sua filosofia, investigou conhecimento, justiça e política, usando diálogos e alegorias, como a alegoria da caverna."
+        },
+        {
+          "titulo": "Aristóteles e lógica",
+          "aula": "Aristóteles estudou lógica, ética, política e natureza. A lógica organiza argumentos e ajuda a avaliar se uma conclusão decorre de suas premissas."
+        },
+        {
+          "titulo": "Ética e moral",
+          "aula": "Moral reúne normas e costumes de uma sociedade ou grupo. Ética é a reflexão crítica sobre valores, escolhas e princípios que orientam ações."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A alegoria da caverna é associada a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Platão"
+            },
+            {
+              "id": "B",
+              "texto": "Aristóteles"
+            },
+            {
+              "id": "C",
+              "texto": "Descartes"
+            },
+            {
+              "id": "D",
+              "texto": "Nietzsche"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Platão usa a alegoria para discutir conhecimento, aparência e realidade."
+        },
+        {
+          "pergunta": "A lógica ajuda a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Avaliar argumentos"
+            },
+            {
+              "id": "B",
+              "texto": "Substituir evidências por boatos"
+            },
+            {
+              "id": "C",
+              "texto": "Impedir perguntas"
+            },
+            {
+              "id": "D",
+              "texto": "Provar qualquer conclusão"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A lógica examina a estrutura dos argumentos e a relação entre premissas e conclusão."
+        },
+        {
+          "pergunta": "Ética é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Reflexão crítica sobre valores e ações"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas uma lista fixa de leis"
+            },
+            {
+              "id": "C",
+              "texto": "Sinônimo de biologia"
+            },
+            {
+              "id": "D",
+              "texto": "Uma técnica de cálculo"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A ética analisa princípios e escolhas relacionadas à ação humana."
+        }
+      ]
+    },
+    {
+      "nome": "Sociologia",
+      "conteudos": [
+        {
+          "titulo": "Desigualdade social",
+          "aula": "Desigualdade social é a distribuição desigual de recursos, oportunidades e direitos. Pode envolver renda, educação, moradia, saúde e acesso ao poder."
+        },
+        {
+          "titulo": "Estratificação social",
+          "aula": "Estratificação social é a organização da sociedade em camadas ou grupos com diferentes posições e oportunidades, influenciadas por fatores econômicos e sociais."
+        },
+        {
+          "titulo": "Instituições sociais",
+          "aula": "Instituições sociais são estruturas e regras que organizam a vida coletiva, como família, escola, Estado, religião e sistema econômico."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Desigualdade social envolve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Distribuição desigual de oportunidades e recursos"
+            },
+            {
+              "id": "B",
+              "texto": "Diferenças apenas climáticas"
+            },
+            {
+              "id": "C",
+              "texto": "Ausência de relações sociais"
+            },
+            {
+              "id": "D",
+              "texto": "Igualdade automática de renda"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A desigualdade aparece no acesso diferente a renda, serviços e oportunidades."
+        },
+        {
+          "pergunta": "Estratificação social descreve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Camadas sociais com posições diferentes"
+            },
+            {
+              "id": "B",
+              "texto": "A divisão das células"
+            },
+            {
+              "id": "C",
+              "texto": "A formação de rochas"
+            },
+            {
+              "id": "D",
+              "texto": "A circulação atmosférica"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A estratificação organiza grupos em posições sociais desiguais."
+        },
+        {
+          "pergunta": "Qual é um exemplo de instituição social?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Escola"
+            },
+            {
+              "id": "B",
+              "texto": "Montanha"
+            },
+            {
+              "id": "C",
+              "texto": "Oceano"
+            },
+            {
+              "id": "D",
+              "texto": "Cometa"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A escola é uma instituição que organiza processos de educação e socialização."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Inglesa",
+      "conteudos": [
+        {
+          "titulo": "Simple Past",
+          "aula": "O Simple Past descreve ações concluídas no passado. Verbos regulares geralmente recebem -ed; verbos irregulares possuem formas próprias."
+        },
+        {
+          "titulo": "Present Continuous",
+          "aula": "O Present Continuous descreve ações em andamento ou situações temporárias. É formado por am, is ou are + verbo com -ing."
+        },
+        {
+          "titulo": "Comparative and Superlative",
+          "aula": "Comparativos comparam duas pessoas ou coisas; superlativos indicam o grau mais alto em um grupo. A formação depende do tamanho e da estrutura do adjetivo."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual frase está no Simple Past?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "I study every day."
+            },
+            {
+              "id": "B",
+              "texto": "I studied yesterday."
+            },
+            {
+              "id": "C",
+              "texto": "I am studying now."
+            },
+            {
+              "id": "D",
+              "texto": "I will study tomorrow."
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Studied indica uma ação concluída no passado."
+        },
+        {
+          "pergunta": "Complete: 'They ___ playing now.'",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "is"
+            },
+            {
+              "id": "B",
+              "texto": "am"
+            },
+            {
+              "id": "C",
+              "texto": "are"
+            },
+            {
+              "id": "D",
+              "texto": "be"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "Com they, usamos are; o Present Continuous usa are + verbo com -ing."
+        },
+        {
+          "pergunta": "O superlativo de 'small' é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "smaller"
+            },
+            {
+              "id": "B",
+              "texto": "smallest"
+            },
+            {
+              "id": "C",
+              "texto": "more small"
+            },
+            {
+              "id": "D",
+              "texto": "most smaller"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Para adjetivos curtos, o superlativo geralmente recebe -est."
+        }
+      ]
+    },
+    {
+      "nome": "Artes",
+      "conteudos": [
+        {
+          "titulo": "Impressionismo",
+          "aula": "O Impressionismo explorou efeitos da luz e da cor, pinceladas visíveis e cenas do cotidiano. Muitos artistas pintavam ao ar livre para observar mudanças luminosas."
+        },
+        {
+          "titulo": "Arte moderna",
+          "aula": "A arte moderna rompeu com convenções acadêmicas e experimentou novas formas, cores, materiais e perspectivas, acompanhando transformações sociais e culturais."
+        },
+        {
+          "titulo": "Música e expressão cultural",
+          "aula": "A música expressa identidades, memórias e experiências coletivas. Ritmos e estilos refletem contextos históricos e influências culturais diversas."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O Impressionismo destacou:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Efeitos de luz e cor"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas temas mitológicos"
+            },
+            {
+              "id": "C",
+              "texto": "Imagens sem pinceladas"
+            },
+            {
+              "id": "D",
+              "texto": "Regras medievais rígidas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A observação da luz e das cores é central para o Impressionismo."
+        },
+        {
+          "pergunta": "A arte moderna é marcada por:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Experimentação e ruptura de convenções"
+            },
+            {
+              "id": "B",
+              "texto": "Repetição obrigatória de modelos antigos"
+            },
+            {
+              "id": "C",
+              "texto": "Proibição de novas técnicas"
+            },
+            {
+              "id": "D",
+              "texto": "Ausência de expressão"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Artistas modernos experimentaram linguagens e desafiaram padrões tradicionais."
+        },
+        {
+          "pergunta": "A música pode expressar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Identidades e experiências culturais"
+            },
+            {
+              "id": "B",
+              "texto": "Somente cálculos"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas fenômenos geológicos"
+            },
+            {
+              "id": "D",
+              "texto": "Nada sobre a sociedade"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A música registra e comunica vivências e identidades coletivas."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Física",
+      "conteudos": [
+        {
+          "titulo": "Sistemas energéticos",
+          "aula": "O corpo utiliza diferentes sistemas para produzir energia durante o exercício. A participação de cada sistema depende da intensidade e da duração da atividade."
+        },
+        {
+          "titulo": "Alimentação e desempenho",
+          "aula": "Uma alimentação equilibrada e hidratação adequada contribuem para a saúde e o desempenho físico. As necessidades variam conforme pessoa, atividade e contexto."
+        },
+        {
+          "titulo": "Fair play",
+          "aula": "Fair play significa jogar com respeito às regras, aos adversários, aos colegas e à arbitragem, valorizando a ética e a participação."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual fator influencia o sistema energético predominante?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Intensidade e duração do exercício"
+            },
+            {
+              "id": "B",
+              "texto": "Cor da roupa"
+            },
+            {
+              "id": "C",
+              "texto": "Nome do esporte apenas"
+            },
+            {
+              "id": "D",
+              "texto": "Tamanho da torcida"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A demanda energética varia conforme intensidade e duração da atividade."
+        },
+        {
+          "pergunta": "A hidratação adequada ajuda a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Regular funções do organismo"
+            },
+            {
+              "id": "B",
+              "texto": "Eliminar a necessidade de alimentação"
+            },
+            {
+              "id": "C",
+              "texto": "Garantir vitória"
+            },
+            {
+              "id": "D",
+              "texto": "Impedir toda fadiga"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A água participa da regulação da temperatura e de diversas funções corporais."
+        },
+        {
+          "pergunta": "Fair play está relacionado a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Respeito e ética no esporte"
+            },
+            {
+              "id": "B",
+              "texto": "Vencer a qualquer custo"
+            },
+            {
+              "id": "C",
+              "texto": "Desrespeitar adversários"
+            },
+            {
+              "id": "D",
+              "texto": "Ignorar regras"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Fair play valoriza respeito, honestidade e cumprimento das regras."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Digital e Tecnologia",
+      "conteudos": [
+        {
+          "titulo": "Redes de computadores",
+          "aula": "Redes conectam dispositivos para compartilhar dados e recursos. A internet é uma rede mundial que utiliza protocolos para permitir a comunicação entre sistemas."
+        },
+        {
+          "titulo": "Banco de dados",
+          "aula": "Banco de dados organiza informações para facilitar armazenamento, consulta e atualização. Tabelas podem estruturar dados em linhas e colunas."
+        },
+        {
+          "titulo": "Privacidade e LGPD",
+          "aula": "A Lei Geral de Proteção de Dados estabelece regras para o tratamento de dados pessoais no Brasil, buscando proteger direitos e dar transparência ao uso dessas informações."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma rede de computadores permite:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Compartilhar dados e recursos"
+            },
+            {
+              "id": "B",
+              "texto": "Eliminar toda comunicação"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas editar imagens"
+            },
+            {
+              "id": "D",
+              "texto": "Substituir eletricidade"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Redes conectam dispositivos para troca de informações e compartilhamento."
+        },
+        {
+          "pergunta": "Em uma tabela de banco de dados, uma linha normalmente representa:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Um registro"
+            },
+            {
+              "id": "B",
+              "texto": "Uma senha universal"
+            },
+            {
+              "id": "C",
+              "texto": "Um cabo de rede"
+            },
+            {
+              "id": "D",
+              "texto": "Um programa executável"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Cada linha reúne os valores de um registro."
+        },
+        {
+          "pergunta": "A LGPD trata principalmente de:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Proteção de dados pessoais"
+            },
+            {
+              "id": "B",
+              "texto": "Regras de trânsito"
+            },
+            {
+              "id": "C",
+              "texto": "Construção civil"
+            },
+            {
+              "id": "D",
+              "texto": "Produção de energia"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A LGPD regula o tratamento de dados pessoais no Brasil."
+        }
+      ]
+    },
+    {
+      "nome": "Redação",
+      "conteudos": [
+        {
+          "titulo": "Repertório sociocultural",
+          "aula": "Repertório sociocultural inclui conhecimentos de história, ciência, cultura e atualidades usados para contextualizar e fortalecer argumentos, sempre relacionados ao tema."
+        },
+        {
+          "titulo": "Proposta de intervenção",
+          "aula": "Na redação do ENEM, a proposta de intervenção apresenta uma ação para enfrentar o problema, indicando agente, ação, meio ou modo, finalidade e detalhamento."
+        },
+        {
+          "titulo": "Conectivos",
+          "aula": "Conectivos estabelecem relações entre ideias, como adição, oposição, causa, consequência e conclusão, ajudando a organizar o raciocínio do texto."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Um repertório sociocultural produtivo deve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ser citado sem relação com o tema"
+            },
+            {
+              "id": "B",
+              "texto": "Contribuir para explicar ou argumentar sobre o tema"
+            },
+            {
+              "id": "C",
+              "texto": "Substituir a tese"
+            },
+            {
+              "id": "D",
+              "texto": "Ser sempre uma frase famosa"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "O repertório precisa estar integrado ao raciocínio e fortalecer a argumentação."
+        },
+        {
+          "pergunta": "Uma proposta de intervenção deve apresentar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Uma ação relacionada ao problema"
+            },
+            {
+              "id": "B",
+              "texto": "Somente uma opinião"
+            },
+            {
+              "id": "C",
+              "texto": "Um título chamativo"
+            },
+            {
+              "id": "D",
+              "texto": "Uma pergunta sem resposta"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A intervenção deve propor medida concreta e relacionada ao problema discutido."
+        },
+        {
+          "pergunta": "O conectivo ' entretanto' expressa:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Adição"
+            },
+            {
+              "id": "B",
+              "texto": "Oposição"
+            },
+            {
+              "id": "C",
+              "texto": "Conclusão"
+            },
+            {
+              "id": "D",
+              "texto": "Explicação"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "'Entretanto' introduz uma ideia de contraste ou oposição."
+        }
+      ]
+    },
+    {
+      "nome": "Projeto de Vida e Educação Financeira",
+      "conteudos": [
+        {
+          "titulo": "Planejamento de carreira",
+          "aula": "Planejar a carreira envolve conhecer áreas profissionais, pesquisar formação e mercado de trabalho e estabelecer metas flexíveis de curto e longo prazo."
+        },
+        {
+          "titulo": "Juros simples e compostos",
+          "aula": "Juros simples são calculados sobre o capital inicial. Juros compostos incidem sobre o montante acumulado, produzindo o chamado efeito de juros sobre juros."
+        },
+        {
+          "titulo": "Investimentos e reserva de emergência",
+          "aula": "A reserva de emergência é uma quantia guardada para imprevistos e deve priorizar segurança e facilidade de resgate. Investimentos precisam considerar risco, prazo e liquidez."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma etapa importante do planejamento de carreira é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Pesquisar profissões e formações"
+            },
+            {
+              "id": "B",
+              "texto": "Escolher sem conhecer a área"
+            },
+            {
+              "id": "C",
+              "texto": "Ignorar habilidades"
+            },
+            {
+              "id": "D",
+              "texto": "Evitar estabelecer metas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Pesquisar ajuda a comparar caminhos profissionais e requisitos."
+        },
+        {
+          "pergunta": "Nos juros compostos, os juros são calculados sobre:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Somente o capital inicial"
+            },
+            {
+              "id": "B",
+              "texto": "O montante acumulado"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas os impostos"
+            },
+            {
+              "id": "D",
+              "texto": "Um valor sempre fixo"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Nos juros compostos, os juros de cada período incidem sobre o montante acumulado."
+        },
+        {
+          "pergunta": "A reserva de emergência deve priorizar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Alto risco e baixa liquidez"
+            },
+            {
+              "id": "B",
+              "texto": "Segurança e acesso ao dinheiro"
+            },
+            {
+              "id": "C",
+              "texto": "Prazo muito longo sem resgate"
+            },
+            {
+              "id": "D",
+              "texto": "Apostas de retorno incerto"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A reserva deve estar disponível para imprevistos e priorizar baixo risco."
+        }
+      ]
+    }
+  ]
+}

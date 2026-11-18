@@ -1,0 +1,1326 @@
+{
+  "ano": "3º ano",
+  "descricao": "Material didático de apoio para jogo educativo. Conteúdos e questões organizados por matéria.",
+  "materias": [
+    {
+      "nome": "Matemática",
+      "conteudos": [
+        {
+          "titulo": "Análise combinatória",
+          "aula": "Análise combinatória estuda maneiras de contar possibilidades sem listar cada caso. Princípio multiplicativo, permutações, arranjos e combinações são ferramentas comuns."
+        },
+        {
+          "titulo": "Probabilidade",
+          "aula": "Probabilidade mede a chance de um evento ocorrer. Em situações equiprováveis, é a razão entre o número de resultados favoráveis e o número de resultados possíveis."
+        },
+        {
+          "titulo": "Estatística",
+          "aula": "Estatística coleta, organiza e interpreta dados. Média, mediana e moda são medidas de tendência central; gráficos e tabelas ajudam a comunicar resultados."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Se há 3 camisetas e 2 calças, quantos conjuntos diferentes podem ser formados?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "5"
+            },
+            {
+              "id": "B",
+              "texto": "6"
+            },
+            {
+              "id": "C",
+              "texto": "8"
+            },
+            {
+              "id": "D",
+              "texto": "9"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Pelo princípio multiplicativo: 3 × 2 = 6 combinações."
+        },
+        {
+          "pergunta": "Ao lançar um dado comum, a probabilidade de sair 6 é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "1/2"
+            },
+            {
+              "id": "B",
+              "texto": "1/3"
+            },
+            {
+              "id": "C",
+              "texto": "1/6"
+            },
+            {
+              "id": "D",
+              "texto": "6/6"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "Há um resultado favorável entre seis resultados igualmente possíveis."
+        },
+        {
+          "pergunta": "Na lista 2, 3, 3, 8, a moda é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "2"
+            },
+            {
+              "id": "B",
+              "texto": "3"
+            },
+            {
+              "id": "C",
+              "texto": "4"
+            },
+            {
+              "id": "D",
+              "texto": "8"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Moda é o valor que aparece com maior frequência; nesse caso, 3."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Portuguesa",
+      "conteudos": [
+        {
+          "titulo": "Modernismo brasileiro",
+          "aula": "O Modernismo brasileiro ganhou força em 1922, defendendo experimentação estética, liberdade formal e reflexão sobre a identidade nacional. Suas fases apresentam diferentes temas e estilos."
+        },
+        {
+          "titulo": "Literatura contemporânea",
+          "aula": "A literatura contemporânea reúne vozes, temas e formatos variados, abordando questões sociais, identitárias, urbanas e individuais, sem um único estilo dominante."
+        },
+        {
+          "titulo": "Variação linguística",
+          "aula": "A língua varia conforme região, grupo social, situação e época. Variedades linguísticas são legítimas; adequar a linguagem ao contexto é diferente de considerar uma variedade inferior."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A Semana de Arte Moderna ocorreu em:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "1822"
+            },
+            {
+              "id": "B",
+              "texto": "1889"
+            },
+            {
+              "id": "C",
+              "texto": "1922"
+            },
+            {
+              "id": "D",
+              "texto": "1964"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "A Semana de Arte Moderna de 1922 é um marco do Modernismo brasileiro."
+        },
+        {
+          "pergunta": "A literatura contemporânea costuma apresentar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Diversidade de vozes e temas"
+            },
+            {
+              "id": "B",
+              "texto": "Um único estilo obrigatório"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas textos medievais"
+            },
+            {
+              "id": "D",
+              "texto": "Ausência de questões sociais"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A produção contemporânea é diversa em temas, formas e perspectivas."
+        },
+        {
+          "pergunta": "Variação linguística significa que:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Toda variedade tem regras e contexto de uso"
+            },
+            {
+              "id": "B",
+              "texto": "Só existe uma forma correta de falar em qualquer situação"
+            },
+            {
+              "id": "C",
+              "texto": "A fala regional é inferior"
+            },
+            {
+              "id": "D",
+              "texto": "A língua nunca muda"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A língua apresenta variedades legítimas conforme contexto, região e grupo."
+        }
+      ]
+    },
+    {
+      "nome": "Biologia",
+      "conteudos": [
+        {
+          "titulo": "Ecologia e impactos ambientais",
+          "aula": "Ecologia analisa relações ecológicas e funcionamento dos ecossistemas. Poluição, desmatamento e mudanças climáticas alteram habitats, ciclos naturais e biodiversidade."
+        },
+        {
+          "titulo": "Biotecnologia",
+          "aula": "Biotecnologia utiliza organismos, células ou moléculas biológicas para desenvolver produtos e processos, como vacinas, técnicas de diagnóstico e melhoramento de culturas."
+        },
+        {
+          "titulo": "Fisiologia humana e saúde",
+          "aula": "Fisiologia estuda o funcionamento do corpo. Sistemas como nervoso, endócrino, respiratório e circulatório atuam integrados para manter o equilíbrio interno."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O desmatamento pode causar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Perda de habitats e biodiversidade"
+            },
+            {
+              "id": "B",
+              "texto": "Aumento garantido de espécies nativas"
+            },
+            {
+              "id": "C",
+              "texto": "Fim da erosão"
+            },
+            {
+              "id": "D",
+              "texto": "Estabilidade de todos os ecossistemas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A retirada da vegetação destrói habitats e ameaça espécies."
+        },
+        {
+          "pergunta": "Qual é um exemplo de aplicação da biotecnologia?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Produção de vacinas"
+            },
+            {
+              "id": "B",
+              "texto": "Movimento das placas tectônicas"
+            },
+            {
+              "id": "C",
+              "texto": "Formação de eclipses"
+            },
+            {
+              "id": "D",
+              "texto": "Erosão de montanhas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Vacinas podem ser desenvolvidas com técnicas biotecnológicas."
+        },
+        {
+          "pergunta": "Homeostase é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Manutenção do equilíbrio interno do organismo"
+            },
+            {
+              "id": "B",
+              "texto": "A ausência de metabolismo"
+            },
+            {
+              "id": "C",
+              "texto": "A divisão de continentes"
+            },
+            {
+              "id": "D",
+              "texto": "A perda de toda regulação"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A homeostase mantém condições internas relativamente estáveis."
+        }
+      ]
+    },
+    {
+      "nome": "Física",
+      "conteudos": [
+        {
+          "titulo": "Eletricidade",
+          "aula": "Eletricidade estuda cargas, corrente, tensão e resistência. Em circuitos simples, a Lei de Ohm relaciona tensão, corrente e resistência: U=R·i."
+        },
+        {
+          "titulo": "Eletromagnetismo",
+          "aula": "Eletromagnetismo investiga a relação entre fenômenos elétricos e magnéticos. Correntes elétricas podem gerar campos magnéticos, princípio usado em motores e eletroímãs."
+        },
+        {
+          "titulo": "Física moderna",
+          "aula": "A física moderna inclui teorias como relatividade e mecânica quântica, importantes para compreender fenômenos em altas velocidades, escalas atômicas e subatômicas."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Pela Lei de Ohm, a tensão é igual a:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "R/i"
+            },
+            {
+              "id": "B",
+              "texto": "R·i"
+            },
+            {
+              "id": "C",
+              "texto": "i/R"
+            },
+            {
+              "id": "D",
+              "texto": "R+i"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A Lei de Ohm é U=R·i, tensão igual à resistência multiplicada pela corrente."
+        },
+        {
+          "pergunta": "Uma corrente elétrica pode produzir:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Campo magnético"
+            },
+            {
+              "id": "B",
+              "texto": "Campo gravitacional nulo"
+            },
+            {
+              "id": "C",
+              "texto": "Somente luz solar"
+            },
+            {
+              "id": "D",
+              "texto": "Ausência de interação"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Correntes elétricas geram campos magnéticos ao seu redor."
+        },
+        {
+          "pergunta": "A mecânica quântica estuda principalmente fenômenos:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Em escalas atômicas e subatômicas"
+            },
+            {
+              "id": "B",
+              "texto": "Somente de planetas"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas de objetos cotidianos"
+            },
+            {
+              "id": "D",
+              "texto": "Exclusivamente climáticos"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A mecânica quântica descreve o comportamento da matéria e energia em escalas muito pequenas."
+        }
+      ]
+    },
+    {
+      "nome": "Química",
+      "conteudos": [
+        {
+          "titulo": "Química orgânica",
+          "aula": "Química orgânica estuda principalmente compostos de carbono. Hidrocarbonetos possuem carbono e hidrogênio; outras funções orgânicas incluem álcoois, aldeídos, cetonas e ácidos carboxílicos."
+        },
+        {
+          "titulo": "Eletroquímica",
+          "aula": "Eletroquímica estuda reações com transferência de elétrons. Pilhas convertem energia química em elétrica; eletrólise utiliza energia elétrica para provocar reações."
+        },
+        {
+          "titulo": "Equilíbrio químico",
+          "aula": "Equilíbrio químico ocorre em reações reversíveis quando as velocidades das reações direta e inversa se igualam. As concentrações permanecem constantes, embora a reação continue ocorrendo."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Hidrocarbonetos são compostos formados por:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Carbono e hidrogênio"
+            },
+            {
+              "id": "B",
+              "texto": "Oxigênio e nitrogênio"
+            },
+            {
+              "id": "C",
+              "texto": "Sódio e cloro"
+            },
+            {
+              "id": "D",
+              "texto": "Ferro e cobre"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Hidrocarbonetos contêm apenas carbono e hidrogênio."
+        },
+        {
+          "pergunta": "Uma pilha transforma:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Energia química em elétrica"
+            },
+            {
+              "id": "B",
+              "texto": "Energia sonora em nuclear"
+            },
+            {
+              "id": "C",
+              "texto": "Energia térmica em massa"
+            },
+            {
+              "id": "D",
+              "texto": "Energia elétrica em química sempre"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Reações espontâneas de oxirredução em pilhas geram corrente elétrica."
+        },
+        {
+          "pergunta": "No equilíbrio químico, as velocidades direta e inversa são:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Iguais"
+            },
+            {
+              "id": "B",
+              "texto": "Sempre nulas"
+            },
+            {
+              "id": "C",
+              "texto": "Sempre diferentes"
+            },
+            {
+              "id": "D",
+              "texto": "Desconhecidas por definição"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O equilíbrio dinâmico ocorre quando as velocidades das reações opostas se igualam."
+        }
+      ]
+    },
+    {
+      "nome": "História",
+      "conteudos": [
+        {
+          "titulo": "Revolução Industrial",
+          "aula": "A Revolução Industrial transformou a produção com máquinas, fábricas e novas fontes de energia. Também alterou cidades, relações de trabalho e condições de vida."
+        },
+        {
+          "titulo": "Primeira e Segunda Guerra Mundial",
+          "aula": "As guerras mundiais envolveram alianças, disputas territoriais e ideológicas e mobilização de sociedades inteiras. Seus efeitos incluíram milhões de mortes e mudanças na ordem internacional."
+        },
+        {
+          "titulo": "Ditadura Militar no Brasil",
+          "aula": "A ditadura militar brasileira começou em 1964 e terminou em 1985. O período foi marcado por restrições políticas, censura, repressão e resistência de diferentes setores sociais."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma transformação central da Revolução Industrial foi:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Expansão das fábricas e mecanização"
+            },
+            {
+              "id": "B",
+              "texto": "Fim das máquinas"
+            },
+            {
+              "id": "C",
+              "texto": "Retorno geral ao feudalismo"
+            },
+            {
+              "id": "D",
+              "texto": "Desaparecimento das cidades"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A mecanização e o sistema fabril transformaram a produção e o trabalho."
+        },
+        {
+          "pergunta": "A Segunda Guerra Mundial terminou em:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "1918"
+            },
+            {
+              "id": "B",
+              "texto": "1939"
+            },
+            {
+              "id": "C",
+              "texto": "1945"
+            },
+            {
+              "id": "D",
+              "texto": "1964"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "A guerra terminou em 1945, após a rendição das potências do Eixo."
+        },
+        {
+          "pergunta": "A ditadura militar no Brasil teve início em:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "1889"
+            },
+            {
+              "id": "B",
+              "texto": "1930"
+            },
+            {
+              "id": "C",
+              "texto": "1964"
+            },
+            {
+              "id": "D",
+              "texto": "1988"
+            }
+          ],
+          "resposta_correta": "C",
+          "explicacao": "O golpe de 1964 iniciou o regime militar, que terminou em 1985."
+        }
+      ]
+    },
+    {
+      "nome": "Geografia",
+      "conteudos": [
+        {
+          "titulo": "Geopolítica mundial",
+          "aula": "Geopolítica analisa relações de poder entre países e atores internacionais, considerando território, recursos, economia, segurança e influência."
+        },
+        {
+          "titulo": "Economia mundial e blocos econômicos",
+          "aula": "A economia mundial conecta países por comércio, investimentos e cadeias produtivas. Blocos econômicos buscam ampliar integração e cooperação, com diferentes níveis de profundidade."
+        },
+        {
+          "titulo": "Problemas ambientais globais",
+          "aula": "Mudanças climáticas, perda de biodiversidade, poluição e escassez de recursos ultrapassam fronteiras e exigem cooperação internacional e políticas sustentáveis."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Geopolítica estuda:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Relações de poder no espaço mundial"
+            },
+            {
+              "id": "B",
+              "texto": "Somente tipos de rocha"
+            },
+            {
+              "id": "C",
+              "texto": "A gramática das línguas"
+            },
+            {
+              "id": "D",
+              "texto": "A composição celular"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A geopolítica analisa poder, território e relações internacionais."
+        },
+        {
+          "pergunta": "Um objetivo de blocos econômicos pode ser:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Facilitar integração comercial"
+            },
+            {
+              "id": "B",
+              "texto": "Impedir toda cooperação"
+            },
+            {
+              "id": "C",
+              "texto": "Eliminar todos os governos"
+            },
+            {
+              "id": "D",
+              "texto": "Acabar com o transporte"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Blocos podem reduzir barreiras e ampliar a integração entre membros."
+        },
+        {
+          "pergunta": "Qual problema ambiental é global?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Mudanças climáticas"
+            },
+            {
+              "id": "B",
+              "texto": "Somente uma poça local"
+            },
+            {
+              "id": "C",
+              "texto": "Uma sala sem ventilação"
+            },
+            {
+              "id": "D",
+              "texto": "A cor de um edifício"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "As mudanças climáticas afetam sistemas naturais e sociedades em escala planetária."
+        }
+      ]
+    },
+    {
+      "nome": "Filosofia",
+      "conteudos": [
+        {
+          "titulo": "Iluminismo",
+          "aula": "O Iluminismo foi um movimento intelectual que valorizou razão, ciência, liberdade e crítica ao absolutismo, influenciando transformações políticas e sociais."
+        },
+        {
+          "titulo": "Existencialismo",
+          "aula": "O existencialismo investiga liberdade, responsabilidade, escolhas e sentido da existência. Diferentes autores destacam a experiência concreta do indivíduo."
+        },
+        {
+          "titulo": "Filosofia política",
+          "aula": "A filosofia política reflete sobre poder, Estado, justiça, direitos, liberdade e formas de organização da vida coletiva."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O Iluminismo valorizava:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Razão e crítica"
+            },
+            {
+              "id": "B",
+              "texto": "Obediência sem questionamento"
+            },
+            {
+              "id": "C",
+              "texto": "Rejeição da ciência"
+            },
+            {
+              "id": "D",
+              "texto": "Poder absoluto como único ideal"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Pensadores iluministas defenderam razão, conhecimento e crítica às estruturas de poder."
+        },
+        {
+          "pergunta": "Um tema central do existencialismo é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Liberdade e responsabilidade"
+            },
+            {
+              "id": "B",
+              "texto": "Classificação de minerais"
+            },
+            {
+              "id": "C",
+              "texto": "Cálculo de órbitas"
+            },
+            {
+              "id": "D",
+              "texto": "Anatomia vegetal"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O existencialismo discute escolhas, liberdade e responsabilidade humana."
+        },
+        {
+          "pergunta": "A filosofia política investiga:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Poder, Estado e justiça"
+            },
+            {
+              "id": "B",
+              "texto": "Somente fenômenos químicos"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas regras gramaticais"
+            },
+            {
+              "id": "D",
+              "texto": "A reprodução celular"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A filosofia política examina como a sociedade deve organizar poder e direitos."
+        }
+      ]
+    },
+    {
+      "nome": "Sociologia",
+      "conteudos": [
+        {
+          "titulo": "Cidadania e direitos humanos",
+          "aula": "Cidadania envolve direitos e deveres e a participação na vida coletiva. Direitos humanos são princípios que reconhecem a dignidade de todas as pessoas."
+        },
+        {
+          "titulo": "Trabalho e sociedade",
+          "aula": "O trabalho organiza a produção e influencia identidades, renda e relações sociais. Mudanças tecnológicas e econômicas transformam profissões e condições de trabalho."
+        },
+        {
+          "titulo": "Movimentos sociais",
+          "aula": "Movimentos sociais são ações coletivas organizadas em torno de demandas e direitos, buscando mudanças ou a defesa de conquistas sociais."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Cidadania envolve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Direitos, deveres e participação"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas consumo"
+            },
+            {
+              "id": "C",
+              "texto": "Ausência de responsabilidades"
+            },
+            {
+              "id": "D",
+              "texto": "Somente nacionalidade formal"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Cidadania combina direitos, deveres e participação social e política."
+        },
+        {
+          "pergunta": "A tecnologia pode transformar o trabalho ao:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Criar e modificar ocupações"
+            },
+            {
+              "id": "B",
+              "texto": "Impedir qualquer mudança"
+            },
+            {
+              "id": "C",
+              "texto": "Eliminar toda necessidade de qualificação"
+            },
+            {
+              "id": "D",
+              "texto": "Tornar todas as profissões idênticas"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Novas tecnologias alteram tarefas, profissões e qualificações exigidas."
+        },
+        {
+          "pergunta": "Movimentos sociais são:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ações coletivas por demandas e direitos"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas decisões individuais"
+            },
+            {
+              "id": "C",
+              "texto": "Fenômenos climáticos"
+            },
+            {
+              "id": "D",
+              "texto": "Tipos de empresa"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Movimentos sociais organizam pessoas em torno de causas e reivindicações."
+        }
+      ]
+    },
+    {
+      "nome": "Língua Inglesa",
+      "conteudos": [
+        {
+          "titulo": "Future forms",
+          "aula": "O inglês usa diferentes formas para falar do futuro. 'Will' pode indicar decisões espontâneas e previsões; 'going to' é comum para planos e previsões com evidências."
+        },
+        {
+          "titulo": "Passive voice",
+          "aula": "A voz passiva destaca quem ou o que recebe a ação. Em inglês, costuma ser formada por uma forma do verbo to be seguida do particípio passado."
+        },
+        {
+          "titulo": "Reading comprehension",
+          "aula": "Compreensão de leitura envolve identificar tema, ideia principal, informações específicas, inferências e significado de palavras pelo contexto."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Qual frase expressa um plano com 'going to'?",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "I went home."
+            },
+            {
+              "id": "B",
+              "texto": "I am going to study tonight."
+            },
+            {
+              "id": "C",
+              "texto": "I study every day."
+            },
+            {
+              "id": "D",
+              "texto": "I was studying."
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "'Going to' é frequentemente usado para planos e intenções futuras."
+        },
+        {
+          "pergunta": "Na voz passiva, o foco fica geralmente em:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Quem recebe a ação"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas o sujeito que pratica a ação"
+            },
+            {
+              "id": "C",
+              "texto": "O tempo meteorológico"
+            },
+            {
+              "id": "D",
+              "texto": "A opinião do leitor"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A voz passiva destaca o elemento que sofre ou recebe a ação."
+        },
+        {
+          "pergunta": "Uma boa estratégia de leitura é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ignorar o contexto"
+            },
+            {
+              "id": "B",
+              "texto": "Identificar a ideia principal"
+            },
+            {
+              "id": "C",
+              "texto": "Traduzir cada palavra obrigatoriamente"
+            },
+            {
+              "id": "D",
+              "texto": "Ler apenas o título"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "Identificar a ideia principal ajuda a compreender o sentido global do texto."
+        }
+      ]
+    },
+    {
+      "nome": "Artes",
+      "conteudos": [
+        {
+          "titulo": "Arte contemporânea",
+          "aula": "A arte contemporânea reúne práticas e linguagens variadas, como instalação, performance, fotografia e arte digital, frequentemente dialogando com questões do presente."
+        },
+        {
+          "titulo": "Arte brasileira",
+          "aula": "A arte brasileira expressa a diversidade histórica e cultural do país, com influências indígenas, africanas, europeias e de muitos outros grupos e contextos."
+        },
+        {
+          "titulo": "Cinema e audiovisual",
+          "aula": "Cinema e audiovisual combinam imagem, som, montagem, roteiro e atuação para construir narrativas e comunicar ideias. Também são formas de expressão cultural e indústria."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma linguagem comum na arte contemporânea é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Performance"
+            },
+            {
+              "id": "B",
+              "texto": "Somente pintura acadêmica"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas escultura clássica"
+            },
+            {
+              "id": "D",
+              "texto": "Exclusivamente mosaico romano"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Performance é uma das diversas linguagens utilizadas na arte contemporânea."
+        },
+        {
+          "pergunta": "A arte brasileira reflete:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Diversidade de influências culturais"
+            },
+            {
+              "id": "B",
+              "texto": "Uma única origem cultural"
+            },
+            {
+              "id": "C",
+              "texto": "Ausência de história"
+            },
+            {
+              "id": "D",
+              "texto": "Somente padrões estrangeiros"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A produção artística brasileira expressa múltiplas matrizes e experiências culturais."
+        },
+        {
+          "pergunta": "A montagem no cinema organiza:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Planos e cenas"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas figurinos"
+            },
+            {
+              "id": "C",
+              "texto": "Somente ingressos"
+            },
+            {
+              "id": "D",
+              "texto": "A temperatura da sala"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A montagem seleciona e organiza imagens e sons para construir a narrativa."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Física",
+      "conteudos": [
+        {
+          "titulo": "Treinamento físico",
+          "aula": "Treinamento físico organiza exercícios de forma planejada para desenvolver capacidades como força, resistência e mobilidade, respeitando progressão, recuperação e individualidade."
+        },
+        {
+          "titulo": "Saúde mental e atividade física",
+          "aula": "A atividade física pode contribuir para o bem-estar, o sono e a redução do estresse. Não substitui cuidados profissionais quando necessários."
+        },
+        {
+          "titulo": "Esporte adaptado",
+          "aula": "Esporte adaptado ajusta regras, equipamentos ou ambientes para ampliar a participação de pessoas com diferentes habilidades, promovendo inclusão e competição justa."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "A progressão no treinamento significa:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Aumentar demandas de forma planejada"
+            },
+            {
+              "id": "B",
+              "texto": "Treinar sempre no limite máximo"
+            },
+            {
+              "id": "C",
+              "texto": "Ignorar descanso"
+            },
+            {
+              "id": "D",
+              "texto": "Repetir exercícios sem objetivo"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A progressão gradual permite adaptação e ajuda a reduzir riscos."
+        },
+        {
+          "pergunta": "A atividade física pode contribuir para:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Bem-estar e qualidade do sono"
+            },
+            {
+              "id": "B",
+              "texto": "Eliminar toda doença"
+            },
+            {
+              "id": "C",
+              "texto": "Substituir todo tratamento"
+            },
+            {
+              "id": "D",
+              "texto": "Impedir emoções"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A prática regular pode favorecer saúde mental e qualidade do sono."
+        },
+        {
+          "pergunta": "O esporte adaptado busca:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Ampliar participação e acessibilidade"
+            },
+            {
+              "id": "B",
+              "texto": "Excluir participantes"
+            },
+            {
+              "id": "C",
+              "texto": "Eliminar regras de segurança"
+            },
+            {
+              "id": "D",
+              "texto": "Impedir adaptações"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Adaptações permitem participação mais inclusiva e justa."
+        }
+      ]
+    },
+    {
+      "nome": "Educação Digital e Tecnologia",
+      "conteudos": [
+        {
+          "titulo": "IA e sociedade",
+          "aula": "A inteligência artificial pode apoiar saúde, educação, indústria e comunicação, mas também apresenta desafios como vieses, privacidade, transparência e impactos no trabalho."
+        },
+        {
+          "titulo": "Programação",
+          "aula": "Programar é escrever instruções para que um computador execute tarefas. Variáveis armazenam valores, condicionais permitem decisões e laços repetem comandos."
+        },
+        {
+          "titulo": "Cibersegurança e hacker ético",
+          "aula": "Cibersegurança protege sistemas, redes e dados contra ataques. Hackers éticos testam sistemas com autorização para encontrar falhas e ajudar a corrigi-las."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Um risco social da IA é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Reproduzir vieses presentes nos dados"
+            },
+            {
+              "id": "B",
+              "texto": "Garantir decisões sempre perfeitas"
+            },
+            {
+              "id": "C",
+              "texto": "Eliminar toda necessidade de avaliação"
+            },
+            {
+              "id": "D",
+              "texto": "Não utilizar dados"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Sistemas podem reproduzir ou ampliar vieses dos dados usados no desenvolvimento."
+        },
+        {
+          "pergunta": "Em programação, uma variável serve para:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Armazenar um valor"
+            },
+            {
+              "id": "B",
+              "texto": "Desligar a internet"
+            },
+            {
+              "id": "C",
+              "texto": "Substituir o processador"
+            },
+            {
+              "id": "D",
+              "texto": "Imprimir sempre uma imagem"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Variáveis guardam informações que podem ser usadas e modificadas pelo programa."
+        },
+        {
+          "pergunta": "O hacker ético deve atuar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Com autorização e limites definidos"
+            },
+            {
+              "id": "B",
+              "texto": "Invadindo qualquer sistema"
+            },
+            {
+              "id": "C",
+              "texto": "Para roubar dados"
+            },
+            {
+              "id": "D",
+              "texto": "Sem comunicar vulnerabilidades"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A autorização e o respeito ao escopo são essenciais para um teste ético."
+        }
+      ]
+    },
+    {
+      "nome": "Redação",
+      "conteudos": [
+        {
+          "titulo": "Redação ENEM",
+          "aula": "A redação do ENEM é um texto dissertativo-argumentativo sobre tema social. Deve apresentar tese, argumentos bem desenvolvidos e proposta de intervenção que respeite os direitos humanos."
+        },
+        {
+          "titulo": "Cinco competências",
+          "aula": "As cinco competências avaliam domínio da escrita formal, compreensão do tema, organização argumentativa, coesão e proposta de intervenção."
+        },
+        {
+          "titulo": "Desenvolvimento e conclusão",
+          "aula": "O desenvolvimento aprofunda argumentos com explicações e repertório pertinente. A conclusão retoma o raciocínio e apresenta encaminhamento coerente, especialmente a intervenção no ENEM."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "O gênero solicitado na redação do ENEM é:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Narrativo"
+            },
+            {
+              "id": "B",
+              "texto": "Dissertativo-argumentativo"
+            },
+            {
+              "id": "C",
+              "texto": "Poético"
+            },
+            {
+              "id": "D",
+              "texto": "Instrucional"
+            }
+          ],
+          "resposta_correta": "B",
+          "explicacao": "A proposta exige defesa de um ponto de vista por meio de argumentos."
+        },
+        {
+          "pergunta": "A Competência 5 avalia principalmente:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Proposta de intervenção"
+            },
+            {
+              "id": "B",
+              "texto": "Caligrafia"
+            },
+            {
+              "id": "C",
+              "texto": "Número de parágrafos"
+            },
+            {
+              "id": "D",
+              "texto": "Uso de título"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "A quinta competência avalia a elaboração de uma proposta de intervenção."
+        },
+        {
+          "pergunta": "Um bom parágrafo de desenvolvimento deve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Apresentar e explicar um argumento"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas repetir o tema"
+            },
+            {
+              "id": "C",
+              "texto": "Não ter relação com a tese"
+            },
+            {
+              "id": "D",
+              "texto": "Conter somente uma citação"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O desenvolvimento precisa explicar como o argumento sustenta a tese."
+        }
+      ]
+    },
+    {
+      "nome": "Projeto de Vida e Educação Financeira",
+      "conteudos": [
+        {
+          "titulo": "Escolha profissional",
+          "aula": "A escolha profissional pode considerar interesses, habilidades, valores, condições de formação e realidade do mercado. É um processo que pode ser revisto ao longo da vida."
+        },
+        {
+          "titulo": "Crédito e dívidas",
+          "aula": "Crédito permite antecipar consumo, mas gera compromisso de pagamento. Juros, tarifas e atraso podem aumentar a dívida; comparar o custo total ajuda a decidir."
+        },
+        {
+          "titulo": "Empreendedorismo e inovação",
+          "aula": "Empreender é identificar necessidades e desenvolver soluções que criem valor. Inovação pode envolver produtos, serviços, processos ou formas de organização."
+        }
+      ],
+      "questoes": [
+        {
+          "pergunta": "Uma escolha profissional consciente considera:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Interesses, habilidades e informações sobre a área"
+            },
+            {
+              "id": "B",
+              "texto": "Somente a opinião dos outros"
+            },
+            {
+              "id": "C",
+              "texto": "Apenas o salário inicial"
+            },
+            {
+              "id": "D",
+              "texto": "Decisão sem pesquisa"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Conhecer interesses e pesquisar formação e mercado ajuda a fazer escolhas mais informadas."
+        },
+        {
+          "pergunta": "Antes de contratar crédito, é importante comparar:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Custo total, juros e condições"
+            },
+            {
+              "id": "B",
+              "texto": "Apenas a cor do cartão"
+            },
+            {
+              "id": "C",
+              "texto": "Somente o nome do banco"
+            },
+            {
+              "id": "D",
+              "texto": "A quantidade de anúncios"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "O custo total mostra quanto será pago, incluindo juros e encargos."
+        },
+        {
+          "pergunta": "Empreendedorismo envolve:",
+          "alternativas": [
+            {
+              "id": "A",
+              "texto": "Identificar necessidades e criar soluções"
+            },
+            {
+              "id": "B",
+              "texto": "Evitar qualquer planejamento"
+            },
+            {
+              "id": "C",
+              "texto": "Copiar sem avaliar"
+            },
+            {
+              "id": "D",
+              "texto": "Ignorar os clientes"
+            }
+          ],
+          "resposta_correta": "A",
+          "explicacao": "Empreender envolve reconhecer oportunidades e desenvolver soluções de valor."
+        }
+      ]
+    }
+  ]
+}
