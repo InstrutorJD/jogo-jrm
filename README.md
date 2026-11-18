@@ -33,7 +33,7 @@ pode ser copiada para dentro de outro site (ex.: `vila-pixel/`) sem mudar nada.
 
 ## Entregas dos alunos
 
-As regras estão no [INSTRUCOES.md](INSTRUCOES.md) (arte em **32 × 32**). Para conferir as entregas:
+As regras estão no [INSTRUCOES.md](INSTRUCOES.md) (arte em **64 × 64**). Para conferir as entregas:
 
 1. Coloque o que os alunos mandaram na pasta `entregas/` (pode ter subpastas por turma ou aluno):
    tiles e personagens (`.png` / `.piskel`), diálogos (`.json`) e sons (`.ogg` / `.mp3`).

@@ -1,23 +1,24 @@
 # Instruções para os alunos — Vila Pixel
 
-# Grupos 
-- Frases 
-> Juliano
-> Yasmin
-> Gabriella
+# Grupos
+
+- Frases
+  > Juliano\
+  > Yasmin\
+  > Gabriella
 
 - Pesquisas (Musicas, efeitos sonoros, fases, enigmas, conteudo das aulas)
-> Maycon
-> Leon
-> Iago
-> Thiago
+  > Maycon\
+  > Leon\
+  > Iago\
+  > Thiago
 
 - Personagens
-- João
-- Miguel
-- Engel
-- Breno
-- Josuel
+  > João\
+  > Miguel\
+  > Engel\
+  > Breno\
+  > Josuel
 
 Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começar.
 
@@ -27,6 +28,7 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 | Personagem | `sprites/personagens/` | PNG 64 x 64 (7 frames) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
 | Falas de um personagem | `dialogos/` | JSON |
+| Conteúdo das aulas e enigmas | `conteudos_1ano/`, `conteudos_2ano/`, `conteudos_3ano/` | MD ou JSON |
 
 **Como entregar:** entregue o arquivo ao professor. Ele passa tudo pelo verificador e coloca na pasta certa.
 Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
@@ -55,6 +57,7 @@ Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
 ---
 
 ## 1. Chão — `sprites/tiles/`
+O cenario deve ser feito em tilemap.
 
 Um tile é uma peça de **64 × 64 px** que se repete para formar o chão. O jogo usa só 3 tipos:
 
@@ -109,12 +112,11 @@ O arquivo final deve ter **64 × 64 px**.
 | id | Personagem | Onde fica |
 |---|---|---|
 | `jogador` | o aluno (personagem principal) | — |
-| `porteiro` | Seu Bento, o porteiro | Bloco A |
-| `cida` | Dona Cida | Bloco A |
+| `seuZe` | Seu Zé, o porteiro | Bloco A |
+| `tiaSuzana` | Tia Suzana | anda pelos blocos |
 | `teo` | Téo | Bloco A |
 | `bit` | Mestre Bit | Bloco B |
 | `lia` | Lia | Bloco B |
-| `ze` | Seu Zé | Bloco C |
 | `nina` | Nina | Bloco C |
 
 Na entrega: `seu-nome_jogador.png`.
@@ -174,6 +176,29 @@ Na entrega: `seu-nome_teo.json`.
 
 ---
 
+## 5. Conteúdos — `conteudos_1ano/`, `conteudos_2ano/`, `conteudos_3ano/`
+
+Cada série tem a sua própria pasta para guardar os resumos das aulas, dicas e enigmas que vão aparecer no jogo:
+
+| Pasta | O que vai |
+|---|---|
+| `conteudos_1ano/` | matérias, revisões e enigmas do 1º ano |
+| `conteudos_2ano/` | matérias, revisões e enigmas do 2º ano |
+| `conteudos_3ano/` | matérias, revisões e enigmas do 3º ano |
+
+*(Caso existam outras turmas, siga a mesma progressão: `conteudos_4ano/`, etc.)*
+
+**Regras:**
+1. **Separe por série:** coloque o arquivo na pasta correspondente ao ano daquela matéria. Não misture conteúdos de séries diferentes no mesmo arquivo.
+2. **Formato do arquivo:** use **`.md`** (ou `.txt`) para textos e explicações, e **`.json`** para perguntas, quizzes e enigmas (seguindo as mesmas regras de aspas e vírgulas da seção de Diálogos).
+3. **Textos curtos e objetivos:** adapte o conteúdo para a leitura dentro do jogo, evitando blocos gigantes de texto.
+4. **Revise antes de enviar:** confira se as informações e os gabaritos dos enigmas estão corretos e sem erros de português.
+5. **Informe a fonte:** se basear o conteúdo em algum livro, apostila ou site, registre a referência no final do arquivo.
+
+Na entrega: `seu-nome_tema-da-aula.md` ou `seu-nome_enigma-materia.json`.
+
+---
+
 ## Antes de entregar: checklist
 
 - [ ] O nome do arquivo está em minúsculas, sem espaço e sem acento, e começa com o meu nome?
@@ -182,3 +207,4 @@ Na entrega: `seu-nome_teo.json`.
 - [ ] Entreguei o **.piskel** junto com o PNG?
 - [ ] Som: mandei o **.ogg** e o **.mp3**, e informei a fonte?
 - [ ] Diálogo: o JSON passou no validador?
+- [ ] Conteúdo: está na pasta da série certa (`conteudos_1ano`, `2ano`...) e no formato (json) correto? 
