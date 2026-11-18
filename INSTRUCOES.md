@@ -4,8 +4,8 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 
 | O que você vai fazer | Pasta | Formato |
 |---|---|---|
-| Chão do mapa (grama, terra, cimento) | `sprites/tiles/` | PNG 32 × 32 |
-| Personagem | `sprites/personagens/` | PNG 224 × 32 (7 frames) |
+| Chão do mapa (grama, terra, cimento) | `sprites/tiles/` | PNG 64 × 64 |
+| Personagem | `sprites/personagens/` | PNG 64 x 64 (7 frames) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
 | Falas de um personagem | `dialogos/` | JSON |
 
@@ -37,7 +37,7 @@ Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
 
 ## 1. Chão — `sprites/tiles/`
 
-Um tile é uma peça de **32 × 32 px** que se repete para formar o chão. O jogo usa só 3 tipos:
+Um tile é uma peça de **64 × 64 px** que se repete para formar o chão. O jogo usa só 3 tipos:
 
 | Arquivo | O que é |
 |---|---|
@@ -158,7 +158,7 @@ Na entrega: `seu-nome_teo.json`.
 ## Antes de entregar: checklist
 
 - [ ] O nome do arquivo está em minúsculas, sem espaço e sem acento, e começa com o meu nome?
-- [ ] É do tamanho certo? (tile 32 × 32 · personagem 224 × 32)
+- [ ] É do tamanho certo? (tile 64 × 64 · personagem 64 x 64)
 - [ ] Exportei em **Scale 1x**?
 - [ ] Entreguei o **.piskel** junto com o PNG?
 - [ ] Som: mandei o **.ogg** e o **.mp3**, e informei a fonte?
