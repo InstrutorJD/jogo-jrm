@@ -17,7 +17,7 @@
 //   <pasta>/corrigidos/<tile>/<aluno>.png   tiles prontos, 16x16
 //   <pasta>/relatorio.html                  abra no navegador
 //
-// Depois de escolher o melhor de cada tile, copie para tiles/<tile>.png.
+// Depois de escolher o melhor de cada tile, copie para sprites/tiles/<tile>.png.
 const fs = require('fs'), path = require('path'), zlib = require('zlib');
 
 const TAM = 16;
@@ -378,7 +378,7 @@ function relatorio(resultados) {
 <h1>Relatório dos tiles</h1>
 <p class="resumo">${resultados.length} arquivo(s) · <b>${conta('ok')}</b> ok · <b>${conta('corrigido')}</b> corrigidos ·
 <b>${conta('atencao')}</b> atenção · <b>${conta('refazer')}</b> refazer${conta('reserva') ? ` · <b>${conta('reserva')}</b> reserva` : ''}
-<br>Gerado em ${new Date().toLocaleString('pt-BR')}. Escolha o melhor de cada tile e copie para <code>tiles/&lt;tile&gt;.png</code>.</p>
+<br>Gerado em ${new Date().toLocaleString('pt-BR')}. Escolha o melhor de cada tile e copie para <code>sprites/tiles/&lt;tile&gt;.png</code>.</p>
 ${grupos || '<p>Nenhum arquivo encontrado.</p>'}
 </main></body></html>`;
 }
