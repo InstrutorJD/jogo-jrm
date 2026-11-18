@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Matemática",
+  "conteudos": [
+    {
+      "titulo": "Conjuntos numéricos",
+      "aula": "Os números naturais são usados para contar; os inteiros incluem negativos; os racionais podem ser escritos como fração; os irracionais não podem ser escritos como fração exata; e os reais reúnem racionais e irracionais."
+    },
+    {
+      "titulo": "Equação do primeiro grau",
+      "aula": "Uma equação do primeiro grau tem incógnita elevada a 1. Resolver significa encontrar o valor que mantém a igualdade verdadeira, realizando operações equivalentes nos dois lados."
+    },
+    {
+      "titulo": "Funções",
+      "aula": "Uma função relaciona cada elemento do domínio a exatamente um elemento do contradomínio. Ela pode ser representada por tabelas, gráficos ou expressões, como f(x)=2x+1."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual número é natural na convenção que inclui o zero?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "-3"
+        },
+        {
+          "id": "B",
+          "texto": "0"
+        },
+        {
+          "id": "C",
+          "texto": "1,5"
+        },
+        {
+          "id": "D",
+          "texto": "-1"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O zero e os inteiros positivos pertencem aos naturais nessa convenção."
+    },
+    {
+      "pergunta": "Qual é a solução de 2x + 4 = 10?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "2"
+        },
+        {
+          "id": "B",
+          "texto": "3"
+        },
+        {
+          "id": "C",
+          "texto": "4"
+        },
+        {
+          "id": "D",
+          "texto": "7"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Subtraindo 4, temos 2x=6; dividindo por 2, x=3."
+    },
+    {
+      "pergunta": "Se f(x)=2x+1, quanto vale f(3)?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "5"
+        },
+        {
+          "id": "B",
+          "texto": "6"
+        },
+        {
+          "id": "C",
+          "texto": "7"
+        },
+        {
+          "id": "D",
+          "texto": "8"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Substituindo x por 3: 2·3+1=7."
+    }
+  ]
+}

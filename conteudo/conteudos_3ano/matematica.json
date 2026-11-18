@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Matemática",
+  "conteudos": [
+    {
+      "titulo": "Análise combinatória",
+      "aula": "Análise combinatória estuda maneiras de contar possibilidades sem listar cada caso. Princípio multiplicativo, permutações, arranjos e combinações são ferramentas comuns."
+    },
+    {
+      "titulo": "Probabilidade",
+      "aula": "Probabilidade mede a chance de um evento ocorrer. Em situações equiprováveis, é a razão entre o número de resultados favoráveis e o número de resultados possíveis."
+    },
+    {
+      "titulo": "Estatística",
+      "aula": "Estatística coleta, organiza e interpreta dados. Média, mediana e moda são medidas de tendência central; gráficos e tabelas ajudam a comunicar resultados."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Se há 3 camisetas e 2 calças, quantos conjuntos diferentes podem ser formados?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "5"
+        },
+        {
+          "id": "B",
+          "texto": "6"
+        },
+        {
+          "id": "C",
+          "texto": "8"
+        },
+        {
+          "id": "D",
+          "texto": "9"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Pelo princípio multiplicativo: 3 × 2 = 6 combinações."
+    },
+    {
+      "pergunta": "Ao lançar um dado comum, a probabilidade de sair 6 é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1/2"
+        },
+        {
+          "id": "B",
+          "texto": "1/3"
+        },
+        {
+          "id": "C",
+          "texto": "1/6"
+        },
+        {
+          "id": "D",
+          "texto": "6/6"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Há um resultado favorável entre seis resultados igualmente possíveis."
+    },
+    {
+      "pergunta": "Na lista 2, 3, 3, 8, a moda é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "2"
+        },
+        {
+          "id": "B",
+          "texto": "3"
+        },
+        {
+          "id": "C",
+          "texto": "4"
+        },
+        {
+          "id": "D",
+          "texto": "8"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Moda é o valor que aparece com maior frequência; nesse caso, 3."
+    }
+  ]
+}

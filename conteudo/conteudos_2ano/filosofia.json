@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Filosofia",
+  "conteudos": [
+    {
+      "titulo": "Platão",
+      "aula": "Platão foi filósofo grego e discípulo de Sócrates. Em sua filosofia, investigou conhecimento, justiça e política, usando diálogos e alegorias, como a alegoria da caverna."
+    },
+    {
+      "titulo": "Aristóteles e lógica",
+      "aula": "Aristóteles estudou lógica, ética, política e natureza. A lógica organiza argumentos e ajuda a avaliar se uma conclusão decorre de suas premissas."
+    },
+    {
+      "titulo": "Ética e moral",
+      "aula": "Moral reúne normas e costumes de uma sociedade ou grupo. Ética é a reflexão crítica sobre valores, escolhas e princípios que orientam ações."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A alegoria da caverna é associada a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Platão"
+        },
+        {
+          "id": "B",
+          "texto": "Aristóteles"
+        },
+        {
+          "id": "C",
+          "texto": "Descartes"
+        },
+        {
+          "id": "D",
+          "texto": "Nietzsche"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Platão usa a alegoria para discutir conhecimento, aparência e realidade."
+    },
+    {
+      "pergunta": "A lógica ajuda a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Avaliar argumentos"
+        },
+        {
+          "id": "B",
+          "texto": "Substituir evidências por boatos"
+        },
+        {
+          "id": "C",
+          "texto": "Impedir perguntas"
+        },
+        {
+          "id": "D",
+          "texto": "Provar qualquer conclusão"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A lógica examina a estrutura dos argumentos e a relação entre premissas e conclusão."
+    },
+    {
+      "pergunta": "Ética é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reflexão crítica sobre valores e ações"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas uma lista fixa de leis"
+        },
+        {
+          "id": "C",
+          "texto": "Sinônimo de biologia"
+        },
+        {
+          "id": "D",
+          "texto": "Uma técnica de cálculo"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A ética analisa princípios e escolhas relacionadas à ação humana."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "História",
+  "conteudos": [
+    {
+      "titulo": "Idade Média",
+      "aula": "A Idade Média europeia foi marcada por relações feudais, forte influência da Igreja, vida rural e diversidade de poderes políticos. O período teve transformações ao longo de cerca de mil anos."
+    },
+    {
+      "titulo": "Renascimento Cultural",
+      "aula": "O Renascimento valorizou referências clássicas greco-romanas, observação da natureza, humanismo e novas técnicas artísticas e científicas."
+    },
+    {
+      "titulo": "Expansão Marítima Europeia",
+      "aula": "A expansão marítima europeia, a partir do século XV, envolveu comércio, busca por rotas, conquista territorial e colonização, conectando regiões do mundo de forma desigual."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Uma característica do feudalismo europeu foi:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Predomínio de relações rurais e senhoriais"
+        },
+        {
+          "id": "B",
+          "texto": "Industrialização em massa"
+        },
+        {
+          "id": "C",
+          "texto": "Democracia universal"
+        },
+        {
+          "id": "D",
+          "texto": "Fim da agricultura"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A sociedade feudal tinha economia predominantemente agrária e relações de dependência."
+    },
+    {
+      "pergunta": "O Renascimento valorizou:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Humanismo e referências clássicas"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas tradição oral"
+        },
+        {
+          "id": "C",
+          "texto": "Rejeição da arte"
+        },
+        {
+          "id": "D",
+          "texto": "Isolamento científico"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O humanismo e o estudo da Antiguidade foram importantes no Renascimento."
+    },
+    {
+      "pergunta": "A expansão marítima europeia buscava, entre outros objetivos:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Novas rotas comerciais"
+        },
+        {
+          "id": "B",
+          "texto": "Acabar com todo comércio"
+        },
+        {
+          "id": "C",
+          "texto": "Evitar contatos entre continentes"
+        },
+        {
+          "id": "D",
+          "texto": "Eliminar a navegação"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A busca por rotas comerciais e riquezas impulsionou as navegações."
+    }
+  ]
+}

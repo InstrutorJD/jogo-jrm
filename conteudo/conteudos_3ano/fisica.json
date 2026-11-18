@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Física",
+  "conteudos": [
+    {
+      "titulo": "Eletricidade",
+      "aula": "Eletricidade estuda cargas, corrente, tensão e resistência. Em circuitos simples, a Lei de Ohm relaciona tensão, corrente e resistência: U=R·i."
+    },
+    {
+      "titulo": "Eletromagnetismo",
+      "aula": "Eletromagnetismo investiga a relação entre fenômenos elétricos e magnéticos. Correntes elétricas podem gerar campos magnéticos, princípio usado em motores e eletroímãs."
+    },
+    {
+      "titulo": "Física moderna",
+      "aula": "A física moderna inclui teorias como relatividade e mecânica quântica, importantes para compreender fenômenos em altas velocidades, escalas atômicas e subatômicas."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Pela Lei de Ohm, a tensão é igual a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "R/i"
+        },
+        {
+          "id": "B",
+          "texto": "R·i"
+        },
+        {
+          "id": "C",
+          "texto": "i/R"
+        },
+        {
+          "id": "D",
+          "texto": "R+i"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A Lei de Ohm é U=R·i, tensão igual à resistência multiplicada pela corrente."
+    },
+    {
+      "pergunta": "Uma corrente elétrica pode produzir:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Campo magnético"
+        },
+        {
+          "id": "B",
+          "texto": "Campo gravitacional nulo"
+        },
+        {
+          "id": "C",
+          "texto": "Somente luz solar"
+        },
+        {
+          "id": "D",
+          "texto": "Ausência de interação"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Correntes elétricas geram campos magnéticos ao seu redor."
+    },
+    {
+      "pergunta": "A mecânica quântica estuda principalmente fenômenos:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Em escalas atômicas e subatômicas"
+        },
+        {
+          "id": "B",
+          "texto": "Somente de planetas"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas de objetos cotidianos"
+        },
+        {
+          "id": "D",
+          "texto": "Exclusivamente climáticos"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A mecânica quântica descreve o comportamento da matéria e energia em escalas muito pequenas."
+    }
+  ]
+}

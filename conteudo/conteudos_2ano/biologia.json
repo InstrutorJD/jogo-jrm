@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Biologia",
+  "conteudos": [
+    {
+      "titulo": "Genética",
+      "aula": "Genética estuda a hereditariedade e a transmissão de características. Genes são segmentos de DNA que influenciam características dos organismos."
+    },
+    {
+      "titulo": "Evolução biológica",
+      "aula": "A evolução corresponde a mudanças nas características hereditárias das populações ao longo das gerações. Seleção natural pode favorecer características que aumentam o sucesso reprodutivo em certo ambiente."
+    },
+    {
+      "titulo": "Corpo humano e sistemas",
+      "aula": "O corpo humano possui sistemas integrados, como digestório, respiratório, circulatório e nervoso. Eles trabalham em conjunto para manter o organismo funcionando."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "O material genético que compõe os genes é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "DNA"
+        },
+        {
+          "id": "B",
+          "texto": "Amido"
+        },
+        {
+          "id": "C",
+          "texto": "Gordura"
+        },
+        {
+          "id": "D",
+          "texto": "Água"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Os genes são segmentos de DNA."
+    },
+    {
+      "pergunta": "A seleção natural atua sobre:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Características hereditárias que afetam sobrevivência e reprodução"
+        },
+        {
+          "id": "B",
+          "texto": "Escolhas conscientes dos organismos"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas características adquiridas durante a vida"
+        },
+        {
+          "id": "D",
+          "texto": "Indivíduos sem relação com o ambiente"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Características hereditárias podem se tornar mais comuns quando favorecem o sucesso reprodutivo."
+    },
+    {
+      "pergunta": "Qual sistema transporta sangue pelo corpo?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Digestório"
+        },
+        {
+          "id": "B",
+          "texto": "Circulatório"
+        },
+        {
+          "id": "C",
+          "texto": "Esquelético"
+        },
+        {
+          "id": "D",
+          "texto": "Tegumentar"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O sistema circulatório transporta sangue, gases e substâncias pelo organismo."
+    }
+  ]
+}

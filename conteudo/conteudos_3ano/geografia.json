@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Geografia",
+  "conteudos": [
+    {
+      "titulo": "Geopolítica mundial",
+      "aula": "Geopolítica analisa relações de poder entre países e atores internacionais, considerando território, recursos, economia, segurança e influência."
+    },
+    {
+      "titulo": "Economia mundial e blocos econômicos",
+      "aula": "A economia mundial conecta países por comércio, investimentos e cadeias produtivas. Blocos econômicos buscam ampliar integração e cooperação, com diferentes níveis de profundidade."
+    },
+    {
+      "titulo": "Problemas ambientais globais",
+      "aula": "Mudanças climáticas, perda de biodiversidade, poluição e escassez de recursos ultrapassam fronteiras e exigem cooperação internacional e políticas sustentáveis."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Geopolítica estuda:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Relações de poder no espaço mundial"
+        },
+        {
+          "id": "B",
+          "texto": "Somente tipos de rocha"
+        },
+        {
+          "id": "C",
+          "texto": "A gramática das línguas"
+        },
+        {
+          "id": "D",
+          "texto": "A composição celular"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A geopolítica analisa poder, território e relações internacionais."
+    },
+    {
+      "pergunta": "Um objetivo de blocos econômicos pode ser:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Facilitar integração comercial"
+        },
+        {
+          "id": "B",
+          "texto": "Impedir toda cooperação"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar todos os governos"
+        },
+        {
+          "id": "D",
+          "texto": "Acabar com o transporte"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Blocos podem reduzir barreiras e ampliar a integração entre membros."
+    },
+    {
+      "pergunta": "Qual problema ambiental é global?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Mudanças climáticas"
+        },
+        {
+          "id": "B",
+          "texto": "Somente uma poça local"
+        },
+        {
+          "id": "C",
+          "texto": "Uma sala sem ventilação"
+        },
+        {
+          "id": "D",
+          "texto": "A cor de um edifício"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "As mudanças climáticas afetam sistemas naturais e sociedades em escala planetária."
+    }
+  ]
+}

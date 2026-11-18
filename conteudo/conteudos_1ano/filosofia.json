@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Filosofia",
+  "conteudos": [
+    {
+      "titulo": "O que é Filosofia",
+      "aula": "Filosofia é uma atividade de reflexão crítica que investiga questões sobre conhecimento, existência, justiça, verdade e valores."
+    },
+    {
+      "titulo": "Mito e razão",
+      "aula": "Mitos explicam o mundo por narrativas tradicionais e simbólicas. A investigação racional procura argumentos, causas e justificativas que possam ser debatidos."
+    },
+    {
+      "titulo": "Sócrates",
+      "aula": "Sócrates valorizava o diálogo e o questionamento. Seu método ajudava as pessoas a examinar ideias e reconhecer contradições no próprio pensamento."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A Filosofia busca principalmente:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Aceitar toda opinião sem questionar"
+        },
+        {
+          "id": "B",
+          "texto": "Investigar questões por reflexão e argumentos"
+        },
+        {
+          "id": "C",
+          "texto": "Substituir todas as ciências"
+        },
+        {
+          "id": "D",
+          "texto": "Evitar perguntas difíceis"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A Filosofia estimula a reflexão crítica e a argumentação."
+    },
+    {
+      "pergunta": "Uma explicação baseada em argumentos e investigação racional se aproxima do:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Pensamento racional"
+        },
+        {
+          "id": "B",
+          "texto": "Mito exclusivamente"
+        },
+        {
+          "id": "C",
+          "texto": "Boato"
+        },
+        {
+          "id": "D",
+          "texto": "Preconceito"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A razão procura justificar ideias por meio de argumentos."
+    },
+    {
+      "pergunta": "O método associado a Sócrates valorizava:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "O diálogo e o questionamento"
+        },
+        {
+          "id": "B",
+          "texto": "A força militar"
+        },
+        {
+          "id": "C",
+          "texto": "A memorização sem reflexão"
+        },
+        {
+          "id": "D",
+          "texto": "A riqueza material"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Sócrates utilizava perguntas para examinar ideias e estimular a reflexão."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Artes",
+  "conteudos": [
+    {
+      "titulo": "Elementos da linguagem visual",
+      "aula": "Ponto, linha, forma, cor, textura e espaço são elementos visuais usados para construir imagens e comunicar ideias."
+    },
+    {
+      "titulo": "História da arte",
+      "aula": "A história da arte estuda produções artísticas de diferentes épocas e culturas, relacionando estilos, técnicas e obras ao contexto em que surgiram."
+    },
+    {
+      "titulo": "Arte e cultura",
+      "aula": "A arte expressa experiências, identidades e visões de mundo. Ela pode preservar memórias, questionar problemas e representar a diversidade cultural."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual é um elemento da linguagem visual?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Linha"
+        },
+        {
+          "id": "B",
+          "texto": "Aceleração"
+        },
+        {
+          "id": "C",
+          "texto": "Densidade"
+        },
+        {
+          "id": "D",
+          "texto": "Latitude"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A linha é um dos elementos básicos da composição visual."
+    },
+    {
+      "pergunta": "A história da arte relaciona obras principalmente:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ao contexto histórico e cultural"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas ao preço"
+        },
+        {
+          "id": "C",
+          "texto": "Somente à idade do artista"
+        },
+        {
+          "id": "D",
+          "texto": "À previsão do tempo"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O contexto ajuda a compreender as escolhas e os significados das obras."
+    },
+    {
+      "pergunta": "A arte pode:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Expressar ideias e identidades"
+        },
+        {
+          "id": "B",
+          "texto": "Ter apenas uma função decorativa"
+        },
+        {
+          "id": "C",
+          "texto": "Ser igual em todas as culturas"
+        },
+        {
+          "id": "D",
+          "texto": "Existir sem contexto"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A arte comunica experiências, valores e diferentes visões de mundo."
+    }
+  ]
+}

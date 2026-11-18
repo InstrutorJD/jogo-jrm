@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Língua Portuguesa",
+  "conteudos": [
+    {
+      "titulo": "Modernismo brasileiro",
+      "aula": "O Modernismo brasileiro ganhou força em 1922, defendendo experimentação estética, liberdade formal e reflexão sobre a identidade nacional. Suas fases apresentam diferentes temas e estilos."
+    },
+    {
+      "titulo": "Literatura contemporânea",
+      "aula": "A literatura contemporânea reúne vozes, temas e formatos variados, abordando questões sociais, identitárias, urbanas e individuais, sem um único estilo dominante."
+    },
+    {
+      "titulo": "Variação linguística",
+      "aula": "A língua varia conforme região, grupo social, situação e época. Variedades linguísticas são legítimas; adequar a linguagem ao contexto é diferente de considerar uma variedade inferior."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A Semana de Arte Moderna ocorreu em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1822"
+        },
+        {
+          "id": "B",
+          "texto": "1889"
+        },
+        {
+          "id": "C",
+          "texto": "1922"
+        },
+        {
+          "id": "D",
+          "texto": "1964"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "A Semana de Arte Moderna de 1922 é um marco do Modernismo brasileiro."
+    },
+    {
+      "pergunta": "A literatura contemporânea costuma apresentar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Diversidade de vozes e temas"
+        },
+        {
+          "id": "B",
+          "texto": "Um único estilo obrigatório"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas textos medievais"
+        },
+        {
+          "id": "D",
+          "texto": "Ausência de questões sociais"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A produção contemporânea é diversa em temas, formas e perspectivas."
+    },
+    {
+      "pergunta": "Variação linguística significa que:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Toda variedade tem regras e contexto de uso"
+        },
+        {
+          "id": "B",
+          "texto": "Só existe uma forma correta de falar em qualquer situação"
+        },
+        {
+          "id": "C",
+          "texto": "A fala regional é inferior"
+        },
+        {
+          "id": "D",
+          "texto": "A língua nunca muda"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A língua apresenta variedades legítimas conforme contexto, região e grupo."
+    }
+  ]
+}

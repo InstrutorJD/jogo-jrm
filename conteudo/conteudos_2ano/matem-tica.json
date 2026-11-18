@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Matemática",
+  "conteudos": [
+    {
+      "titulo": "Função quadrática",
+      "aula": "A função quadrática tem forma f(x)=ax²+bx+c, com a diferente de zero. Seu gráfico é uma parábola, que pode ter ponto de máximo ou mínimo chamado vértice."
+    },
+    {
+      "titulo": "Progressão aritmética",
+      "aula": "Progressão aritmética é uma sequência em que a diferença entre termos consecutivos é constante. Essa diferença é chamada razão."
+    },
+    {
+      "titulo": "Trigonometria",
+      "aula": "A trigonometria relaciona ângulos e lados de triângulos. No triângulo retângulo, seno, cosseno e tangente são razões entre seus lados."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "O gráfico de uma função quadrática é uma:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reta"
+        },
+        {
+          "id": "B",
+          "texto": "Parábola"
+        },
+        {
+          "id": "C",
+          "texto": "Circunferência"
+        },
+        {
+          "id": "D",
+          "texto": "Hipérbole sempre"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Funções do segundo grau têm gráfico em forma de parábola."
+    },
+    {
+      "pergunta": "Na sequência 2, 5, 8, 11, a razão é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "2"
+        },
+        {
+          "id": "B",
+          "texto": "3"
+        },
+        {
+          "id": "C",
+          "texto": "5"
+        },
+        {
+          "id": "D",
+          "texto": "8"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A diferença entre termos consecutivos é 3."
+    },
+    {
+      "pergunta": "Em um triângulo retângulo, seno de um ângulo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Cateto adjacente/hipotenusa"
+        },
+        {
+          "id": "B",
+          "texto": "Cateto oposto/hipotenusa"
+        },
+        {
+          "id": "C",
+          "texto": "Hipotenusa/cateto oposto"
+        },
+        {
+          "id": "D",
+          "texto": "Soma dos catetos"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O seno é a razão entre o cateto oposto e a hipotenusa."
+    }
+  ]
+}

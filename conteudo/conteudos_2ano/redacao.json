@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Redação",
+  "conteudos": [
+    {
+      "titulo": "Repertório sociocultural",
+      "aula": "Repertório sociocultural inclui conhecimentos de história, ciência, cultura e atualidades usados para contextualizar e fortalecer argumentos, sempre relacionados ao tema."
+    },
+    {
+      "titulo": "Proposta de intervenção",
+      "aula": "Na redação do ENEM, a proposta de intervenção apresenta uma ação para enfrentar o problema, indicando agente, ação, meio ou modo, finalidade e detalhamento."
+    },
+    {
+      "titulo": "Conectivos",
+      "aula": "Conectivos estabelecem relações entre ideias, como adição, oposição, causa, consequência e conclusão, ajudando a organizar o raciocínio do texto."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Um repertório sociocultural produtivo deve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ser citado sem relação com o tema"
+        },
+        {
+          "id": "B",
+          "texto": "Contribuir para explicar ou argumentar sobre o tema"
+        },
+        {
+          "id": "C",
+          "texto": "Substituir a tese"
+        },
+        {
+          "id": "D",
+          "texto": "Ser sempre uma frase famosa"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O repertório precisa estar integrado ao raciocínio e fortalecer a argumentação."
+    },
+    {
+      "pergunta": "Uma proposta de intervenção deve apresentar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Uma ação relacionada ao problema"
+        },
+        {
+          "id": "B",
+          "texto": "Somente uma opinião"
+        },
+        {
+          "id": "C",
+          "texto": "Um título chamativo"
+        },
+        {
+          "id": "D",
+          "texto": "Uma pergunta sem resposta"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A intervenção deve propor medida concreta e relacionada ao problema discutido."
+    },
+    {
+      "pergunta": "O conectivo ' entretanto' expressa:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Adição"
+        },
+        {
+          "id": "B",
+          "texto": "Oposição"
+        },
+        {
+          "id": "C",
+          "texto": "Conclusão"
+        },
+        {
+          "id": "D",
+          "texto": "Explicação"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "'Entretanto' introduz uma ideia de contraste ou oposição."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Biologia",
+  "conteudos": [
+    {
+      "titulo": "Características dos seres vivos",
+      "aula": "Seres vivos apresentam organização celular, metabolismo, crescimento, reprodução e capacidade de responder ao ambiente. Essas características ajudam a diferenciar vida de matéria sem vida."
+    },
+    {
+      "titulo": "Células e estruturas",
+      "aula": "A célula é a unidade básica dos seres vivos. A membrana controla a entrada e saída de substâncias, o citoplasma abriga estruturas celulares e o material genético guarda informações hereditárias."
+    },
+    {
+      "titulo": "Ecologia",
+      "aula": "Ecologia estuda as relações dos seres vivos entre si e com o ambiente. Populações, comunidades, ecossistemas e biosfera representam diferentes níveis de organização."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual é a unidade básica da vida?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Átomo"
+        },
+        {
+          "id": "B",
+          "texto": "Célula"
+        },
+        {
+          "id": "C",
+          "texto": "Órgão"
+        },
+        {
+          "id": "D",
+          "texto": "Ecossistema"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A célula é a menor unidade estrutural e funcional dos seres vivos."
+    },
+    {
+      "pergunta": "Qual estrutura controla a entrada e saída de substâncias da célula?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Membrana plasmática"
+        },
+        {
+          "id": "B",
+          "texto": "Parede óssea"
+        },
+        {
+          "id": "C",
+          "texto": "Núcleo externo"
+        },
+        {
+          "id": "D",
+          "texto": "Clorofila"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A membrana plasmática regula as trocas entre a célula e o ambiente."
+    },
+    {
+      "pergunta": "O conjunto de populações de espécies diferentes em uma área é chamado de:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Organismo"
+        },
+        {
+          "id": "B",
+          "texto": "Comunidade"
+        },
+        {
+          "id": "C",
+          "texto": "Tecido"
+        },
+        {
+          "id": "D",
+          "texto": "Órgão"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Uma comunidade reúne populações de diferentes espécies."
+    }
+  ]
+}

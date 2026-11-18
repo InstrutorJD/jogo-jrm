@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Redação",
+  "conteudos": [
+    {
+      "titulo": "Estrutura dissertativo-argumentativa",
+      "aula": "Esse tipo de texto apresenta um tema, defende uma tese e desenvolve argumentos para sustentá-la. Em geral, organiza-se em introdução, desenvolvimento e conclusão."
+    },
+    {
+      "titulo": "Tese e argumentação",
+      "aula": "A tese é o ponto de vista central defendido pelo autor. Os argumentos apresentam razões, exemplos e dados que ajudam a convencer o leitor."
+    },
+    {
+      "titulo": "Coesão e coerência",
+      "aula": "Coesão conecta partes do texto por recursos linguísticos, como pronomes e conectivos. Coerência garante que as ideias tenham sentido e não se contradigam."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A tese de uma redação é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "O título"
+        },
+        {
+          "id": "B",
+          "texto": "O ponto de vista defendido"
+        },
+        {
+          "id": "C",
+          "texto": "A lista de referências"
+        },
+        {
+          "id": "D",
+          "texto": "A frase final obrigatória"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A tese apresenta a posição central que o texto pretende defender."
+    },
+    {
+      "pergunta": "Qual recurso ajuda a conectar ideias?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Conectivo"
+        },
+        {
+          "id": "B",
+          "texto": "Número de página"
+        },
+        {
+          "id": "C",
+          "texto": "Fonte tipográfica"
+        },
+        {
+          "id": "D",
+          "texto": "Margem"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Conectivos expressam relações como causa, oposição e conclusão."
+    },
+    {
+      "pergunta": "Um texto coerente deve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Apresentar ideias contraditórias sem explicação"
+        },
+        {
+          "id": "B",
+          "texto": "Manter uma sequência lógica de ideias"
+        },
+        {
+          "id": "C",
+          "texto": "Repetir a mesma frase"
+        },
+        {
+          "id": "D",
+          "texto": "Não ter tema"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A coerência depende da relação lógica entre as informações."
+    }
+  ]
+}

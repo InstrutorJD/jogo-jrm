@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Artes",
+  "conteudos": [
+    {
+      "titulo": "Impressionismo",
+      "aula": "O Impressionismo explorou efeitos da luz e da cor, pinceladas visíveis e cenas do cotidiano. Muitos artistas pintavam ao ar livre para observar mudanças luminosas."
+    },
+    {
+      "titulo": "Arte moderna",
+      "aula": "A arte moderna rompeu com convenções acadêmicas e experimentou novas formas, cores, materiais e perspectivas, acompanhando transformações sociais e culturais."
+    },
+    {
+      "titulo": "Música e expressão cultural",
+      "aula": "A música expressa identidades, memórias e experiências coletivas. Ritmos e estilos refletem contextos históricos e influências culturais diversas."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "O Impressionismo destacou:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Efeitos de luz e cor"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas temas mitológicos"
+        },
+        {
+          "id": "C",
+          "texto": "Imagens sem pinceladas"
+        },
+        {
+          "id": "D",
+          "texto": "Regras medievais rígidas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A observação da luz e das cores é central para o Impressionismo."
+    },
+    {
+      "pergunta": "A arte moderna é marcada por:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Experimentação e ruptura de convenções"
+        },
+        {
+          "id": "B",
+          "texto": "Repetição obrigatória de modelos antigos"
+        },
+        {
+          "id": "C",
+          "texto": "Proibição de novas técnicas"
+        },
+        {
+          "id": "D",
+          "texto": "Ausência de expressão"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Artistas modernos experimentaram linguagens e desafiaram padrões tradicionais."
+    },
+    {
+      "pergunta": "A música pode expressar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Identidades e experiências culturais"
+        },
+        {
+          "id": "B",
+          "texto": "Somente cálculos"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas fenômenos geológicos"
+        },
+        {
+          "id": "D",
+          "texto": "Nada sobre a sociedade"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A música registra e comunica vivências e identidades coletivas."
+    }
+  ]
+}

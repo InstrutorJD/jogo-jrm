@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Sociologia",
+  "conteudos": [
+    {
+      "titulo": "Cidadania e direitos humanos",
+      "aula": "Cidadania envolve direitos e deveres e a participação na vida coletiva. Direitos humanos são princípios que reconhecem a dignidade de todas as pessoas."
+    },
+    {
+      "titulo": "Trabalho e sociedade",
+      "aula": "O trabalho organiza a produção e influencia identidades, renda e relações sociais. Mudanças tecnológicas e econômicas transformam profissões e condições de trabalho."
+    },
+    {
+      "titulo": "Movimentos sociais",
+      "aula": "Movimentos sociais são ações coletivas organizadas em torno de demandas e direitos, buscando mudanças ou a defesa de conquistas sociais."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Cidadania envolve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Direitos, deveres e participação"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas consumo"
+        },
+        {
+          "id": "C",
+          "texto": "Ausência de responsabilidades"
+        },
+        {
+          "id": "D",
+          "texto": "Somente nacionalidade formal"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Cidadania combina direitos, deveres e participação social e política."
+    },
+    {
+      "pergunta": "A tecnologia pode transformar o trabalho ao:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Criar e modificar ocupações"
+        },
+        {
+          "id": "B",
+          "texto": "Impedir qualquer mudança"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar toda necessidade de qualificação"
+        },
+        {
+          "id": "D",
+          "texto": "Tornar todas as profissões idênticas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Novas tecnologias alteram tarefas, profissões e qualificações exigidas."
+    },
+    {
+      "pergunta": "Movimentos sociais são:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ações coletivas por demandas e direitos"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas decisões individuais"
+        },
+        {
+          "id": "C",
+          "texto": "Fenômenos climáticos"
+        },
+        {
+          "id": "D",
+          "texto": "Tipos de empresa"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Movimentos sociais organizam pessoas em torno de causas e reivindicações."
+    }
+  ]
+}

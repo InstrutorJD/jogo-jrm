@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Língua Inglesa",
+  "conteudos": [
+    {
+      "titulo": "Simple Past",
+      "aula": "O Simple Past descreve ações concluídas no passado. Verbos regulares geralmente recebem -ed; verbos irregulares possuem formas próprias."
+    },
+    {
+      "titulo": "Present Continuous",
+      "aula": "O Present Continuous descreve ações em andamento ou situações temporárias. É formado por am, is ou are + verbo com -ing."
+    },
+    {
+      "titulo": "Comparative and Superlative",
+      "aula": "Comparativos comparam duas pessoas ou coisas; superlativos indicam o grau mais alto em um grupo. A formação depende do tamanho e da estrutura do adjetivo."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual frase está no Simple Past?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "I study every day."
+        },
+        {
+          "id": "B",
+          "texto": "I studied yesterday."
+        },
+        {
+          "id": "C",
+          "texto": "I am studying now."
+        },
+        {
+          "id": "D",
+          "texto": "I will study tomorrow."
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Studied indica uma ação concluída no passado."
+    },
+    {
+      "pergunta": "Complete: 'They ___ playing now.'",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "is"
+        },
+        {
+          "id": "B",
+          "texto": "am"
+        },
+        {
+          "id": "C",
+          "texto": "are"
+        },
+        {
+          "id": "D",
+          "texto": "be"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Com they, usamos are; o Present Continuous usa are + verbo com -ing."
+    },
+    {
+      "pergunta": "O superlativo de 'small' é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "smaller"
+        },
+        {
+          "id": "B",
+          "texto": "smallest"
+        },
+        {
+          "id": "C",
+          "texto": "more small"
+        },
+        {
+          "id": "D",
+          "texto": "most smaller"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Para adjetivos curtos, o superlativo geralmente recebe -est."
+    }
+  ]
+}

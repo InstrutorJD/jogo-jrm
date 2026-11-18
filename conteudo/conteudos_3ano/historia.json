@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "História",
+  "conteudos": [
+    {
+      "titulo": "Revolução Industrial",
+      "aula": "A Revolução Industrial transformou a produção com máquinas, fábricas e novas fontes de energia. Também alterou cidades, relações de trabalho e condições de vida."
+    },
+    {
+      "titulo": "Primeira e Segunda Guerra Mundial",
+      "aula": "As guerras mundiais envolveram alianças, disputas territoriais e ideológicas e mobilização de sociedades inteiras. Seus efeitos incluíram milhões de mortes e mudanças na ordem internacional."
+    },
+    {
+      "titulo": "Ditadura Militar no Brasil",
+      "aula": "A ditadura militar brasileira começou em 1964 e terminou em 1985. O período foi marcado por restrições políticas, censura, repressão e resistência de diferentes setores sociais."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Uma transformação central da Revolução Industrial foi:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Expansão das fábricas e mecanização"
+        },
+        {
+          "id": "B",
+          "texto": "Fim das máquinas"
+        },
+        {
+          "id": "C",
+          "texto": "Retorno geral ao feudalismo"
+        },
+        {
+          "id": "D",
+          "texto": "Desaparecimento das cidades"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A mecanização e o sistema fabril transformaram a produção e o trabalho."
+    },
+    {
+      "pergunta": "A Segunda Guerra Mundial terminou em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1918"
+        },
+        {
+          "id": "B",
+          "texto": "1939"
+        },
+        {
+          "id": "C",
+          "texto": "1945"
+        },
+        {
+          "id": "D",
+          "texto": "1964"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "A guerra terminou em 1945, após a rendição das potências do Eixo."
+    },
+    {
+      "pergunta": "A ditadura militar no Brasil teve início em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1889"
+        },
+        {
+          "id": "B",
+          "texto": "1930"
+        },
+        {
+          "id": "C",
+          "texto": "1964"
+        },
+        {
+          "id": "D",
+          "texto": "1988"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "O golpe de 1964 iniciou o regime militar, que terminou em 1985."
+    }
+  ]
+}

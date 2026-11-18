@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Educação Física",
+  "conteudos": [
+    {
+      "titulo": "Sistemas energéticos",
+      "aula": "O corpo utiliza diferentes sistemas para produzir energia durante o exercício. A participação de cada sistema depende da intensidade e da duração da atividade."
+    },
+    {
+      "titulo": "Alimentação e desempenho",
+      "aula": "Uma alimentação equilibrada e hidratação adequada contribuem para a saúde e o desempenho físico. As necessidades variam conforme pessoa, atividade e contexto."
+    },
+    {
+      "titulo": "Fair play",
+      "aula": "Fair play significa jogar com respeito às regras, aos adversários, aos colegas e à arbitragem, valorizando a ética e a participação."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Qual fator influencia o sistema energético predominante?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Intensidade e duração do exercício"
+        },
+        {
+          "id": "B",
+          "texto": "Cor da roupa"
+        },
+        {
+          "id": "C",
+          "texto": "Nome do esporte apenas"
+        },
+        {
+          "id": "D",
+          "texto": "Tamanho da torcida"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A demanda energética varia conforme intensidade e duração da atividade."
+    },
+    {
+      "pergunta": "A hidratação adequada ajuda a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Regular funções do organismo"
+        },
+        {
+          "id": "B",
+          "texto": "Eliminar a necessidade de alimentação"
+        },
+        {
+          "id": "C",
+          "texto": "Garantir vitória"
+        },
+        {
+          "id": "D",
+          "texto": "Impedir toda fadiga"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A água participa da regulação da temperatura e de diversas funções corporais."
+    },
+    {
+      "pergunta": "Fair play está relacionado a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Respeito e ética no esporte"
+        },
+        {
+          "id": "B",
+          "texto": "Vencer a qualquer custo"
+        },
+        {
+          "id": "C",
+          "texto": "Desrespeitar adversários"
+        },
+        {
+          "id": "D",
+          "texto": "Ignorar regras"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Fair play valoriza respeito, honestidade e cumprimento das regras."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Língua Portuguesa",
+  "conteudos": [
+    {
+      "titulo": "Romantismo",
+      "aula": "O Romantismo valorizou emoções, subjetividade, idealização amorosa e nacionalismo. No Brasil, teve diferentes gerações e ajudou a construir imagens de identidade nacional."
+    },
+    {
+      "titulo": "Realismo e Naturalismo",
+      "aula": "O Realismo buscou observar criticamente a sociedade e o comportamento humano. O Naturalismo aproximou a literatura de explicações ligadas ao meio, à hereditariedade e aos instintos."
+    },
+    {
+      "titulo": "Orações coordenadas e subordinadas",
+      "aula": "Orações coordenadas têm relação sintática independente entre si; subordinadas exercem função em relação a outra oração, completando ou caracterizando seu sentido."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Uma característica frequente do Romantismo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Objetividade científica exclusiva"
+        },
+        {
+          "id": "B",
+          "texto": "Valorização da emoção"
+        },
+        {
+          "id": "C",
+          "texto": "Ausência de subjetividade"
+        },
+        {
+          "id": "D",
+          "texto": "Rejeição da imaginação"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O Romantismo destaca sentimentos, subjetividade e idealização."
+    },
+    {
+      "pergunta": "O Naturalismo frequentemente enfatiza:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Meio e hereditariedade"
+        },
+        {
+          "id": "B",
+          "texto": "Mitos medievais apenas"
+        },
+        {
+          "id": "C",
+          "texto": "Fantasia sem observação"
+        },
+        {
+          "id": "D",
+          "texto": "Linguagem matemática"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O Naturalismo observa o comportamento humano ligado ao ambiente e à hereditariedade."
+    },
+    {
+      "pergunta": "Uma oração subordinada:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Não se relaciona a outra oração"
+        },
+        {
+          "id": "B",
+          "texto": "Exerce função em relação a uma oração principal"
+        },
+        {
+          "id": "C",
+          "texto": "É sempre uma palavra"
+        },
+        {
+          "id": "D",
+          "texto": "Não possui verbo"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A oração subordinada depende sintaticamente de outra oração."
+    }
+  ]
+}

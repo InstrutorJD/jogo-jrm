@@ -1,0 +1,89 @@
+{
+  "ano": "1º ano",
+  "materia": "Sociologia",
+  "conteudos": [
+    {
+      "titulo": "O que é Sociologia",
+      "aula": "Sociologia estuda a vida em sociedade, as relações entre grupos, as instituições e as transformações sociais."
+    },
+    {
+      "titulo": "Cultura e sociedade",
+      "aula": "Cultura inclui conhecimentos, valores, costumes, crenças, linguagens e práticas compartilhadas por grupos. Ela é aprendida e transmitida socialmente."
+    },
+    {
+      "titulo": "Socialização",
+      "aula": "Socialização é o processo pelo qual as pessoas aprendem normas, valores e comportamentos necessários à convivência social, por meio da família, escola e outros grupos."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A Sociologia estuda:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Somente os planetas"
+        },
+        {
+          "id": "B",
+          "texto": "As relações e os fenômenos sociais"
+        },
+        {
+          "id": "C",
+          "texto": "A composição das rochas"
+        },
+        {
+          "id": "D",
+          "texto": "Apenas o corpo humano"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A Sociologia investiga a organização e as relações da sociedade."
+    },
+    {
+      "pergunta": "Qual item faz parte da cultura?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Somente características biológicas"
+        },
+        {
+          "id": "B",
+          "texto": "Costumes e valores compartilhados"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas o clima"
+        },
+        {
+          "id": "D",
+          "texto": "A gravidade"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Cultura reúne práticas, conhecimentos, valores e costumes aprendidos."
+    },
+    {
+      "pergunta": "Socialização é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "O isolamento completo"
+        },
+        {
+          "id": "B",
+          "texto": "A aprendizagem de normas e valores sociais"
+        },
+        {
+          "id": "C",
+          "texto": "Uma mudança climática"
+        },
+        {
+          "id": "D",
+          "texto": "Um tipo de comércio"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A socialização ensina formas de viver e interagir em sociedade."
+    }
+  ]
+}

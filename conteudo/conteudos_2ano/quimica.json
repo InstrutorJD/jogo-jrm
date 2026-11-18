@@ -1,0 +1,89 @@
+{
+  "ano": "2º ano",
+  "materia": "Química",
+  "conteudos": [
+    {
+      "titulo": "Ligações químicas",
+      "aula": "Ligações químicas mantêm átomos unidos. Na ligação iônica há transferência de elétrons; na covalente há compartilhamento; na metálica, elétrons ficam deslocalizados."
+    },
+    {
+      "titulo": "Funções inorgânicas",
+      "aula": "As principais funções inorgânicas estudadas são ácidos, bases, sais e óxidos. Elas apresentam propriedades e comportamentos químicos característicos."
+    },
+    {
+      "titulo": "Reações químicas",
+      "aula": "Reações químicas transformam reagentes em produtos. A equação deve ser balanceada para representar a conservação dos átomos e da massa."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "Na ligação covalente, os átomos:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Compartilham elétrons"
+        },
+        {
+          "id": "B",
+          "texto": "Sempre perdem todos os elétrons"
+        },
+        {
+          "id": "C",
+          "texto": "Compartilham prótons"
+        },
+        {
+          "id": "D",
+          "texto": "Desaparecem"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A ligação covalente envolve compartilhamento de pares de elétrons."
+    },
+    {
+      "pergunta": "Qual é uma função inorgânica?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Proteína"
+        },
+        {
+          "id": "B",
+          "texto": "Ácido"
+        },
+        {
+          "id": "C",
+          "texto": "Carboidrato"
+        },
+        {
+          "id": "D",
+          "texto": "Lipídio"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Ácidos, bases, sais e óxidos são funções inorgânicas."
+    },
+    {
+      "pergunta": "Balancear uma equação química respeita a conservação:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Dos átomos"
+        },
+        {
+          "id": "B",
+          "texto": "Da cor"
+        },
+        {
+          "id": "C",
+          "texto": "Do volume do recipiente"
+        },
+        {
+          "id": "D",
+          "texto": "Da temperatura"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O balanceamento mantém a mesma quantidade de átomos de cada elemento nos dois lados."
+    }
+  ]
+}

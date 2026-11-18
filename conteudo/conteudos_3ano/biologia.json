@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Biologia",
+  "conteudos": [
+    {
+      "titulo": "Ecologia e impactos ambientais",
+      "aula": "Ecologia analisa relações ecológicas e funcionamento dos ecossistemas. Poluição, desmatamento e mudanças climáticas alteram habitats, ciclos naturais e biodiversidade."
+    },
+    {
+      "titulo": "Biotecnologia",
+      "aula": "Biotecnologia utiliza organismos, células ou moléculas biológicas para desenvolver produtos e processos, como vacinas, técnicas de diagnóstico e melhoramento de culturas."
+    },
+    {
+      "titulo": "Fisiologia humana e saúde",
+      "aula": "Fisiologia estuda o funcionamento do corpo. Sistemas como nervoso, endócrino, respiratório e circulatório atuam integrados para manter o equilíbrio interno."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "O desmatamento pode causar:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Perda de habitats e biodiversidade"
+        },
+        {
+          "id": "B",
+          "texto": "Aumento garantido de espécies nativas"
+        },
+        {
+          "id": "C",
+          "texto": "Fim da erosão"
+        },
+        {
+          "id": "D",
+          "texto": "Estabilidade de todos os ecossistemas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A retirada da vegetação destrói habitats e ameaça espécies."
+    },
+    {
+      "pergunta": "Qual é um exemplo de aplicação da biotecnologia?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Produção de vacinas"
+        },
+        {
+          "id": "B",
+          "texto": "Movimento das placas tectônicas"
+        },
+        {
+          "id": "C",
+          "texto": "Formação de eclipses"
+        },
+        {
+          "id": "D",
+          "texto": "Erosão de montanhas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Vacinas podem ser desenvolvidas com técnicas biotecnológicas."
+    },
+    {
+      "pergunta": "Homeostase é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Manutenção do equilíbrio interno do organismo"
+        },
+        {
+          "id": "B",
+          "texto": "A ausência de metabolismo"
+        },
+        {
+          "id": "C",
+          "texto": "A divisão de continentes"
+        },
+        {
+          "id": "D",
+          "texto": "A perda de toda regulação"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A homeostase mantém condições internas relativamente estáveis."
+    }
+  ]
+}

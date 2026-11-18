@@ -1,0 +1,89 @@
+{
+  "ano": "3º ano",
+  "materia": "Educação Física",
+  "conteudos": [
+    {
+      "titulo": "Treinamento físico",
+      "aula": "Treinamento físico organiza exercícios de forma planejada para desenvolver capacidades como força, resistência e mobilidade, respeitando progressão, recuperação e individualidade."
+    },
+    {
+      "titulo": "Saúde mental e atividade física",
+      "aula": "A atividade física pode contribuir para o bem-estar, o sono e a redução do estresse. Não substitui cuidados profissionais quando necessários."
+    },
+    {
+      "titulo": "Esporte adaptado",
+      "aula": "Esporte adaptado ajusta regras, equipamentos ou ambientes para ampliar a participação de pessoas com diferentes habilidades, promovendo inclusão e competição justa."
+    }
+  ],
+  "questoes": [
+    {
+      "pergunta": "A progressão no treinamento significa:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Aumentar demandas de forma planejada"
+        },
+        {
+          "id": "B",
+          "texto": "Treinar sempre no limite máximo"
+        },
+        {
+          "id": "C",
+          "texto": "Ignorar descanso"
+        },
+        {
+          "id": "D",
+          "texto": "Repetir exercícios sem objetivo"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A progressão gradual permite adaptação e ajuda a reduzir riscos."
+    },
+    {
+      "pergunta": "A atividade física pode contribuir para:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Bem-estar e qualidade do sono"
+        },
+        {
+          "id": "B",
+          "texto": "Eliminar toda doença"
+        },
+        {
+          "id": "C",
+          "texto": "Substituir todo tratamento"
+        },
+        {
+          "id": "D",
+          "texto": "Impedir emoções"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A prática regular pode favorecer saúde mental e qualidade do sono."
+    },
+    {
+      "pergunta": "O esporte adaptado busca:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ampliar participação e acessibilidade"
+        },
+        {
+          "id": "B",
+          "texto": "Excluir participantes"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar regras de segurança"
+        },
+        {
+          "id": "D",
+          "texto": "Impedir adaptações"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Adaptações permitem participação mais inclusiva e justa."
+    }
+  ]
+}
