@@ -2,6 +2,8 @@
 
 RPG de exploração em pixel art (Phaser 3) ambientado no CEPI João Roberto Moreira.
 
+**Alunos:** as instruções de como fazer e entregar tiles, personagens, sons e diálogos estão em [INSTRUCOES.md](INSTRUCOES.md).
+
 ## Como jogar
 
 Abra o `index.html` no navegador (com internet, para baixar o Phaser), ou sirva a pasta:
@@ -24,18 +26,26 @@ Para personalizar as falas com o nome do aluno: `index.html?name=Maria`.
 - `sprites/` — arte em PNG feita no Piskel (`personagens/`, `tiles/`)
 - `dialogos/` — falas dos personagens
 - `sons/` — músicas e efeitos sonoros
-- `ferramentas/` — scripts de apoio (verificação dos tiles dos alunos)
+- `ferramentas/` — scripts de apoio (verificação das entregas dos alunos)
 
 Os blocos são buscados em `blocos/`, ao lado do `motor.js`, então a pasta inteira
 pode ser copiada para dentro de outro site (ex.: `vila-pixel/`) sem mudar nada.
 
-## Tiles dos alunos
+## Entregas dos alunos
 
-1. Coloque os `.png` / `.piskel` dos alunos na pasta `entregas/` (pode ter subpastas).
-   Nome sugerido: `nome-do-aluno_grama.png`. Tiles aceitos: `grama` (ou `grama1`–`grama3`), `terra`, `cimento`.
-2. Rode `node ferramentas/verificar-tiles.js`
-3. Abra `entregas/relatorio.html`: mostra cada tile, a prévia 3×3 da emenda e o que foi corrigido ou precisa refazer.
-4. Os tiles aproveitáveis ficam em `entregas/corrigidos/<tile>/<aluno>.png`. Copie o escolhido para `sprites/tiles/<tile>.png`.
+As regras estão no [INSTRUCOES.md](INSTRUCOES.md) (arte em **32 × 32**). Para conferir as entregas:
+
+1. Coloque o que os alunos mandaram na pasta `entregas/` (pode ter subpastas por turma ou aluno):
+   tiles e personagens (`.png` / `.piskel`), diálogos (`.json`) e sons (`.ogg` / `.mp3`).
+2. Rode `node ferramentas/verificar-tiles.js`. Ele confere cada arquivo contra o INSTRUCOES.md e
+   **corrige só o que dá para corrigir sem perder qualidade**: escala 2x/4x, frames em grade, PNG dentro
+   do .piskel, nome do arquivo, arte no tamanho antigo 16 × 16 (ampliada 2x, com aviso), JSON com vírgula
+   sobrando ou aspas curvas, extensão de áudio trocada. O que exigiria perder qualidade (encolher um
+   desenho, converter um .wav) vai para **refazer**.
+3. O terminal lista todas as **correções feitas**, para avisar os alunos. O relatório
+   `entregas/relatorio.html` mostra prévias (tile em 3 × 3, folha do personagem, falas, player de som).
+4. Os arquivos aproveitáveis ficam em `entregas/corrigidos/<tipo>/<item>/<aluno>.<ext>`. Copie o escolhido
+   para a pasta do jogo (`sprites/tiles/grama.png`, `sprites/personagens/teo.png`, `dialogos/teo.json`…).
 
 A pasta `entregas/` não vai para o git (tem nomes de alunos).
 
@@ -43,7 +53,7 @@ A pasta `entregas/` não vai para o git (tem nomes de alunos).
 
 `node ferramentas/verificar-tiles.js --pastas` confere o que já está em `sprites/`, `sons/` e `dialogos/`:
 tamanho dos tiles e personagens, frames vazios, fundo transparente, nomes de arquivo, ids de
-personagem que não existem, formato e tamanho dos sons, JSON/JS com erro. Não altera nada e
+personagem que não existem, formato e tamanho dos sons, diálogos fora do formato. Usa as mesmas regras das entregas, mas não altera nada e
 termina com código 1 se encontrar erro. Rode antes de cada commit.
 
 
