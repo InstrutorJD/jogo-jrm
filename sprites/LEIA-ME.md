@@ -15,5 +15,17 @@ Chão do mapa, **32 × 32 px**, um arquivo por tile: `grama.png` (ou `grama1`–
 - Sem transparência, e as bordas precisam emendar quando o tile se repete.
 - As entregas dos alunos passam antes pelo `ferramentas/verificar-tiles.js` (ver README).
 
-**Ainda não usado pelo jogo:** por enquanto a arte vem de `arte.js`. O motor vai passar a carregar
-estes PNGs; o que estiver faltando continua desenhado por código.
+## Como o jogo usa estes arquivos
+O motor procura os PNGs ao abrir o jogo, e os dos NPCs ao entrar em cada bloco. Se um PNG não existir
+ou estiver no tamanho errado, o jogo continua com a arte desenhada pelo `arte.js`, ampliada 2x.
+
+| PNG | Onde aparece no mapa |
+|---|---|
+| `tiles/grama.png` (ou `grama1`–`grama3`) | grama, e também embaixo de árvores, cercas, pedras e flores |
+| `tiles/terra.png` | caminhos de terra e trilho do portão |
+| `tiles/cimento.png` | piso, calçada, e embaixo dos bancos, das bicicletas e da fonte |
+| `personagens/<id>.png` | o personagem com aquele id (`jogador`, `teo`…) |
+
+Os PNGs só aparecem com o jogo aberto por um servidor (`npx serve .`). Aberto direto do arquivo,
+o navegador bloqueia os PNGs e o jogo usa a arte padrão. No console, os erros 404 dos PNGs que ainda
+não existem são normais.

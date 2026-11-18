@@ -36,10 +36,11 @@ VilaPixel.registrarBloco({
   ],
   npcs: [
     {
-      id: 'bit', nome: 'Mestre Bit', x: 17, y: 10, raio: 5,
+      // aulas: depois da conversa, oferece as aulas e perguntas da série do aluno (conteudo/).
+      id: 'bit', nome: 'Mestre Bit', x: 17, y: 10, raio: 5, aulas: true,
       cores: { pele: '#f1c27d', cabelo: '#6d4c41', camisa: '#263238', calca: '#37474f' },
       conversas: [
-        ['Olá, viajante. Eu sou o Mestre Bit.', 'Sabia que este mundo inteiro é feito de quadradinhos de 16 pixels?', 'Cada letra de um mapa de texto vira um tile. Mágico, não?'],
+        ['Olá, viajante. Eu sou o Mestre Bit.', 'Sabia que este mundo inteiro é feito de quadradinhos de 32 pixels?', 'Cada letra de um mapa de texto vira um tile. Mágico, não?'],
         ['Um bug é só uma surpresa que ninguém pediu.'],
         ['O prédio grande ali em cima ainda está fechado.', 'Dizem que um dia vai dar para entrar...']
       ]

@@ -311,6 +311,8 @@ function verificarPersonagem(entrada) {
 }
 
 // ---------- diálogo: { "nome": "...", "conversas": [["fala", ...], ...] } ----------
+// variáveis que o motor.js troca nas falas (ver VARIAVEIS no motor.js)
+const VARIAVEIS_FALA = ['nome', 'aluno', 'horario'];
 function verificarDialogo(texto, id, personagens) {
   const r = novoResultado();
   if (!personagens.has(id)) { r.erro = `não existe personagem com o id "${id}" — ids: ${[...personagens.keys()].join(', ')}`; return r; }
@@ -345,6 +347,9 @@ function verificarDialogo(texto, id, personagens) {
     });
     if (!falas.length) { r.correcoes.push(`conversa ${i + 1} estava vazia: removida`); continue; }
     falas.forEach((f, k) => {
+      for (const [, v] of f.matchAll(/\{(\w+)\}/g)) {
+        if (!VARIAVEIS_FALA.includes(v)) r.avisos.push(`conversa ${i + 1}, fala ${k + 1}: o jogo não conhece {${v}} — vai aparecer assim na tela (use ${VARIAVEIS_FALA.map(x => '{' + x + '}').join(', ')})`);
+      }
       const tam = f.replace('{nome}', '').length;
       if (tam > LIMITE_FALA) r.avisos.push(`conversa ${i + 1}, fala ${k + 1}: ${tam} letras (máx. ~${LIMITE_FALA}) — divida em duas caixas`);
     });
@@ -353,8 +358,9 @@ function verificarDialogo(texto, id, personagens) {
   if (!limpas.length) { r.erro = 'todas as conversas estão vazias'; return r; }
   const oficial = personagens.get(id);
   if (!dados.nome) r.correcoes.push(`faltava "nome": preenchido com "${oficial}"`);
-  else if (dados.nome !== oficial) r.avisos.push(`"nome" é "${dados.nome}", mas o personagem se chama "${oficial}" no jogo`);
-  const extras = Object.keys(dados).filter(k => !['nome', 'conversas'].includes(k));
+  else if (dados.nome !== oficial) r.avisos.push(`"nome" é "${dados.nome}": é esse que aparece na caixa de diálogo (no bloco está "${oficial}")`);
+  // "notas": anotações para quem edita (ex.: em que momento cada conversa acontece); o jogo ignora
+  const extras = Object.keys(dados).filter(k => !['nome', 'conversas', 'notas'].includes(k));
   if (extras.length) r.avisos.push(`campo(s) que o jogo não usa: ${extras.join(', ')}`);
   r.conversas = limpas;
   r.texto = JSON.stringify({ nome: dados.nome || oficial, conversas: limpas }, null, 2) + '\n';
@@ -678,6 +684,8 @@ function verificarPastas(raizJogo) {
   };
   const nomeSeguro = f => {
     const n = path.basename(f);
+    // ids de personagem (seuZe, tiaSuzana...) podem ter maiúscula: o nome do arquivo é o id
+    if (personagens.has(path.parse(n).name) && /^[A-Za-z0-9]+\.[a-z0-9]+$/.test(n)) return;
     if (!/^[a-z0-9._-]+$/.test(n)) aviso(f, `use nome em minúsculas, sem espaço nem acento (ex.: ${slug(path.parse(n).name)}${path.extname(n).toLowerCase()})`);
   };
   const abrirPNG = f => { try { return lerPNG(fs.readFileSync(f)); } catch (e) { erro(f, e.message); return null; } };

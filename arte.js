@@ -1,12 +1,13 @@
-// Vila Pixel — arte em pixel desenhada por código (sem imagens externas).
-// Cada tile tem 16x16 px. Os personagens também têm 16x16 por quadro,
-// em 4 direções x 3 quadros (parado, passo A, passo B).
+// Vila Pixel — arte em pixel.
+// O jogo usa tiles e quadros de personagem de 32x32 (TAM). Quando existe o PNG
+// feito pelos alunos (sprites/tiles/*.png, sprites/personagens/*.png), ele é usado;
+// o que falta é desenhado aqui por código em 16x16 e ampliado 2x (sem borrar).
 //
-// Para trocar a arte no futuro por imagens de verdade (PNG), basta o motor
-// carregar um tileset/spritesheet com o mesmo tamanho e a mesma ordem de
-// TILES / quadros — o resto do jogo não muda.
+// Folha de personagem usada pelo motor: 3 colunas (parado, passo A, passo B)
+// x 4 linhas (DIRECOES), quadros de TAM x TAM.
 window.VilaArte = (function () {
-  const T = 16;
+  const T = 16;                 // tamanho em que a arte por código é desenhada
+  const ESCALA = 2, TAM = T * ESCALA;   // tamanho no jogo (32)
   const CONTORNO = '#2a1d1a';
 
   // Ordem dos tiles no tileset (o índice é a posição na lista).
@@ -21,6 +22,11 @@ window.VilaArte = (function () {
     let s = seed % 2147483647; if (s <= 0) s += 2147483646;
     return () => (s = (s * 16807) % 2147483647) / 2147483647;
   }
+  // Com semFundo, os tiles desenham só o que fica por cima do chão (árvore,
+  // banco...), para o chão vir do PNG dos alunos.
+  let semFundo = false;
+  const fundo = f => { if (!semFundo) f(); };
+
   const px = (c, x, y, cor) => { c.fillStyle = cor; c.fillRect(x, y, 1, 1); };
   const ret = (c, x, y, w, h, cor) => { c.fillStyle = cor; c.fillRect(x, y, w, h); };
   function pontilhado(c, ox, base, cores, n, seed) {
@@ -34,7 +40,7 @@ window.VilaArte = (function () {
   }
 
   // ---------- tiles ----------
-  const grama = (c, ox, seed) => pontilhado(c, ox, '#5fa83e', ['#4e9434', '#72bf4c', '#4e9434'], 14, seed);
+  const grama = (c, ox, seed) => semFundo || pontilhado(c, ox, '#5fa83e', ['#4e9434', '#72bf4c', '#4e9434'], 14, seed);
   const desenhos = {
     grama1: (c, ox) => grama(c, ox, 11),
     grama2: (c, ox) => grama(c, ox, 23),
@@ -110,7 +116,7 @@ window.VilaArte = (function () {
       px(c, ox + 2, 2, '#ccc8bf'); px(c, ox + 10, 3, '#ccc8bf'); px(c, ox + 6, 11, '#ccc8bf');
     },
     banco: (c, ox) => {
-      desenhos.piso(c, ox);
+      fundo(() => desenhos.piso(c, ox));
       ret(c, ox + 1, 4, 14, 2, '#6b4226');               // encosto
       ret(c, ox + 1, 7, 14, 4, '#a0703c'); ret(c, ox + 1, 10, 14, 1, '#5a3a1a');
       ret(c, ox + 2, 11, 2, 4, '#4f2f1a'); ret(c, ox + 12, 11, 2, 4, '#4f2f1a');
@@ -140,7 +146,7 @@ window.VilaArte = (function () {
     bicicletaVermelha: (c, ox) => bicicleta(c, ox, '#d63c3c'),
     bicicletaAzul: (c, ox) => bicicleta(c, ox, '#2b6cb0'),
     trilho: (c, ox) => {
-      desenhos.caminho(c, ox);
+      fundo(() => desenhos.caminho(c, ox));
       ret(c, ox, 12, T, 1, '#6f6b63'); ret(c, ox, 13, T, 1, '#b9b4aa');
     },
     calcada: (c, ox) => {
@@ -211,7 +217,7 @@ window.VilaArte = (function () {
 
   // Bicicleta estacionada no suporte (vista de lado), sobre o piso.
   function bicicleta(c, ox, cor) {
-    desenhos.piso(c, ox);
+    fundo(() => desenhos.piso(c, ox));
     ret(c, ox, 6, T, 1, '#6f6b63'); ret(c, ox + 1, 6, 1, 9, '#6f6b63'); ret(c, ox + 14, 6, 1, 9, '#6f6b63'); // suporte
     [[4, 11], [12, 11]].forEach(([x, y]) => {
       circulo(c, ox + x, y, 3, '#2a1d1a'); circulo(c, ox + x, y, 1, '#b9b4aa'); px(c, ox + x, y, '#2a1d1a');
@@ -229,7 +235,7 @@ window.VilaArte = (function () {
     const cv = document.createElement('canvas'); cv.width = 32; cv.height = 32;
     const c = cv.getContext('2d');
     for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) {
-      c.save(); c.translate(i * 16, j * 16); desenhos.piso(c, 0); c.restore();
+      c.save(); c.translate(i * 16, j * 16); fundo(() => desenhos.piso(c, 0)); c.restore();
     }
     circulo(c, 16, 16, 15, '#6f6b63'); circulo(c, 16, 16, 14, '#9c978d');
     circulo(c, 16, 16, 11, '#3d7fd6'); circulo(c, 16, 16, 10, '#5aa0e6');
@@ -239,16 +245,55 @@ window.VilaArte = (function () {
     return cv;
   }
 
-  function gerarTileset() {
-    const cv = document.createElement('canvas'); cv.width = T * TILES.length; cv.height = T;
-    const c = cv.getContext('2d');
-    const fonte = desenharFonte();
+  // De qual PNG de chão (sprites/tiles/) cada tile tira o fundo.
+  // "Inteiros" são só chão; os outros desenham algo por cima dele.
+  const CHAO = {
+    grama1: 'grama', grama2: 'grama', grama3: 'grama', caminho: 'terra', piso: 'cimento', calcada: 'cimento',
+    gramaAlta: 'grama', flores: 'grama', arvore: 'grama', cerca: 'grama', pedra: 'grama', trilho: 'terra',
+    banco: 'cimento', bicicletaVermelha: 'cimento', bicicletaAzul: 'cimento',
+    fonteTL: 'cimento', fonteTR: 'cimento', fonteBL: 'cimento', fonteBR: 'cimento'
+  };
+  const INTEIROS = ['grama1', 'grama2', 'grama3', 'caminho', 'piso', 'calcada'];
+  // Nomes dos PNGs de chão que o motor procura.
+  const PNG_TILES = ['grama', 'grama1', 'grama2', 'grama3', 'terra', 'cimento'];
+
+  function novoCanvas(w, h) {
+    const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+    const c = cv.getContext('2d'); c.imageSmoothingEnabled = false;
+    return cv;
+  }
+
+  // Amplia um canvas por um fator inteiro, pixel por pixel.
+  function ampliar(origem, e = ESCALA) {
+    const cv = novoCanvas(origem.width * e, origem.height * e);
+    cv.getContext('2d').drawImage(origem, 0, 0, cv.width, cv.height);
+    return cv;
+  }
+
+  // Tileset em TAM x TAM. pngs = { grama: imagem, terra: imagem, ... } (os que existirem).
+  function gerarTileset(pngs = {}) {
+    const cv = novoCanvas(TAM * TILES.length, TAM), c = cv.getContext('2d');
+    const pngDoChao = nome => {
+      const chao = CHAO[nome];
+      if (!chao) return null;
+      if (chao === 'grama') return pngs[INTEIROS.includes(nome) ? nome : 'grama1'] || pngs.grama || pngs.grama1 || null;
+      return pngs[chao] || null;
+    };
+    const fontes = {};
     TILES.forEach((nome, i) => {
-      const ox = i * T;
+      const ox = i * TAM, png = pngDoChao(nome);
+      if (png) c.drawImage(png, ox, 0, TAM, TAM);
+      if (png && INTEIROS.includes(nome)) return;
+      semFundo = !!png;
+      const peq = novoCanvas(T, T), pc = peq.getContext('2d');
       if (nome.startsWith('fonte')) {
+        const chave = semFundo ? 'sem' : 'com';
+        const fonte = fontes[chave] = fontes[chave] || desenharFonte();
         const q = { fonteTL: [0, 0], fonteTR: [16, 0], fonteBL: [0, 16], fonteBR: [16, 16] }[nome];
-        c.drawImage(fonte, q[0], q[1], 16, 16, ox, 0, 16, 16);
-      } else desenhos[nome](c, ox);
+        pc.drawImage(fonte, q[0], q[1], 16, 16, 0, 0, 16, 16);
+      } else desenhos[nome](pc, 0);
+      semFundo = false;
+      c.drawImage(peq, ox, 0, TAM, TAM);
     });
     return cv;
   }
@@ -336,8 +381,11 @@ window.VilaArte = (function () {
     }
   }
 
-  // Devolve um canvas 48x64: colunas = quadros, linhas = direções.
+  // Devolve um canvas 96x128: colunas = quadros, linhas = direções (TAM por quadro).
   function gerarPersonagem(cores) {
+    return ampliar(desenharPersonagem(cores));
+  }
+  function desenharPersonagem(cores) {
     const cv = document.createElement('canvas'); cv.width = T * 3; cv.height = T * 4;
     const c = cv.getContext('2d');
     DIRECOES.forEach((dir, linha) => {
@@ -348,6 +396,24 @@ window.VilaArte = (function () {
         desenharQuadro(c, col * T, linha * T, l, cores, dir === 'esquerda');
       });
     });
+    return cv;
+  }
+
+  // Monta a folha do motor a partir do PNG do aluno: 7 quadros de TAM numa linha
+  // (baixo parado, baixo passo A, cima parado, cima passo A, direita parado/A/B).
+  // A esquerda é a direita espelhada; o passo B de baixo/cima é o passo A espelhado.
+  function montarPersonagem(img) {
+    const cv = novoCanvas(TAM * 3, TAM * 4), c = cv.getContext('2d');
+    const quadro = (f, col, linha, espelhar) => {
+      const x = col * TAM, y = linha * TAM;
+      c.save();
+      if (espelhar) { c.translate(x + TAM, y); c.scale(-1, 1); } else c.translate(x, y);
+      c.drawImage(img, f * TAM, 0, TAM, TAM, 0, 0, TAM, TAM);
+      c.restore();
+    };
+    const usar = { baixo: [[0], [1], [1, true]], cima: [[2], [3], [3, true]],
+      direita: [[4], [5], [6]], esquerda: [[4, true], [5, true], [6, true]] };
+    DIRECOES.forEach((dir, linha) => usar[dir].forEach(([f, esp], col) => quadro(f, col, linha, !!esp)));
     return cv;
   }
 
@@ -375,5 +441,10 @@ window.VilaArte = (function () {
     return cv;
   }
 
-  return { T, TILES, DIRECOES, gerarTileset, gerarPersonagem, gerarBalao, gerarSeta, gerarGrade, gerarLetreiro };
+  const QUADROS_PNG = 7;
+  return {
+    T: TAM, TILES, DIRECOES, PNG_TILES, QUADROS_PNG, ampliar, gerarTileset, gerarPersonagem, montarPersonagem,
+    gerarBalao: () => ampliar(gerarBalao()), gerarSeta: () => ampliar(gerarSeta()),
+    gerarGrade: () => ampliar(gerarGrade()), gerarLetreiro: (t, cor) => ampliar(gerarLetreiro(t, cor))
+  };
 })();

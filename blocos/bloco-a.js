@@ -54,7 +54,8 @@ VilaPixel.registrarBloco({
       // alcance: dá para falar com ele por trás da grade.
       // abre: com o portão fechado, ele fala `antesDeAbrir`, vai até a grade,
       // abre com as mãos, volta ao posto e fala `depoisDeAbrir`.
-      id: 'porteiro', nome: 'Seu Bento, o porteiro', x: 18, y: 19, fixo: true, alcance: 60,
+      // As falas de `conversas` vêm de dialogos/seuZe.json (quando o arquivo existe).
+      id: 'seuZe', nome: 'Seu Zé, o porteiro', x: 18, y: 19, fixo: true, alcance: 120,
       abre: 'portao-escola',
       cores: { pele: '#b07a4f', cabelo: '#3b2a20', boina: '#1b2a4a', camisa: '#2c4a7a', calca: '#1f2a3a', sapato: '#111111' },
       antesDeAbrir: ['Bom dia! Só um instante, que eu já abro o portão.'],
@@ -63,6 +64,14 @@ VilaPixel.registrarBloco({
         ['Bom estudo, {nome}! Qualquer coisa, estou aqui no portão.'],
         ['As bicicletas ficam ali no bicicletário. Pode deixar que eu fico de olho.'],
         ['A boina? É o charme do uniforme, ué.']
+      ]
+    },
+    {
+      // Tia Suzana: as falas vêm de dialogos/tiaSuzana.json (estas são a reserva).
+      id: 'tiaSuzana', nome: 'Tia Suzana', x: 25, y: 13, raio: 8,
+      cores: { pele: '#c68c53', cabelo: '#2b1b14', cabeloLongo: true, camisa: '#8e44ad', calca: '#34495e' },
+      conversas: [
+        ['Bom dia! Bora pra sala, que já deu a hora.']
       ]
     },
     {

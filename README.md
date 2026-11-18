@@ -6,26 +6,35 @@ RPG de exploração em pixel art (Phaser 3) ambientado no CEPI João Roberto Mor
 
 ## Como jogar
 
-Abra o `index.html` no navegador (com internet, para baixar o Phaser), ou sirva a pasta:
+Sirva a pasta e abra no navegador. Precisa de internet para baixar o Phaser.
 
 ```
 npx serve .
 ```
 
-Para personalizar as falas com o nome do aluno: `index.html?name=Maria`.
+Abrir o `index.html` direto também funciona, mas assim o navegador não deixa o jogo usar os PNGs de
+`sprites/`, e o jogo mostra só a arte do `arte.js`.
 
-**Controles:** WASD/setas andam · SHIFT corre · E conversa · Espaço/Enter/clique avançam o diálogo.
+Para personalizar as falas com o nome do aluno: `index.html?name=Maria`. Para já abrir na série do aluno
+(sem perguntar na tela inicial): `index.html?name=Maria&ano=2`.
+
+**Controles:** WASD/setas andam · SHIFT corre · E conversa · Espaço/Enter/clique avançam o diálogo ·
+ESC ou P pausa · M liga/desliga o som. Nos menus: setas e Enter (ou os números 1–9).
+
+**Aulas:** o Mestre Bit (Bloco B) mostra as aulas e as perguntas da série escolhida, tiradas de
+`conteudo/conteudos_<n>ano/<n>-ano-completo.json`.
 
 ## Estrutura
 
 - `index.html` — página do jogo (interface de diálogo, carregamento e faixas)
 - `motor.js` — motor (cenas, física, NPCs, diálogos, troca de blocos)
-- `arte.js` — toda a arte, gerada por código
+- `arte.js` — arte gerada por código (32 × 32), usada quando falta o PNG em `sprites/`
 - `curiosidades.js` — frases "Você sabia?" da tela de carregamento
 - `blocos/` — um arquivo por área do mapa, carregado sob demanda
-- `sprites/` — arte em PNG feita no Piskel (`personagens/`, `tiles/`)
-- `dialogos/` — falas dos personagens
+- `sprites/` — arte em PNG 32 × 32 feita no Piskel (`personagens/`, `tiles/`), usada pelo jogo quando existe
+- `dialogos/` — falas dos personagens (`<id>.json`; substituem as `conversas` do bloco)
 - `sons/` — músicas e efeitos sonoros
+- `conteudo/` — aulas e perguntas por série, usadas pelo Mestre Bit e nas telas de carregamento
 - `ferramentas/` — scripts de apoio (verificação das entregas dos alunos)
 
 Os blocos são buscados em `blocos/`, ao lado do `motor.js`, então a pasta inteira

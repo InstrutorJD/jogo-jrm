@@ -19,6 +19,37 @@
       font-size: 14px; font-weight: bold; letter-spacing: 1px;
     }
 
+    /* botão de som no canto */
+    #hudSom {
+      position: fixed; top: 12px; right: 12px; z-index: 5;
+      width: 40px; height: 32px; padding: 0; cursor: pointer;
+      background: rgba(42, 29, 26, .75); border: 2px solid #2a1d1a; color: #fff8e7; font-size: 18px;
+    }
+    #hudAjuda {
+      position: fixed; bottom: 8px; right: 12px; z-index: 4; font-size: 12px;
+      padding: 2px 8px; background: rgba(42, 29, 26, .6); pointer-events: none;
+    }
+
+    /* menu: tela inicial, pausa e aulas */
+    #menu {
+      position: fixed; inset: 0; z-index: 11; padding: 16px;
+      display: flex; align-items: center; justify-content: center; background: rgba(18, 12, 11, .72);
+    }
+    #menuCaixa {
+      width: min(620px, 100%); max-height: calc(100% - 16px); overflow-y: auto;
+      padding: 18px 20px; background: #fff8e7; color: #2a1d1a;
+      border: 4px solid #2a1d1a; box-shadow: 0 0 0 3px #c9a26b;
+    }
+    #menuTitulo { font-size: 22px; font-weight: bold; color: #b5473a; margin-bottom: 10px; }
+    #menuTexto { font-size: 17px; line-height: 1.45; white-space: pre-wrap; margin-bottom: 14px; }
+    #menuOpcoes { display: flex; flex-direction: column; gap: 6px; }
+    #menuOpcoes button {
+      font: inherit; font-size: 16px; text-align: left; cursor: pointer;
+      padding: 8px 12px; background: #e8d3a8; color: #2a1d1a; border: 3px solid #2a1d1a;
+    }
+    #menuOpcoes button.sel { background: #f6d34a; }
+    #menuOpcoes button.sel::before { content: '▶ '; }
+
     /* faixa que aparece ao entrar num bloco */
     #faixaBloco {
       position: fixed; top: 18%; left: 50%; transform: translateX(-50%); z-index: 6;
@@ -74,6 +105,16 @@
   <div id="jogo"></div>
 
   <div id="hudBloco"></div>
+  <button id="hudSom" type="button" title="Desligar o som (M)">🔊</button>
+  <div id="hudAjuda">ESC pausa · M som</div>
+
+  <div id="menu" hidden>
+    <div id="menuCaixa" role="dialog" aria-modal="true">
+      <div id="menuTitulo"></div>
+      <div id="menuTexto"></div>
+      <div id="menuOpcoes"></div>
+    </div>
+  </div>
 
   <div id="faixaBloco">
     <div id="faixaNome"></div>

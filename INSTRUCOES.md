@@ -158,7 +158,8 @@ Veja a lista de ids na seção de Personagens.
 **Como funciona:**
 - Cada linha de `conversas` é **uma conversa**. Na primeira vez que o jogador fala com o personagem, sai a 1ª conversa; na segunda vez, a 2ª, e assim por diante. Depois da última, volta para a primeira.
 - Dentro de cada conversa, cada frase entre aspas é **uma caixa de diálogo**. O jogador aperta **E** para passar para a próxima.
-- `{nome}` vira o primeiro nome do aluno que está jogando.
+- `{nome}` vira o primeiro nome do aluno que está jogando, e `{horario}` vira a hora (ex.: 07:30).
+  Outras palavras entre `{ }` aparecem do jeito que estão na tela.
 
 **Regras:**
 1. Frases **curtas**: até umas 100 letras por caixa.
