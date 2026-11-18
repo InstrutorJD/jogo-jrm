@@ -23,12 +23,12 @@ Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
 
 | ✔ Certo | ✗ Errado |
 |---|---|
-| `maria-souza_grama.png` | `Grama Final (2).PNG` |
-| `joao_cimento.png` | `cimênto.png` |
-| `ana_teo.json` | `falas do teo.txt` |
+| `maria-souza_grama.png` | `gramaFinal(2).PNG` |
+| `joao_cimento.png` | `cimento.png` |
+| `ana_teo.json` | `falasTeo.txt` |
 
 **Configuração do Piskel**, para toda arte:
-- **Resize** (painel da direita): o tamanho de cada frame é **32 × 32**. Arquivos antigos em 16 × 16 ainda são aceitos, mas ficam com pixels maiores;
+- **Resize** (painel da direita): o tamanho de cada frame é **64 x 64**. Arquivos antigos em 16 × 16 ainda são aceitos, mas ficam com pixels maiores;
 - **Export → PNG**, sempre com **Scale 1x**. Não aumente: o jogo amplia sozinho;
 - **Save** também o projeto **.piskel** e entregue junto. Ele serve de reserva e permite editar depois.
 - **Nunca** entregue em JPG: ele borra o pixel art.
@@ -46,7 +46,7 @@ Um tile é uma peça de **32 × 32 px** que se repete para formar o chão. O jog
 | `cimento.png` | caminho de cimento |
 
 **Regras:**
-1. Exatamente **32 × 32 px**, com **1 frame só**.
+1. Exatamente **64 x 64 px**, com **1 frame só**.
 2. **Pinte todos os pixels.** Pixel transparente vira um buraco preto no jogo.
 3. **Tem que emendar.** O tile se repete lado a lado, então a borda da esquerda precisa combinar com a da direita, e a de cima com a de baixo.
    - Para testar: crie um canvas de 96 × 96, cole o seu tile 9 vezes (3 × 3) e veja se aparece uma "costura".
@@ -59,7 +59,7 @@ Um tile é uma peça de **32 × 32 px** que se repete para formar o chão. O jog
 
 ## 2. Personagens — `sprites/personagens/`
 
-Cada personagem tem **7 frames de 32 × 32 px**, todos numa linha só.
+Cada personagem tem **7 frames de 64 × 64 px**, todos numa linha só.
 
 | Frame | O que desenhar |
 |---|---|
@@ -75,7 +75,7 @@ O jogo cria sozinho o lado esquerdo, espelhando a direita, e o segundo passo de 
 Por isso o personagem precisa ser **simétrico**, sem mochila ou franja de um lado só.
 
 **Regras:**
-1. Cada frame com **32 × 32 px**. Nenhum frame pode ficar vazio.
+1. Cada frame com **64 × 64 px**. Nenhum frame pode ficar vazio.
 2. **Fundo transparente**: pinte só o personagem.
 3. **Pés embaixo**: os pés ficam perto da linha 29, e o corpo centralizado no quadro.
    A colisão do jogo fica nos pés, então um boneco "flutuando" atravessa as paredes.
@@ -83,7 +83,7 @@ Por isso o personagem precisa ser **simétrico**, sem mochila ou franja de um la
 5. Para combinar com o resto do jogo, use o contorno escuro `#2a1d1a`.
 
 **Exportar:** Export → PNG → **Spritesheet** com **Columns = 7** e **Rows = 1**, Scale **1x** → Download.
-O arquivo final deve ter **224 × 32 px**.
+O arquivo final deve ter **64 × 64 px**.
 
 **Nome:** o id do personagem. Use `jogador` para o personagem principal ou o id de um NPC:
 
