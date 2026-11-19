@@ -28,7 +28,7 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 | Personagem | `sprites/personagens/` | PNG 64 x 64 (7 frames) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
 | Falas de um personagem | `dialogos/` | JSON |
-| Conteúdo das aulas e enigmas | `conteudos_1ano/`, `conteudos_2ano/`, `conteudos_3ano/` | MD ou JSON |
+| Conteúdo das aulas e enigmas | `conteudos_1ano/enigmas`, `conteudos_2ano/enigmas`, `conteudos_3ano/enigmas` | MD ou JSON |
 
 **Como entregar:** entregue o arquivo ao professor. Ele passa tudo pelo verificador e coloca na pasta certa.
 Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
