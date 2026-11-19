@@ -4,7 +4,7 @@
 
 | Arquivo | Onde toca |
 |---|---|
-| `musicas/pause_ou_menu.mp3` | tela inicial e pausa (ESC), em loop |
+| `musicas/menu.mp3` | tela inicial e pausa (ESC), em loop |
 | `efeitos/passos.mp3` | enquanto o jogador anda |
 | `efeitos/passos2.mp3` | enquanto o jogador corre (SHIFT) |
 
@@ -19,6 +19,6 @@ anote a fonte de cada um aqui.
 
 | Arquivo | Quem entregou | Fonte / licença |
 |---|---|---|
-| `musicas/pause_ou_menu.mp3` | Iago | **falta informar** |
+| `musicas/menu.mp3` | Iago | **falta informar** |
 | `efeitos/passos.mp3` | Iago | **falta informar** |
 | `efeitos/passos2.mp3` | Iago | **falta informar** |

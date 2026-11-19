@@ -146,7 +146,7 @@ window.VilaPixel = (function () {
   // ---------- sons ----------
   // Quando chegar a cópia .ogg, ponha ela antes da .mp3 na lista.
   const SONS = {
-    menu:   { arquivos: ['sons/musicas/pause_ou_menu.mp3'], volume: 0.45, loop: true },
+    menu:   { arquivos: ['sons/musicas/menu.mp3'], volume: 0.45, loop: true },
     passos: { arquivos: ['sons/efeitos/passos.mp3'], volume: 0.3, loop: true },
     correr: { arquivos: ['sons/efeitos/passos2.mp3'], volume: 0.3, loop: true }
   };
