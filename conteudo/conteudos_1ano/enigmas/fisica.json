@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Física",
+  "enigmas": [
+    {
+      "pergunta": "Qual destas é uma unidade de tempo?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Metro"
+        },
+        {
+          "id": "B",
+          "texto": "Quilograma"
+        },
+        {
+          "id": "C",
+          "texto": "Segundo"
+        },
+        {
+          "id": "D",
+          "texto": "Newton"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "O segundo é a unidade básica de tempo no Sistema Internacional."
+    },
+    {
+      "pergunta": "Um veículo percorre 100 km em 2 horas. Sua velocidade média é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "25 km/h"
+        },
+        {
+          "id": "B",
+          "texto": "50 km/h"
+        },
+        {
+          "id": "C",
+          "texto": "100 km/h"
+        },
+        {
+          "id": "D",
+          "texto": "200 km/h"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Velocidade média = 100 ÷ 2 = 50 km/h."
+    },
+    {
+      "pergunta": "A terceira lei de Newton trata de:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Inércia"
+        },
+        {
+          "id": "B",
+          "texto": "Ação e reação"
+        },
+        {
+          "id": "C",
+          "texto": "Conservação da massa"
+        },
+        {
+          "id": "D",
+          "texto": "Gravitação universal"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Toda ação corresponde a uma reação de mesma intensidade e direção, mas sentido oposto."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Educação Física",
+  "enigmas": [
+    {
+      "pergunta": "Um benefício da atividade física regular é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Aumentar sempre o risco de doenças"
+        },
+        {
+          "id": "B",
+          "texto": "Melhorar a saúde cardiovascular"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar a necessidade de sono"
+        },
+        {
+          "id": "D",
+          "texto": "Impedir qualquer lesão"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A atividade física pode melhorar o funcionamento do coração e da circulação."
+    },
+    {
+      "pergunta": "Qual é um esporte coletivo?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Natação individual"
+        },
+        {
+          "id": "B",
+          "texto": "Corrida de 100 metros"
+        },
+        {
+          "id": "C",
+          "texto": "Voleibol"
+        },
+        {
+          "id": "D",
+          "texto": "Salto em distância"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "O voleibol é praticado por equipes que cooperam para vencer."
+    },
+    {
+      "pergunta": "A capacidade de manter esforço por mais tempo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Resistência"
+        },
+        {
+          "id": "B",
+          "texto": "Flexibilidade"
+        },
+        {
+          "id": "C",
+          "texto": "Precisão visual"
+        },
+        {
+          "id": "D",
+          "texto": "Altura"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Resistência permite sustentar uma atividade por determinado período."
+    }
+  ]
+}

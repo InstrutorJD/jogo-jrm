@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Química",
+  "enigmas": [
+    {
+      "pergunta": "Hidrocarbonetos são compostos formados por:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Carbono e hidrogênio"
+        },
+        {
+          "id": "B",
+          "texto": "Oxigênio e nitrogênio"
+        },
+        {
+          "id": "C",
+          "texto": "Sódio e cloro"
+        },
+        {
+          "id": "D",
+          "texto": "Ferro e cobre"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Hidrocarbonetos contêm apenas carbono e hidrogênio."
+    },
+    {
+      "pergunta": "Uma pilha transforma:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Energia química em elétrica"
+        },
+        {
+          "id": "B",
+          "texto": "Energia sonora em nuclear"
+        },
+        {
+          "id": "C",
+          "texto": "Energia térmica em massa"
+        },
+        {
+          "id": "D",
+          "texto": "Energia elétrica em química sempre"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Reações espontâneas de oxirredução em pilhas geram corrente elétrica."
+    },
+    {
+      "pergunta": "No equilíbrio químico, as velocidades direta e inversa são:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Iguais"
+        },
+        {
+          "id": "B",
+          "texto": "Sempre nulas"
+        },
+        {
+          "id": "C",
+          "texto": "Sempre diferentes"
+        },
+        {
+          "id": "D",
+          "texto": "Desconhecidas por definição"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O equilíbrio dinâmico ocorre quando as velocidades das reações opostas se igualam."
+    }
+  ]
+}

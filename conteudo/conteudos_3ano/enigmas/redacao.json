@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Redação",
+  "enigmas": [
+    {
+      "pergunta": "O gênero solicitado na redação do ENEM é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Narrativo"
+        },
+        {
+          "id": "B",
+          "texto": "Dissertativo-argumentativo"
+        },
+        {
+          "id": "C",
+          "texto": "Poético"
+        },
+        {
+          "id": "D",
+          "texto": "Instrucional"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A proposta exige defesa de um ponto de vista por meio de argumentos."
+    },
+    {
+      "pergunta": "A Competência 5 avalia principalmente:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Proposta de intervenção"
+        },
+        {
+          "id": "B",
+          "texto": "Caligrafia"
+        },
+        {
+          "id": "C",
+          "texto": "Número de parágrafos"
+        },
+        {
+          "id": "D",
+          "texto": "Uso de título"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A quinta competência avalia a elaboração de uma proposta de intervenção."
+    },
+    {
+      "pergunta": "Um bom parágrafo de desenvolvimento deve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Apresentar e explicar um argumento"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas repetir o tema"
+        },
+        {
+          "id": "C",
+          "texto": "Não ter relação com a tese"
+        },
+        {
+          "id": "D",
+          "texto": "Conter somente uma citação"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O desenvolvimento precisa explicar como o argumento sustenta a tese."
+    }
+  ]
+}

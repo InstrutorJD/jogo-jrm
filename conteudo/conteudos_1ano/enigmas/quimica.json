@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Química",
+  "enigmas": [
+    {
+      "pergunta": "Matéria é aquilo que:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Não ocupa espaço"
+        },
+        {
+          "id": "B",
+          "texto": "Tem massa e ocupa espaço"
+        },
+        {
+          "id": "C",
+          "texto": "Só existe como sólido"
+        },
+        {
+          "id": "D",
+          "texto": "Não pode ser medido"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Matéria possui massa e ocupa lugar no espaço."
+    },
+    {
+      "pergunta": "A passagem do estado líquido para o gasoso é chamada de:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Fusão"
+        },
+        {
+          "id": "B",
+          "texto": "Solidificação"
+        },
+        {
+          "id": "C",
+          "texto": "Vaporização"
+        },
+        {
+          "id": "D",
+          "texto": "Condensação"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Vaporização é a transformação de líquido em gás."
+    },
+    {
+      "pergunta": "O número de prótons define:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "A cor do átomo"
+        },
+        {
+          "id": "B",
+          "texto": "O elemento químico"
+        },
+        {
+          "id": "C",
+          "texto": "A quantidade de moléculas"
+        },
+        {
+          "id": "D",
+          "texto": "O estado físico"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O número de prótons, chamado número atômico, identifica o elemento."
+    }
+  ]
+}

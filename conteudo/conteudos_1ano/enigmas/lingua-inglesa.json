@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Língua Inglesa",
+  "enigmas": [
+    {
+      "pergunta": "Qual é a forma correta: 'She ___ happy'?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "am"
+        },
+        {
+          "id": "B",
+          "texto": "is"
+        },
+        {
+          "id": "C",
+          "texto": "are"
+        },
+        {
+          "id": "D",
+          "texto": "be"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Com she, usamos is no presente do verbo to be."
+    },
+    {
+      "pergunta": "Qual frase expressa um hábito?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "I am sleeping now."
+        },
+        {
+          "id": "B",
+          "texto": "I play soccer every Saturday."
+        },
+        {
+          "id": "C",
+          "texto": "I played yesterday."
+        },
+        {
+          "id": "D",
+          "texto": "I will travel tomorrow."
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O Simple Present pode expressar hábitos e rotinas."
+    },
+    {
+      "pergunta": "Qual pronome significa 'nós'?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "They"
+        },
+        {
+          "id": "B",
+          "texto": "He"
+        },
+        {
+          "id": "C",
+          "texto": "We"
+        },
+        {
+          "id": "D",
+          "texto": "She"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "We é o pronome pessoal correspondente a 'nós'."
+    }
+  ]
+}

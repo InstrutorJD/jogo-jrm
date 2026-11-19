@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Língua Portuguesa",
+  "enigmas": [
+    {
+      "pergunta": "Qual palavra é um verbo?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Beleza"
+        },
+        {
+          "id": "B",
+          "texto": "Correr"
+        },
+        {
+          "id": "C",
+          "texto": "Azul"
+        },
+        {
+          "id": "D",
+          "texto": "Mesa"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Correr indica uma ação e, portanto, é verbo."
+    },
+    {
+      "pergunta": "Uma informação que está escrita diretamente no texto é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Implícita"
+        },
+        {
+          "id": "B",
+          "texto": "Inferida"
+        },
+        {
+          "id": "C",
+          "texto": "Explícita"
+        },
+        {
+          "id": "D",
+          "texto": "Figurada"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Informações explícitas aparecem diretamente no texto."
+    },
+    {
+      "pergunta": "Qual é a principal finalidade de uma notícia?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ensinar uma receita"
+        },
+        {
+          "id": "B",
+          "texto": "Informar sobre um acontecimento"
+        },
+        {
+          "id": "C",
+          "texto": "Contar uma fábula"
+        },
+        {
+          "id": "D",
+          "texto": "Vender um produto"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A notícia apresenta informações sobre fatos e acontecimentos."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "ano": "2º ano",
+  "materia": "Matemática",
+  "enigmas": [
+    {
+      "pergunta": "O gráfico de uma função quadrática é uma:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reta"
+        },
+        {
+          "id": "B",
+          "texto": "Parábola"
+        },
+        {
+          "id": "C",
+          "texto": "Circunferência"
+        },
+        {
+          "id": "D",
+          "texto": "Hipérbole sempre"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Funções do segundo grau têm gráfico em forma de parábola."
+    },
+    {
+      "pergunta": "Na sequência 2, 5, 8, 11, a razão é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "2"
+        },
+        {
+          "id": "B",
+          "texto": "3"
+        },
+        {
+          "id": "C",
+          "texto": "5"
+        },
+        {
+          "id": "D",
+          "texto": "8"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A diferença entre termos consecutivos é 3."
+    },
+    {
+      "pergunta": "Em um triângulo retângulo, seno de um ângulo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Cateto adjacente/hipotenusa"
+        },
+        {
+          "id": "B",
+          "texto": "Cateto oposto/hipotenusa"
+        },
+        {
+          "id": "C",
+          "texto": "Hipotenusa/cateto oposto"
+        },
+        {
+          "id": "D",
+          "texto": "Soma dos catetos"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O seno é a razão entre o cateto oposto e a hipotenusa."
+    }
+  ]
+}

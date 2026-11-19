@@ -1,0 +1,75 @@
+{
+  "ano": "2º ano",
+  "materia": "Física",
+  "enigmas": [
+    {
+      "pergunta": "Calor é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "A temperatura de um corpo"
+        },
+        {
+          "id": "B",
+          "texto": "Energia transferida por diferença de temperatura"
+        },
+        {
+          "id": "C",
+          "texto": "A massa de um objeto"
+        },
+        {
+          "id": "D",
+          "texto": "A quantidade de matéria"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Calor é energia em trânsito entre corpos com temperaturas diferentes."
+    },
+    {
+      "pergunta": "Durante a fusão de uma substância pura, em condições constantes, o calor recebido é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Latente"
+        },
+        {
+          "id": "B",
+          "texto": "Sempre nulo"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas mecânico"
+        },
+        {
+          "id": "D",
+          "texto": "Elétrico"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O calor latente permite a mudança de estado sem variar a temperatura durante o processo."
+    },
+    {
+      "pergunta": "A mudança da direção da luz ao passar de um meio para outro é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Reflexão difusa"
+        },
+        {
+          "id": "B",
+          "texto": "Refração"
+        },
+        {
+          "id": "C",
+          "texto": "Absorção total"
+        },
+        {
+          "id": "D",
+          "texto": "Convecção"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Na refração, a luz muda de velocidade e pode mudar de direção ao trocar de meio."
+    }
+  ]
+}

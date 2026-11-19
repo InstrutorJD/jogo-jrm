@@ -1,0 +1,75 @@
+{
+  "ano": "2º ano",
+  "materia": "Geografia",
+  "enigmas": [
+    {
+      "pergunta": "Globalização está associada a:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Maior conexão entre regiões do mundo"
+        },
+        {
+          "id": "B",
+          "texto": "Fim das comunicações"
+        },
+        {
+          "id": "C",
+          "texto": "Isolamento total dos países"
+        },
+        {
+          "id": "D",
+          "texto": "Desaparecimento do comércio"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A globalização amplia fluxos de mercadorias, informações, pessoas e capitais."
+    },
+    {
+      "pergunta": "Um desafio comum do crescimento urbano acelerado é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ausência de qualquer transporte"
+        },
+        {
+          "id": "B",
+          "texto": "Déficit de moradia e saneamento"
+        },
+        {
+          "id": "C",
+          "texto": "Fim da necessidade de planejamento"
+        },
+        {
+          "id": "D",
+          "texto": "Redução automática da população"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O crescimento rápido pode pressionar serviços e infraestrutura urbana."
+    },
+    {
+      "pergunta": "Industrialização envolve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Produção fabril e uso de máquinas"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas caça e coleta"
+        },
+        {
+          "id": "C",
+          "texto": "Fim da tecnologia"
+        },
+        {
+          "id": "D",
+          "texto": "Somente atividades domésticas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A industrialização amplia a produção com máquinas, fábricas e tecnologia."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "ano": "2º ano",
+  "materia": "Língua Inglesa",
+  "enigmas": [
+    {
+      "pergunta": "Qual frase está no Simple Past?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "I study every day."
+        },
+        {
+          "id": "B",
+          "texto": "I studied yesterday."
+        },
+        {
+          "id": "C",
+          "texto": "I am studying now."
+        },
+        {
+          "id": "D",
+          "texto": "I will study tomorrow."
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Studied indica uma ação concluída no passado."
+    },
+    {
+      "pergunta": "Complete: 'They ___ playing now.'",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "is"
+        },
+        {
+          "id": "B",
+          "texto": "am"
+        },
+        {
+          "id": "C",
+          "texto": "are"
+        },
+        {
+          "id": "D",
+          "texto": "be"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Com they, usamos are; o Present Continuous usa are + verbo com -ing."
+    },
+    {
+      "pergunta": "O superlativo de 'small' é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "smaller"
+        },
+        {
+          "id": "B",
+          "texto": "smallest"
+        },
+        {
+          "id": "C",
+          "texto": "more small"
+        },
+        {
+          "id": "D",
+          "texto": "most smaller"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Para adjetivos curtos, o superlativo geralmente recebe -est."
+    }
+  ]
+}

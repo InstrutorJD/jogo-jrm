@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Filosofia",
+  "enigmas": [
+    {
+      "pergunta": "O Iluminismo valorizava:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Razão e crítica"
+        },
+        {
+          "id": "B",
+          "texto": "Obediência sem questionamento"
+        },
+        {
+          "id": "C",
+          "texto": "Rejeição da ciência"
+        },
+        {
+          "id": "D",
+          "texto": "Poder absoluto como único ideal"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Pensadores iluministas defenderam razão, conhecimento e crítica às estruturas de poder."
+    },
+    {
+      "pergunta": "Um tema central do existencialismo é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Liberdade e responsabilidade"
+        },
+        {
+          "id": "B",
+          "texto": "Classificação de minerais"
+        },
+        {
+          "id": "C",
+          "texto": "Cálculo de órbitas"
+        },
+        {
+          "id": "D",
+          "texto": "Anatomia vegetal"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "O existencialismo discute escolhas, liberdade e responsabilidade humana."
+    },
+    {
+      "pergunta": "A filosofia política investiga:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Poder, Estado e justiça"
+        },
+        {
+          "id": "B",
+          "texto": "Somente fenômenos químicos"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas regras gramaticais"
+        },
+        {
+          "id": "D",
+          "texto": "A reprodução celular"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A filosofia política examina como a sociedade deve organizar poder e direitos."
+    }
+  ]
+}

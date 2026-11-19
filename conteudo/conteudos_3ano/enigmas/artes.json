@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Artes",
+  "enigmas": [
+    {
+      "pergunta": "Uma linguagem comum na arte contemporânea é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Performance"
+        },
+        {
+          "id": "B",
+          "texto": "Somente pintura acadêmica"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas escultura clássica"
+        },
+        {
+          "id": "D",
+          "texto": "Exclusivamente mosaico romano"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Performance é uma das diversas linguagens utilizadas na arte contemporânea."
+    },
+    {
+      "pergunta": "A arte brasileira reflete:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Diversidade de influências culturais"
+        },
+        {
+          "id": "B",
+          "texto": "Uma única origem cultural"
+        },
+        {
+          "id": "C",
+          "texto": "Ausência de história"
+        },
+        {
+          "id": "D",
+          "texto": "Somente padrões estrangeiros"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A produção artística brasileira expressa múltiplas matrizes e experiências culturais."
+    },
+    {
+      "pergunta": "A montagem no cinema organiza:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Planos e cenas"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas figurinos"
+        },
+        {
+          "id": "C",
+          "texto": "Somente ingressos"
+        },
+        {
+          "id": "D",
+          "texto": "A temperatura da sala"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A montagem seleciona e organiza imagens e sons para construir a narrativa."
+    }
+  ]
+}

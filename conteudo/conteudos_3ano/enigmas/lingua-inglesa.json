@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Língua Inglesa",
+  "enigmas": [
+    {
+      "pergunta": "Qual frase expressa um plano com 'going to'?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "I went home."
+        },
+        {
+          "id": "B",
+          "texto": "I am going to study tonight."
+        },
+        {
+          "id": "C",
+          "texto": "I study every day."
+        },
+        {
+          "id": "D",
+          "texto": "I was studying."
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "'Going to' é frequentemente usado para planos e intenções futuras."
+    },
+    {
+      "pergunta": "Na voz passiva, o foco fica geralmente em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Quem recebe a ação"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas o sujeito que pratica a ação"
+        },
+        {
+          "id": "C",
+          "texto": "O tempo meteorológico"
+        },
+        {
+          "id": "D",
+          "texto": "A opinião do leitor"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A voz passiva destaca o elemento que sofre ou recebe a ação."
+    },
+    {
+      "pergunta": "Uma boa estratégia de leitura é:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ignorar o contexto"
+        },
+        {
+          "id": "B",
+          "texto": "Identificar a ideia principal"
+        },
+        {
+          "id": "C",
+          "texto": "Traduzir cada palavra obrigatoriamente"
+        },
+        {
+          "id": "D",
+          "texto": "Ler apenas o título"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Identificar a ideia principal ajuda a compreender o sentido global do texto."
+    }
+  ]
+}

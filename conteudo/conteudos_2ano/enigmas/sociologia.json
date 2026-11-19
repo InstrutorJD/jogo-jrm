@@ -1,0 +1,75 @@
+{
+  "ano": "2º ano",
+  "materia": "Sociologia",
+  "enigmas": [
+    {
+      "pergunta": "Desigualdade social envolve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Distribuição desigual de oportunidades e recursos"
+        },
+        {
+          "id": "B",
+          "texto": "Diferenças apenas climáticas"
+        },
+        {
+          "id": "C",
+          "texto": "Ausência de relações sociais"
+        },
+        {
+          "id": "D",
+          "texto": "Igualdade automática de renda"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A desigualdade aparece no acesso diferente a renda, serviços e oportunidades."
+    },
+    {
+      "pergunta": "Estratificação social descreve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Camadas sociais com posições diferentes"
+        },
+        {
+          "id": "B",
+          "texto": "A divisão das células"
+        },
+        {
+          "id": "C",
+          "texto": "A formação de rochas"
+        },
+        {
+          "id": "D",
+          "texto": "A circulação atmosférica"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A estratificação organiza grupos em posições sociais desiguais."
+    },
+    {
+      "pergunta": "Qual é um exemplo de instituição social?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Escola"
+        },
+        {
+          "id": "B",
+          "texto": "Montanha"
+        },
+        {
+          "id": "C",
+          "texto": "Oceano"
+        },
+        {
+          "id": "D",
+          "texto": "Cometa"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A escola é uma instituição que organiza processos de educação e socialização."
+    }
+  ]
+}

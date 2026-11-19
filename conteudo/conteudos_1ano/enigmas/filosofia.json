@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Filosofia",
+  "enigmas": [
+    {
+      "pergunta": "A Filosofia busca principalmente:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Aceitar toda opinião sem questionar"
+        },
+        {
+          "id": "B",
+          "texto": "Investigar questões por reflexão e argumentos"
+        },
+        {
+          "id": "C",
+          "texto": "Substituir todas as ciências"
+        },
+        {
+          "id": "D",
+          "texto": "Evitar perguntas difíceis"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A Filosofia estimula a reflexão crítica e a argumentação."
+    },
+    {
+      "pergunta": "Uma explicação baseada em argumentos e investigação racional se aproxima do:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Pensamento racional"
+        },
+        {
+          "id": "B",
+          "texto": "Mito exclusivamente"
+        },
+        {
+          "id": "C",
+          "texto": "Boato"
+        },
+        {
+          "id": "D",
+          "texto": "Preconceito"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A razão procura justificar ideias por meio de argumentos."
+    },
+    {
+      "pergunta": "O método associado a Sócrates valorizava:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "O diálogo e o questionamento"
+        },
+        {
+          "id": "B",
+          "texto": "A força militar"
+        },
+        {
+          "id": "C",
+          "texto": "A memorização sem reflexão"
+        },
+        {
+          "id": "D",
+          "texto": "A riqueza material"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Sócrates utilizava perguntas para examinar ideias e estimular a reflexão."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Geografia",
+  "enigmas": [
+    {
+      "pergunta": "Qual elemento do mapa explica o significado dos símbolos?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Legenda"
+        },
+        {
+          "id": "B",
+          "texto": "Título de eleitor"
+        },
+        {
+          "id": "C",
+          "texto": "Escala musical"
+        },
+        {
+          "id": "D",
+          "texto": "Bússola digital"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A legenda informa o significado das cores e dos símbolos do mapa."
+    },
+    {
+      "pergunta": "A latitude é medida a partir de qual linha?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Meridiano de Greenwich"
+        },
+        {
+          "id": "B",
+          "texto": "Linha do Equador"
+        },
+        {
+          "id": "C",
+          "texto": "Trópico de Capricórnio"
+        },
+        {
+          "id": "D",
+          "texto": "Círculo Polar Ártico"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A Linha do Equador é a referência para medir a latitude."
+    },
+    {
+      "pergunta": "Clima representa:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "A condição do tempo em uma hora"
+        },
+        {
+          "id": "B",
+          "texto": "A média das condições atmosféricas por longos períodos"
+        },
+        {
+          "id": "C",
+          "texto": "Apenas a quantidade de chuva de um dia"
+        },
+        {
+          "id": "D",
+          "texto": "Somente a temperatura noturna"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Clima é observado por séries longas de dados atmosféricos."
+    }
+  ]
+}

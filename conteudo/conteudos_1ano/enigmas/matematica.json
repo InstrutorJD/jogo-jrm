@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "Matemática",
+  "enigmas": [
+    {
+      "pergunta": "Qual número é natural na convenção que inclui o zero?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "-3"
+        },
+        {
+          "id": "B",
+          "texto": "0"
+        },
+        {
+          "id": "C",
+          "texto": "1,5"
+        },
+        {
+          "id": "D",
+          "texto": "-1"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "O zero e os inteiros positivos pertencem aos naturais nessa convenção."
+    },
+    {
+      "pergunta": "Qual é a solução de 2x + 4 = 10?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "2"
+        },
+        {
+          "id": "B",
+          "texto": "3"
+        },
+        {
+          "id": "C",
+          "texto": "4"
+        },
+        {
+          "id": "D",
+          "texto": "7"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Subtraindo 4, temos 2x=6; dividindo por 2, x=3."
+    },
+    {
+      "pergunta": "Se f(x)=2x+1, quanto vale f(3)?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "5"
+        },
+        {
+          "id": "B",
+          "texto": "6"
+        },
+        {
+          "id": "C",
+          "texto": "7"
+        },
+        {
+          "id": "D",
+          "texto": "8"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "Substituindo x por 3: 2·3+1=7."
+    }
+  ]
+}

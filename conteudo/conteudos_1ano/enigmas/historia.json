@@ -1,0 +1,75 @@
+{
+  "ano": "1º ano",
+  "materia": "História",
+  "enigmas": [
+    {
+      "pergunta": "Qual fonte é muito usada para estudar a Pré-História?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Mensagens digitais"
+        },
+        {
+          "id": "B",
+          "texto": "Vestígios arqueológicos"
+        },
+        {
+          "id": "C",
+          "texto": "Jornais modernos"
+        },
+        {
+          "id": "D",
+          "texto": "Registros de televisão"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Ferramentas, pinturas e fósseis são vestígios arqueológicos importantes."
+    },
+    {
+      "pergunta": "A Mesopotâmia desenvolveu-se entre quais rios?",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Nilo e Jordão"
+        },
+        {
+          "id": "B",
+          "texto": "Tigre e Eufrates"
+        },
+        {
+          "id": "C",
+          "texto": "Amazonas e Paraná"
+        },
+        {
+          "id": "D",
+          "texto": "Indo e Ganges"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "A região mesopotâmica ficava entre os rios Tigre e Eufrates."
+    },
+    {
+      "pergunta": "A Grécia Antiga era organizada em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Estados nacionais unificados"
+        },
+        {
+          "id": "B",
+          "texto": "Cidades-Estado"
+        },
+        {
+          "id": "C",
+          "texto": "Províncias romanas"
+        },
+        {
+          "id": "D",
+          "texto": "Feudos medievais"
+        }
+      ],
+      "resposta_correta": "B",
+      "explicacao": "Atenas e Esparta são exemplos de cidades-Estado gregas."
+    }
+  ]
+}

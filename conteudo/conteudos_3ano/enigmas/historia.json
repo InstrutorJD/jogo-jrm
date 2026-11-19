@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "História",
+  "enigmas": [
+    {
+      "pergunta": "Uma transformação central da Revolução Industrial foi:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Expansão das fábricas e mecanização"
+        },
+        {
+          "id": "B",
+          "texto": "Fim das máquinas"
+        },
+        {
+          "id": "C",
+          "texto": "Retorno geral ao feudalismo"
+        },
+        {
+          "id": "D",
+          "texto": "Desaparecimento das cidades"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "A mecanização e o sistema fabril transformaram a produção e o trabalho."
+    },
+    {
+      "pergunta": "A Segunda Guerra Mundial terminou em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1918"
+        },
+        {
+          "id": "B",
+          "texto": "1939"
+        },
+        {
+          "id": "C",
+          "texto": "1945"
+        },
+        {
+          "id": "D",
+          "texto": "1964"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "A guerra terminou em 1945, após a rendição das potências do Eixo."
+    },
+    {
+      "pergunta": "A ditadura militar no Brasil teve início em:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "1889"
+        },
+        {
+          "id": "B",
+          "texto": "1930"
+        },
+        {
+          "id": "C",
+          "texto": "1964"
+        },
+        {
+          "id": "D",
+          "texto": "1988"
+        }
+      ],
+      "resposta_correta": "C",
+      "explicacao": "O golpe de 1964 iniciou o regime militar, que terminou em 1985."
+    }
+  ]
+}

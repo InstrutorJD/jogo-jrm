@@ -1,0 +1,75 @@
+{
+  "ano": "3º ano",
+  "materia": "Sociologia",
+  "enigmas": [
+    {
+      "pergunta": "Cidadania envolve:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Direitos, deveres e participação"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas consumo"
+        },
+        {
+          "id": "C",
+          "texto": "Ausência de responsabilidades"
+        },
+        {
+          "id": "D",
+          "texto": "Somente nacionalidade formal"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Cidadania combina direitos, deveres e participação social e política."
+    },
+    {
+      "pergunta": "A tecnologia pode transformar o trabalho ao:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Criar e modificar ocupações"
+        },
+        {
+          "id": "B",
+          "texto": "Impedir qualquer mudança"
+        },
+        {
+          "id": "C",
+          "texto": "Eliminar toda necessidade de qualificação"
+        },
+        {
+          "id": "D",
+          "texto": "Tornar todas as profissões idênticas"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Novas tecnologias alteram tarefas, profissões e qualificações exigidas."
+    },
+    {
+      "pergunta": "Movimentos sociais são:",
+      "alternativas": [
+        {
+          "id": "A",
+          "texto": "Ações coletivas por demandas e direitos"
+        },
+        {
+          "id": "B",
+          "texto": "Apenas decisões individuais"
+        },
+        {
+          "id": "C",
+          "texto": "Fenômenos climáticos"
+        },
+        {
+          "id": "D",
+          "texto": "Tipos de empresa"
+        }
+      ],
+      "resposta_correta": "A",
+      "explicacao": "Movimentos sociais organizam pessoas em torno de causas e reivindicações."
+    }
+  ]
+}
