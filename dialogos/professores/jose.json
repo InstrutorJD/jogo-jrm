@@ -1,0 +1,12 @@
+{
+  "nome": "Seu Zé",
+  "conversas": [
+    ["Bom dia alunos, today were going to have a english class"],
+    ["Class, today we ill have a exam"],
+    {
+      "_comentario": "Se o aluno faltar algum dia, o professor pode enviar uma mensagem para o aluno perguntando o motivo da falta."
+    },
+    ["Bom dia! Por que você não veio para á escola?"],
+    ["Você já está se sentindo melhor?"]
+  ]
+}

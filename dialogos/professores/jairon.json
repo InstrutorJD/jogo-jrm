@@ -1,0 +1,13 @@
+{
+  "nome": "Jairon",
+  "conversas": [
+    ["Fala, meu nobre. Tudo Bom?"],
+    ["Como foi o final de semana? {aluno}"],
+    ["Já fez commit? {nome}"],
+    ["Pode pegar os chromebooks, {nome}"],
+    ["Vai ser conteudo por escrito hoje"],
+    ["Hoje não"]
+  ],
+  "_comentario": "Se o aluno quiser pegar o patinete"
+}
+
