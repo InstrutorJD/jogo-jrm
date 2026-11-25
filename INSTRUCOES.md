@@ -11,7 +11,7 @@
   > Maycon\
   > Leon\
   > Iago\
-  > Thiago
+  > Tiago
 
 - Personagens
   > João\
@@ -27,11 +27,10 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 | Chão do mapa (grama, terra, cimento) | `sprites/tiles/` | PNG 64 × 64 |
 | Personagem | `sprites/personagens/` | PNG 448 × 64 (7 frames de 64 × 64) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
-| Falas de um personagem | `dialogos/` | JSON |
-| Conteúdo das aulas e enigmas | `conteudos_1ano/enigmas`, `conteudos_2ano/enigmas`, `conteudos_3ano/enigmas` | MD ou JSON |
+| Falas de um personagem | `dialogos/professores/` ou `dialogos/coordenacao/` | JSON |
+| Conteúdo das aulas e enigmas | `conteudo/conteudos_1ano/`, `conteudo/conteudos_2ano/`, `conteudo/conteudos_3ano/` (enigmas em `enigmas/`) | JSON |
 
-**Como entregar:** entregue o arquivo ao professor. Ele passa tudo pelo verificador e coloca na pasta certa.
-Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
+**Como entregar:** coloque cada arquivo na pasta indicada na tabela acima e entregue ao professor. Ele passa tudo pelo verificador. Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
 
 ---
 
@@ -126,21 +125,28 @@ Na entrega: `seu-nome_jogador.png`.
 | Pasta | O que vai | Tamanho máximo |
 |---|---|---|
 | `sons/musicas/` | música de fundo, em loop (ex.: `bloco-a.ogg`) | 5 MB |
-| `sons/efeitos/` | sons curtos: `passo`, `dialogo`, `portao`… | 300 KB |
+| `sons/efeitos/` | sons curtos: `passo` em `sons/efeitos/passos, `dialogo` em `sons/efeitos/dialogo`, `portao` em `sons/efeitos/portas` … | 300 KB |
 
 **Regras:**
 1. Entregue **duas cópias** de cada som: **.ogg** e **.mp3**, com o mesmo nome (`passo.ogg` + `passo.mp3`). O iPhone não toca .ogg.
-2. **Não entregue .wav**: é pesado demais para o site. Para converter, use o Audacity (Arquivo → Exportar).
-3. Efeitos devem ser **curtos**, com menos de 1 segundo. A música precisa **emendar** no fim para repetir sem corte.
-   Na entrega, ponha **musica** no nome de uma música (`seu-nome_musica-bloco-a.ogg`). Assim ela não é confundida com um efeito.
-4. **Só use sons feitos por você ou com licença livre** (por exemplo, CC0). Junto com o arquivo, informe **de onde veio** e **quem fez**, para registrar no `sons/LEIA-ME.md`.
+2. Coloque cada arquivo na pasta correspondente: músicas em `sons/musicas/` e efeitos sonoros em `sons/efeitos/`. Não misture os dois tipos.
+3. **Não entregue .wav**: é pesado demais para o site. Para converter, use o Audacity (Arquivo → Exportar).
+4. Efeitos devem ser **curtos**, com menos de 1 segundo. A música precisa **emendar** no fim para repetir sem corte.
+   Ponha **musica** no nome de uma música (`seu-nome_musica-bloco-a.ogg`). Assim ela não é confundida com um efeito.
+5. **Só use sons feitos por você ou com licença livre** (por exemplo, CC0). Junto com o arquivo, informe **de onde veio** e **quem fez**, para registrar no `sons/LEIA-ME.md`.
 
 ---
 
 ## 4. Diálogos — `dialogos/`
 
-Cada personagem tem um arquivo **.json** com o **id** dele no nome (`teo.json`, `cida.json`…).
-Veja a lista de ids na seção de Personagens.
+Organize cada arquivo **.json** na subpasta do grupo do personagem:
+
+| Pasta | Quem fica nela |
+|---|---|
+| `dialogos/professores/` | professores |
+| `dialogos/coordenacao/` | equipe da coordenação |
+
+O nome do arquivo deve ser o **id** do personagem (`teo.json`, `cida.json`…). Veja a lista de ids na seção de Personagens. Por exemplo: `dialogos/professores/<id>.json` ou `dialogos/coordenacao/seuZe.json`.
 
 ```json
 {
@@ -171,7 +177,7 @@ Veja a lista de ids na seção de Personagens.
 4. Para testar, cole o arquivo em um validador de JSON (por exemplo, jsonlint.com) antes de entregar.
 5. A fala precisa combinar com o personagem e com a escola, e não pode ter ofensa nem piada com colegas.
 
-Na entrega: `seu-nome_teo.json`.
+Na entrega, comece o nome do arquivo com o seu nome, por exemplo `seu-nome_seuZe.json`. Ao organizar os arquivos do jogo, deixe apenas o id no nome e coloque-o na subpasta correspondente, por exemplo `dialogos/coordenacao/seuZe.json`.
 
 ---
 
@@ -204,6 +210,5 @@ Na entrega: `seu-nome_tema-da-aula.md` ou `seu-nome_enigma-materia.json`.
 - [ ] É do tamanho certo? (tile 64 × 64 · personagem 448 × 64, 7 frames de 64 × 64)
 - [ ] Exportei em **Scale 1x**?
 - [ ] Entreguei o **.piskel** junto com o PNG?
-- [ ] Som: mandei o **.ogg** e o **.mp3**, e informei a fonte?
 - [ ] Diálogo: o JSON passou no validador?
 - [ ] Conteúdo: está na pasta da série certa (`conteudos_1ano`, `2ano`...) e no formato (json) correto? 
