@@ -1,0 +1,13 @@
+{
+  "nome": "Vanessa",
+  "conversas": [
+    ["Eae gente, bora pra quadra?"],
+    ["Só sobe pra quadra quem fez as atividades"],
+    ["Hoje vou passar conteúdo"],
+    {
+      "_comentario": "Caso o aluno nao participe das atividades na quadra"
+    },
+    ["Bora jogar com os outros bora!"],
+    ["Larga de canseira, {nome}"]
+  ]
+}
