@@ -11,7 +11,7 @@
   > Maycon\
   > Leon\
   > Iago\
-  > Thiago
+  > Tiago
 
 - Personagens
   > João\
