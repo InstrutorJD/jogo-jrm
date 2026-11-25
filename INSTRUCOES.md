@@ -206,6 +206,5 @@ Na entrega: `seu-nome_tema-da-aula.md` ou `seu-nome_enigma-materia.json`.
 - [ ] É do tamanho certo? (tile 64 × 64 · personagem 64 x 64)
 - [ ] Exportei em **Scale 1x**?
 - [ ] Entreguei o **.piskel** junto com o PNG?
-- [ ] Som: mandei o **.ogg** e o **.mp3**, e informei a fonte?
 - [ ] Diálogo: o JSON passou no validador?
 - [ ] Conteúdo: está na pasta da série certa (`conteudos_1ano`, `2ano`...) e no formato (json) correto? 
