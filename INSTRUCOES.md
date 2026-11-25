@@ -127,7 +127,7 @@ Na entrega: `seu-nome_jogador.png`.
 | Pasta | O que vai | Tamanho máximo |
 |---|---|---|
 | `sons/musicas/` | música de fundo, em loop (ex.: `bloco-a.ogg`) | 5 MB |
-| `sons/efeitos/` | sons curtos: `passo`, `dialogo`, `portao`… | 300 KB |
+| `sons/efeitos/` | sons curtos: `passo` em `sons/efeitos/passos, `dialogo` em `sons/efeitos/dialogo`, `portao` em `sons/efeitos/portas` … | 300 KB |
 
 **Regras:**
 1. Entregue **duas cópias** de cada som: **.ogg** e **.mp3**, com o mesmo nome (`passo.ogg` + `passo.mp3`). O iPhone não toca .ogg.
@@ -177,26 +177,26 @@ Na entrega: `seu-nome_teo.json`.
 
 ---
 
-## 5. Conteúdos — `conteudo/conteudos_1ano/`, `conteudo/conteudos_2ano/`, `conteudo/conteudos_3ano/`
+## 5. Conteúdos — `conteudos_1ano/`, `conteudos_2ano/`, `conteudos_3ano/`
 
-Cada série tem a sua própria pasta dentro de `conteudo/` para guardar matérias e revisões. Os enigmas ficam na subpasta `enigmas/` de cada série:
+Cada série tem a sua própria pasta para guardar os resumos das aulas, dicas e enigmas que vão aparecer no jogo:
 
 | Pasta | O que vai |
 |---|---|
-| `conteudo/conteudos_1ano/` e `conteudo/conteudos_1ano/enigmas/` | matérias e revisões do 1º ano; enigmas na subpasta |
-| `conteudo/conteudos_2ano/` e `conteudo/conteudos_2ano/enigmas/` | matérias e revisões do 2º ano; enigmas na subpasta |
-| `conteudo/conteudos_3ano/` e `conteudo/conteudos_3ano/enigmas/` | matérias e revisões do 3º ano; enigmas na subpasta |
+| `conteudos_1ano/` | matérias, revisões e enigmas do 1º ano |
+| `conteudos_2ano/` | matérias, revisões e enigmas do 2º ano |
+| `conteudos_3ano/` | matérias, revisões e enigmas do 3º ano |
 
-*(Caso existam outras turmas, siga a mesma progressão dentro de `conteudo/`: `conteudo/conteudos_4ano/`, etc.)*
+*(Caso existam outras turmas, siga a mesma progressão: `conteudos_4ano/`, etc.)*
 
 **Regras:**
 1. **Separe por série:** coloque o arquivo na pasta correspondente ao ano daquela matéria. Não misture conteúdos de séries diferentes no mesmo arquivo.
-2. **Formato do arquivo:** use **`.json`** para matérias, revisões e enigmas, seguindo o formato dos arquivos já existentes nessa pasta.
+2. **Formato do arquivo:** use **`.md`** (ou `.txt`) para textos e explicações, e **`.json`** para perguntas, quizzes e enigmas (seguindo as mesmas regras de aspas e vírgulas da seção de Diálogos).
 3. **Textos curtos e objetivos:** adapte o conteúdo para a leitura dentro do jogo, evitando blocos gigantes de texto.
 4. **Revise antes de enviar:** confira se as informações e os gabaritos dos enigmas estão corretos e sem erros de português.
 5. **Informe a fonte:** se basear o conteúdo em algum livro, apostila ou site, registre a referência no final do arquivo.
 
-Na entrega: matéria ou revisão em `conteudo/conteudos_1ano/`, `conteudo/conteudos_2ano/` ou `conteudo/conteudos_3ano/`, com nome como `seu-nome_tema-da-aula.json`; enigma na subpasta `enigmas/`, com nome como `seu-nome_enigma-materia.json`.
+Na entrega: `seu-nome_tema-da-aula.md` ou `seu-nome_enigma-materia.json`.
 
 ---
 
@@ -207,4 +207,4 @@ Na entrega: matéria ou revisão em `conteudo/conteudos_1ano/`, `conteudo/conteu
 - [ ] Exportei em **Scale 1x**?
 - [ ] Entreguei o **.piskel** junto com o PNG?
 - [ ] Diálogo: o JSON passou no validador?
-- [ ] Conteúdo: está na pasta da série certa (`conteudo/conteudos_1ano/`, `conteudo/conteudos_2ano/` ou `conteudo/conteudos_3ano/`) e no formato `.json` correto?
+- [ ] Conteúdo: está na pasta da série certa (`conteudos_1ano`, `2ano`...) e no formato (json) correto? 
