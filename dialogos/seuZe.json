@@ -2,7 +2,7 @@
   "nome": "Seu Zé",
   "conversas": [
     ["Fala, {nome}. Tudo Bom?"],
-    ["Como foi o final de semana? {aluno}"],
+    ["Como foi o final de semana? {estudante}"],
     ["Bom estudo, {nome}!"],
     ["Fala! {nome}, tudo bacana?"],
     ["São {horario}"],

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vila Pixel</title>
+  <title>CEPI JRM</title>
   <style>
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
@@ -19,6 +19,14 @@
       font-size: 14px; font-weight: bold; letter-spacing: 1px;
     }
 
+    /* relógio do jogo: dia e hora, no alto, no meio */
+    #hudRelogio {
+      position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 5;
+      padding: 4px 14px; background: rgba(42, 29, 26, .75); border: 2px solid #2a1d1a;
+      font-size: 16px; font-weight: bold; letter-spacing: 1px; color: #f6d34a;
+    }
+    #hudRelogio:empty { display: none; }
+
     /* botão de som no canto */
     #hudSom {
       position: fixed; top: 12px; right: 12px; z-index: 5;
@@ -30,16 +38,35 @@
       padding: 2px 8px; background: rgba(42, 29, 26, .6); pointer-events: none;
     }
 
-    /* menu: tela inicial, pausa e aulas */
-    #menu {
+    /* menu (pausa e aulas) e cadastro (tela inicial: nome e série) */
+    #menu, #cadastro {
       position: fixed; inset: 0; z-index: 11; padding: 16px;
       display: flex; align-items: center; justify-content: center; background: rgba(18, 12, 11, .72);
     }
-    #menuCaixa {
+    #menuCaixa, #cadastroCaixa {
       width: min(620px, 100%); max-height: calc(100% - 16px); overflow-y: auto;
       padding: 18px 20px; background: #fff8e7; color: #2a1d1a;
       border: 4px solid #2a1d1a; box-shadow: 0 0 0 3px #c9a26b;
     }
+    #cadastroCaixa { width: min(460px, 100%); display: flex; flex-direction: column; gap: 10px; }
+    #cadastroTitulo { font-size: 26px; font-weight: bold; color: #b5473a; }
+    #cadastroSub { font-size: 14px; margin-top: -8px; margin-bottom: 6px; }
+    #cadastroCaixa label, #cadastroRotuloSerie { font-size: 16px; font-weight: bold; }
+    #cadastroNome {
+      font: inherit; font-size: 18px; padding: 8px 10px; color: #2a1d1a; background: #fff;
+      border: 3px solid #2a1d1a; outline: none;
+    }
+    #cadastroNome:focus { box-shadow: 0 0 0 3px #f6d34a; }
+    #cadastroSeries { display: flex; gap: 8px; }
+    #cadastroSeries button, #cadastroOk {
+      font: inherit; font-size: 16px; cursor: pointer; padding: 8px 12px;
+      background: #e8d3a8; color: #2a1d1a; border: 3px solid #2a1d1a;
+    }
+    #cadastroSeries button { flex: 1; }
+    #cadastroSeries button[aria-checked="true"] { background: #f6d34a; font-weight: bold; }
+    #cadastroSeries button:focus-visible, #cadastroOk:focus-visible { outline: 3px solid #b5473a; outline-offset: 1px; }
+    #cadastroOk { margin-top: 6px; font-weight: bold; background: #f6d34a; }
+    #cadastroErro { color: #b5473a; font-size: 14px; font-weight: bold; }
     #menuTitulo { font-size: 22px; font-weight: bold; color: #b5473a; margin-bottom: 10px; }
     #menuTexto { font-size: 17px; line-height: 1.45; white-space: pre-wrap; margin-bottom: 14px; }
     #menuOpcoes { display: flex; flex-direction: column; gap: 6px; }
@@ -65,22 +92,25 @@
       100% { opacity: 0; transform: translate(-50%, 0); }
     }
 
-    /* caixa de diálogo */
+    /* balão de fala: fica em cima da cabeça de quem fala (o motor.js posiciona).
+       --cauda = onde fica a pontinha do balão; .embaixo = sem espaço em cima, vai para baixo do NPC */
     #dialogo {
-      position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 7;
-      width: min(760px, calc(100% - 32px)); min-height: 110px;
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 14px 16px; background: #fff8e7; color: #2a1d1a;
-      border: 4px solid #2a1d1a; box-shadow: 0 0 0 3px #c9a26b; cursor: pointer; user-select: none;
+      position: fixed; left: 0; top: 0; z-index: 7; box-sizing: border-box;
+      max-width: min(340px, calc(100% - 16px)); padding: 8px 12px 14px;
+      background: #fff8e7; color: #2a1d1a; border: 3px solid #2a1d1a; border-radius: 10px;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, .3); cursor: pointer; user-select: none;
     }
-    #dialogoRetrato {
-      width: 64px; height: 64px; flex: none; image-rendering: pixelated;
-      background: #e8d3a8; border: 3px solid #2a1d1a;
+    #dialogo::before, #dialogo::after {
+      content: ''; position: absolute; left: var(--cauda, 50%); transform: translateX(-50%);
+      width: 0; height: 0; border-style: solid; border-color: transparent;
     }
-    #dialogoCorpo { flex: 1; min-width: 0; }
-    #dialogoNome { font-weight: bold; color: #b5473a; margin-bottom: 6px; font-size: 16px; }
-    #dialogoTexto { font-size: 17px; line-height: 1.4; white-space: pre-wrap; }
-    #dialogoSeta { position: absolute; right: 14px; bottom: 8px; animation: pisca .8s steps(2) infinite; }
+    #dialogo::before { bottom: -14px; border-width: 14px 10px 0; border-top-color: #2a1d1a; }
+    #dialogo::after { bottom: -9px; border-width: 10px 7px 0; border-top-color: #fff8e7; }
+    #dialogo.embaixo::before { bottom: auto; top: -14px; border-width: 0 10px 14px; border-color: transparent transparent #2a1d1a; }
+    #dialogo.embaixo::after { bottom: auto; top: -9px; border-width: 0 7px 10px; border-color: transparent transparent #fff8e7; }
+    #dialogoNome { font-weight: bold; color: #b5473a; margin-bottom: 2px; font-size: 13px; }
+    #dialogoTexto { font-size: 15px; line-height: 1.35; white-space: pre-wrap; }
+    #dialogoSeta { position: absolute; right: 7px; bottom: 1px; font-size: 11px; animation: pisca .8s steps(2) infinite; }
     @keyframes pisca { 50% { opacity: 0; } }
 
     /* tela de carregamento */
@@ -95,8 +125,7 @@
     #carregandoFrase { font-size: 16px; line-height: 1.45; }
 
     @media (max-width: 520px) {
-      #dialogoRetrato { width: 44px; height: 44px; }
-      #dialogoTexto { font-size: 15px; }
+      #dialogoTexto { font-size: 14px; }
       #faixaNome { font-size: 20px; }
     }
   </style>
@@ -105,8 +134,27 @@
   <div id="jogo"></div>
 
   <div id="hudBloco"></div>
+  <div id="hudRelogio"></div>
   <button id="hudSom" type="button" title="Desligar o som (M)">🔊</button>
-  <div id="hudAjuda">ESC pausa · M som</div>
+  <div id="hudAjuda">ESC pausa · M som · T tempo · G grade</div>
+
+  <!-- tela inicial: nome (os NPCs chamam o estudante por ele) e série (aulas) -->
+  <div id="cadastro" hidden>
+    <form id="cadastroCaixa" autocomplete="off" novalidate>
+      <div id="cadastroTitulo">CEPI JRM</div>
+      <div id="cadastroSub">CEPI João Roberto Moreira</div>
+      <label for="cadastroNome">Qual é o seu nome?</label>
+      <input id="cadastroNome" type="text" maxlength="20" placeholder="Digite seu nome" spellcheck="false">
+      <div id="cadastroRotuloSerie">Qual é a sua série?</div>
+      <div id="cadastroSeries" role="radiogroup" aria-labelledby="cadastroRotuloSerie">
+        <button type="button" role="radio" aria-checked="false" data-serie="1">1º ano</button>
+        <button type="button" role="radio" aria-checked="false" data-serie="2">2º ano</button>
+        <button type="button" role="radio" aria-checked="false" data-serie="3">3º ano</button>
+      </div>
+      <div id="cadastroErro" role="alert" hidden></div>
+      <button id="cadastroOk" type="submit">▶ Começar</button>
+    </form>
+  </div>
 
   <div id="menu" hidden>
     <div id="menuCaixa" role="dialog" aria-modal="true">
@@ -122,11 +170,8 @@
   </div>
 
   <div id="dialogo" hidden>
-    <canvas id="dialogoRetrato" width="64" height="64"></canvas>
-    <div id="dialogoCorpo">
-      <div id="dialogoNome"></div>
-      <div id="dialogoTexto"></div>
-    </div>
+    <div id="dialogoNome"></div>
+    <div id="dialogoTexto"></div>
     <span id="dialogoSeta" hidden>▼</span>
   </div>
 

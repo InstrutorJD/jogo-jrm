@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Vila Pixel — confere as entregas dos alunos contra o INSTRUCOES.md e corrige
+// CEPI JRM — confere as entregas dos alunos contra o INSTRUCOES.md e corrige
 // o que dá para corrigir SEM PERDER QUALIDADE.
 //
 // Uso:   node ferramentas/verificar-tiles.js [pasta]      entregas (padrão: entregas/)
@@ -8,14 +8,14 @@
 //
 // Entregas: coloque na pasta o que os alunos mandaram (pode ter subpastas por
 // turma/aluno). Nome pedido no INSTRUCOES.md: seu-nome_item.ext
-//   tiles        seu-nome_grama.png / .piskel        32x32
-//   personagens  seu-nome_teo.png / .piskel          224x32 (7 frames de 32x32)
+//   tiles        seu-nome_grama.png / .piskel        64x64
+//   personagens  seu-nome_teo.png / .piskel          448x64 (7 frames de 64x64)
 //   diálogos     seu-nome_teo.json
 //   sons         seu-nome_passo.ogg + .mp3           (músicas: ponha "musica" no nome ou na pasta)
 //
 // Correções automáticas (todas sem perda): escala 2x/4x, frames em grade ou
-// com células vazias, PNG dentro do .piskel, nome do arquivo, tamanho antigo
-// 16x16 (ampliado 2x, com aviso), JSON com vírgula sobrando ou aspas curvas,
+// com células vazias, PNG dentro do .piskel, nome do arquivo, tamanhos antigos
+// 32x32 e 16x16 (ampliados 2x/4x, com aviso), JSON com vírgula sobrando ou aspas curvas,
 // extensão de áudio trocada. O que exigiria perder qualidade (encolher um
 // desenho, converter áudio) vai para "refazer".
 //
@@ -26,8 +26,9 @@
 // (sprites/tiles/, sprites/personagens/, dialogos/, sons/...).
 const fs = require('fs'), path = require('path'), zlib = require('zlib');
 
-const TAM = 32;                                      // lado de um tile / frame (px)
-const TAM_ANTIGO = 16;                               // tamanho anterior, ainda aceito (ampliado 2x)
+const TAM = 64;                                      // lado de um tile / frame (px)
+const TAM_ANTIGO = 16;                               // menor tamanho antigo aceito (ampliado 4x)
+const TAMANHOS = [TAM, 32, 16];                      // atual e antigos (32 e 16 são ampliados sem perda)
 const QUADROS_PERSONAGEM = 7;
 const ROTULOS = ['baixo parado', 'baixo passo A', 'cima parado', 'cima passo A', 'direita parado', 'direita passo A', 'direita passo B'];
 // Tiles de chão aceitos e outros nomes que os alunos podem usar para eles.
@@ -232,25 +233,32 @@ const novoResultado = () => ({ correcoes: [], avisos: [], erro: null });
 
 // Tamanho e escala, comum a tiles e personagens.
 //  - exportado com Scale 2x/4x → reduz (cada bloco tem uma cor só: sem perda)
-//  - feito no tamanho antigo (base 16) → amplia 2x (sem perda, mas com aviso)
+//  - feito num tamanho antigo (base 32 ou 16) → amplia 2x/4x (sem perda, mas com aviso)
 function prepararImagem(img, r) {
   const orig = `${img.w}×${img.h}`;
   if (img.w % TAM_ANTIGO || img.h % TAM_ANTIGO) { r.erro = `tamanho ${orig}: cada frame precisa ter ${TAM}×${TAM} (Resize no Piskel)`; return null; }
-  for (let s = mdc(img.w, img.h) / TAM; s > 1; s--) {
-    if (Number.isInteger(s) && img.w % (TAM * s) === 0 && img.h % (TAM * s) === 0 && ehAmpliado(img, s)) {
-      img = reduzir(img, s);
-      r.correcoes.push(`exportado em escala ${s}x (${orig}): reduzido para 1x — nenhum pixel do desenho foi perdido`);
-      break;
+  // Tenta reduzir para frames de 64; se não der, de 32; se não der, de 16.
+  // Já em múltiplos de 64: só reduz se continuar em 64 (um 64 desenhado com blocos de 2 px está certo).
+  const bases = img.w % TAM || img.h % TAM ? TAMANHOS : [TAM];
+  reduz: for (const base of bases) {
+    if (img.w % base || img.h % base) continue;
+    for (let s = Math.floor(mdc(img.w, img.h) / base); s > 1; s--) {
+      if (img.w % (base * s) === 0 && img.h % (base * s) === 0 && ehAmpliado(img, s)) {
+        img = reduzir(img, s);
+        r.correcoes.push(`exportado em escala ${s}x (${orig}): reduzido para 1x — nenhum pixel do desenho foi perdido`);
+        break reduz;
+      }
     }
   }
   if (img.w % TAM || img.h % TAM) {
-    img = ampliar(img, TAM / TAM_ANTIGO);
-    r.avisos.push(`feito no tamanho antigo (frames de ${TAM_ANTIGO}×${TAM_ANTIGO}): ampliado 2x sem perder nada, mas os pixels ficam maiores que os dos outros — se der, peça para redesenhar em ${TAM}×${TAM}`);
+    const f = [2, 4].find(f => (img.w * f) % TAM === 0 && (img.h * f) % TAM === 0);
+    img = ampliar(img, f);
+    r.avisos.push(`feito no tamanho antigo (frames de ${TAM / f}×${TAM / f}): ampliado ${f}x sem perder nada, mas os pixels ficam maiores que os dos outros — se der, peça para redesenhar em ${TAM}×${TAM}`);
   }
   return img;
 }
 
-// ---------- tile de chão: 32×32, 1 frame, opaco, emendando ----------
+// ---------- tile de chão: 64×64, 1 frame, opaco, emendando ----------
 function verificarTile(entrada) {
   const r = novoResultado();
   let img = entrada.img;
@@ -274,7 +282,7 @@ function verificarTile(entrada) {
   return r;
 }
 
-// ---------- personagem: 7 frames de 32×32 numa linha (224×32) ----------
+// ---------- personagem: 7 frames de 64×64 numa linha (448×64) ----------
 function verificarPersonagem(entrada) {
   const r = novoResultado();
   let img = entrada.quadros ? juntar(entrada.quadros) : entrada.img;
@@ -287,6 +295,10 @@ function verificarPersonagem(entrada) {
     // formato completo antigo: baixo(3) esquerda(3) direita(3) cima(3)
     q = [0, 1, 9, 10, 6, 7, 8].map(i => q[i]);
     r.avisos.push('veio com 12 frames (baixo, esquerda, direita, cima): usei baixo, cima e direita, sem mexer nos desenhos — a esquerda será espelhada, confira se o personagem é simétrico');
+  } else if (q.length === 16 && cols === 4) {
+    // grade 4×4: linhas baixo, direita, cima, esquerda; colunas passo, parado, passo, parado
+    q = [1, 0, 9, 8, 5, 6, 4].map(i => q[i]);
+    r.avisos.push('veio numa grade 4×4 (baixo, direita, cima, esquerda): usei o parado e um passo de baixo e de cima e 3 quadros da direita, sem mexer nos desenhos — o 2º passo de baixo/cima e a esquerda são espelhados pelo jogo; confira se a 2ª linha olha para a direita');
   } else if (q.length !== QUADROS_PERSONAGEM) {
     r.erro = `tem ${q.length} frame(s), precisa de ${QUADROS_PERSONAGEM} (ver INSTRUCOES.md, seção Personagens)`;
     return r;
@@ -312,7 +324,7 @@ function verificarPersonagem(entrada) {
 
 // ---------- diálogo: { "nome": "...", "conversas": [["fala", ...], ...] } ----------
 // variáveis que o motor.js troca nas falas (ver VARIAVEIS no motor.js)
-const VARIAVEIS_FALA = ['nome', 'aluno', 'horario'];
+const VARIAVEIS_FALA = ['nome', 'estudante', 'aluno', 'horario', 'dia'];
 function verificarDialogo(texto, id, personagens) {
   const r = novoResultado();
   if (!personagens.has(id)) { r.erro = `não existe personagem com o id "${id}" — ids: ${[...personagens.keys()].join(', ')}`; return r; }

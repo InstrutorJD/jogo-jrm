@@ -1,4 +1,4 @@
-// Vila Pixel — motor do protótipo (Phaser 3).
+// CEPI JRM — motor do protótipo (Phaser 3).
 //
 // O mundo é dividido em BLOCOS (Bloco A, B e C), como as áreas do Stardew
 // Valley: só o bloco onde o jogador está fica montado na tela. Os dados de
@@ -14,15 +14,15 @@
 //           opcionais: fixo (não passeia), alcance (px para conversar),
 //           abre (id de um portão que ele abre ao conversar).
 //           Nas falas, {nome} vira o primeiro nome do aluno (?name= da URL).
-//   portoes: [{ id, x, y }]  portão de grade de 2 tiles, começa fechado
+//   portoes: [{ id, x, y }]  portão de grade de 2 tiles: folha esquerda fixa, a direita abre para fora; começa fechado
 //
-// Arte: tiles e quadros de 32x32. Os PNGs de sprites/ (feitos pelos alunos)
+// Arte: tiles e quadros de 64x64. Os PNGs de sprites/ (feitos pelos alunos)
 // são usados quando existem; o que falta vem do arte.js — ver carregarPng().
 window.VilaPixel = (function () {
-  const T = VilaArte.T;                        // 32
-  const LARGURA = 768, ALTURA = 432;           // área de jogo de referência (24 x 13,5 tiles)
-  const VEL_JOGADOR = 160, VEL_CORRENDO = 260, VEL_NPC = 56;
-  const DIST_CONVERSA = 44;                    // px entre os pés
+  const T = VilaArte.T;                        // 64
+  const LARGURA = 1536, ALTURA = 864;          // área de jogo de referência (24 x 13,5 tiles)
+  const VEL_JOGADOR = 320, VEL_CORRENDO = 520, VEL_NPC = 112;   // px/s
+  const DIST_CONVERSA = 88;                    // px entre os pés
 
   // Legenda do mapa → nome do tile (ver VilaArte.TILES).
   const LEGENDA = {
@@ -30,20 +30,51 @@ window.VilaPixel = (function () {
     '~': 'agua', 'F': 'cerca', 'r': 'pedra', 'R': 'telhado', 'W': 'parede',
     'w': 'janela', 'D': 'porta', 'p': 'piso', 'o': 'fonte', 'b': 'banco',
     'a': 'areia', 'x': 'ponte', 'M': 'muro', 'P': 'pilar', 'G': 'trilho',
-    'c': 'calcada', 'e': 'asfalto', 'k': 'bicicletaVermelha', 'K': 'bicicletaAzul'
+    'c': 'calcada', 'e': 'asfalto', 'z': 'faixa', 'k': 'bicicletaVermelha', 'K': 'bicicletaAzul',
+    'q': 'mesa', 'n': 'borracha', 'y': 'pneu', 'v': 'janelaVidro', 'B': 'bebedouro', 'L': 'portaLateral', 'J': 'telhadoPortaLateral', 'H': 'paredeLateral', 'h': 'telhadoLateral',
+    'i': 'borrachaCorrimao', 'I': 'borrachaCorrimaoTopo', 'C': 'ceramica', 'm': 'mesaPlastico', 'E': 'ceramicaEscura', 'Q': 'bancada', 'Y': 'ipe', 't': 'pingPong', 'f': 'pebolim', 'g': 'cimentoGasto'
   };
-  const SOLIDOS = ['arvore', 'agua', 'cerca', 'pedra', 'telhado', 'parede', 'janela', 'porta',
+  const SOLIDOS = ['telhadoPx', 'paredePx', 'portaPx', 'janelaVidroPx', 'bebedouroEscuro', 'bancadaE', 'bancadaD', 'ipe', 'pingPongE', 'pingPongD', 'pebolimE', 'pebolimD', 'portaLateral', 'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bebedouro', 'arvore', 'agua', 'cerca', 'pedra', 'telhado', 'parede', 'janela', 'porta',
     'banco', 'fonteTL', 'fonteTR', 'fonteBL', 'fonteBR', 'muro', 'pilar',
-    'bicicletaVermelha', 'bicicletaAzul'];
+    'bicicletaVermelha', 'bicicletaAzul', 'mesaTopoE', 'mesaTopoD', 'mesaMeioE', 'mesaMeioD', 'mesaBaseE', 'mesaBaseD',
+    'pneuH1', 'pneuH2', 'pneuH3', 'pneuH4', 'pneuH5', 'pneuV1', 'pneuV2', 'pneuV3', 'pneuV4', 'pneuV5',
+    'pneuHB1', 'pneuHB2', 'pneuHB3', 'pneuHB4', 'pneuHB5',
+    'pneuVE1', 'pneuVE2', 'pneuVE3', 'pneuVE4', 'pneuVE5', 'pneuHBE1', 'pneuHBE2', 'pneuHBE3', 'pneuHBE4', 'pneuHBE5'];
 
-  // Primeiro nome do aluno (o portal abre o jogo com ?name=...); vira {nome} nas falas.
+  // Nome do estudante: digitado na tela inicial (ou ?name=... da URL, quando o portal abre o jogo).
+  // O primeiro nome vira {nome} nas falas, para os NPCs chamarem o estudante por ele.
   const PARAMS = new URLSearchParams(location.search);
-  const NOME_ALUNO = (PARAMS.get('name') || '').trim().split(/\s+/)[0] || 'aluno';
+  const NOME_DA_URL = (PARAMS.get('name') || '').trim();
+  const primeiroNome = s => (s || '').trim().split(/\s+/)[0];
+  let nomeAluno = primeiroNome(NOME_DA_URL) || 'estudante';
+  // ---------- relógio e dias do jogo ----------
+  // O Dia 1 começa às 06:55, com o estudante do lado de fora. Das 07:00 às 14:00
+  // passam DURACAO_AULAS minutos reais (o relógio anda no mesmo ritmo o dia todo).
+  // Depois de entrar, só dá para sair a partir de FIM_AULAS. A partir do Dia 2, o
+  // estudante já começa dentro da escola, às INICIO_DIA.
+  // Tudo em minutos do dia (ex.: 7 * 60 = 07:00). Para na pausa (a cena fica parada).
+  const INICIO_DIA1 = 6 * 60 + 55, INICIO_DIA = 7 * 60, FIM_AULAS = 14 * 60;
+  const DURACAO_AULAS = 15;                                                  // minutos reais
+  const MINUTOS_POR_SEGUNDO = (FIM_AULAS - INICIO_DIA) / (DURACAO_AULAS * 60);
+  const relogio = { dia: 1, min: INICIO_DIA1, entrou: false, avisouSaida: false, vel: 1 };
+  // Velocidades do relógio (tecla T ou menu de pausa): só o tempo acelera, não o movimento.
+  const VELOCIDADES = [1, 2, 5, 10, 30];
+  function mudarVelocidade() {
+    relogio.vel = VELOCIDADES[(VELOCIDADES.indexOf(relogio.vel) + 1) % VELOCIDADES.length];
+    mostrarRelogio();
+  }
+  const doisDigitos = n => String(n).padStart(2, '0');
+  const hora = m => doisDigitos(Math.floor(m / 60) % 24) + ':' + doisDigitos(Math.floor(m % 60));
+  const podeSair = () => relogio.min >= FIM_AULAS;
+
   // Variáveis que podem aparecer nas falas. Uma variável desconhecida fica como está na tela.
+  // {aluno} continua valendo para as falas antigas.
   const VARIAVEIS = {
-    nome: () => NOME_ALUNO,
-    aluno: () => NOME_ALUNO,
-    horario: () => new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+    nome: () => nomeAluno,
+    estudante: () => nomeAluno,
+    aluno: () => nomeAluno,
+    horario: () => hora(relogio.min),     // hora do jogo
+    dia: () => String(relogio.dia)
   };
   const preencher = fala => fala.replace(/\{(\w+)\}/g, (m, k) => VARIAVEIS[k] ? VARIAVEIS[k]() : m);
 
@@ -145,37 +176,64 @@ window.VilaPixel = (function () {
 
   // ---------- sons ----------
   // Quando chegar a cópia .ogg, ponha ela antes da .mp3 na lista.
+  // Ordem = ordem de download: os pequenos primeiro, para os passos não esperarem as músicas.
   const SONS = {
-    menu:   { arquivos: ['sons/musicas/menu.mp3'], volume: 0.45, loop: true },
-    passos: { arquivos: ['sons/efeitos/passos.mp3'], volume: 0.3, loop: true },
-    correr: { arquivos: ['sons/efeitos/passos2.mp3'], volume: 0.3, loop: true }
+    // trecho: [início, fim] em segundos — só essa parte toca, em loop. Os arquivos de passos
+    // têm silêncio no começo (o de correr tem 6 s quase mudos), então usamos só onde há passos.
+    passos: { arquivos: ['sons/efeitos/passos.mp3'], volume: 0.5, loop: true, trecho: [0.56, 3.84] },
+    correr: { arquivos: ['sons/efeitos/passos2.mp3'], volume: 0.5, loop: true, trecho: [6.18, 7.74] },
+    errou:  { arquivos: ['sons/musicas/musicaerrouenigma.mp3'], volume: 0.5, loop: false },  // errou a pergunta
+    menu:   { arquivos: ['sons/musicas/menu.mp3'], volume: 0.45, loop: true },              // tela inicial e pausa
+    missao: { arquivos: ['sons/musicas/musicamissao.mp3'], volume: 0.35, loop: true }       // aulas do Mestre Bit
   };
   let jogo = null;
   let mudo = lembrar('vilaPixelMudo') === '1';
   const som = {
-    sons: {}, querMusica: false, passo: null,
+    sons: {}, querMusica: {}, passo: null,
     item(k) {
       if (!jogo || !jogo.cache.audio.exists(k)) return null;
-      return this.sons[k] || (this.sons[k] = jogo.sound.add(k, { loop: SONS[k].loop, volume: SONS[k].volume }));
+      if (this.sons[k]) return this.sons[k];
+      const c = SONS[k], s = this.sons[k] = jogo.sound.add(k, { loop: c.loop, volume: c.volume });
+      if (c.trecho) s.addMarker({ name: 'trecho', start: c.trecho[0], duration: c.trecho[1] - c.trecho[0],
+        config: { loop: c.loop, volume: c.volume } });
+      return s;
     },
-    musica(ligar) {
-      this.querMusica = ligar;
-      const s = this.item('menu');
+    // começa do início (ou do trecho, se o som tiver um)
+    iniciar(k, s) { return SONS[k].trecho ? s.play('trecho') : s.play(); },
+    // música em loop (menu, missao): liga/desliga; se ainda não baixou, toca quando chegar
+    musica(ligar, k = 'menu') {
+      this.querMusica[k] = ligar;
+      const s = this.item(k);
       if (!s) return;
-      if (ligar) { if (!s.isPlaying) s.play(); } else if (s.isPlaying) s.stop();
+      if (ligar) { if (!s.isPlaying && !s.isPaused) s.play(); else if (s.isPaused) s.resume(); }
+      else if (s.isPlaying || s.isPaused) s.stop();
     },
-    // tipo: 'passos' (andando), 'correr' (com SHIFT) ou null (parado)
+    // som curto, uma vez (se ainda não baixou, simplesmente não toca)
+    tocar(k) { const s = this.item(k); if (s) s.play(); },
+    parar(k) { const s = this.sons[k]; if (s && s.isPlaying) s.stop(); },
+    // pausa/retoma uma música sem voltar ao começo
+    segurar(k, sim) {
+      const s = this.sons[k];
+      if (!s) return;
+      if (sim && s.isPlaying) s.pause(); else if (!sim && s.isPaused && this.querMusica[k]) s.resume();
+    },
+    // tipo: 'passos' (andando), 'correr' (com SHIFT) ou null (parado).
+    // Ao parar, o som só pausa: na volta continua de onde estava, sem recomeçar o ritmo.
     passos(tipo) {
       if (tipo === this.passo) return;
       this.passo = tipo;
       ['passos', 'correr'].forEach(k => {
         const s = this.item(k);
         if (!s) return;
-        if (k === tipo) { if (!s.isPlaying) s.play(); } else if (s.isPlaying) s.stop();
+        if (k === tipo) { if (s.isPaused) s.resume(); else if (!s.isPlaying) this.iniciar(k, s); }
+        else if (s.isPlaying) s.pause();
       });
     },
     // chamado quando os arquivos terminam de baixar
-    carregou() { this.musica(this.querMusica); const p = this.passo; this.passo = null; this.passos(p); }
+    carregou() {
+      Object.keys(this.querMusica).forEach(k => { if (this.querMusica[k]) this.musica(true, k); });
+      const p = this.passo; this.passo = null; this.passos(p);
+    }
   };
   function alternarSom() {
     mudo = !mudo;
@@ -183,6 +241,70 @@ window.VilaPixel = (function () {
     if (jogo) jogo.sound.mute = mudo;
     ui.hudSom.textContent = mudo ? '🔇' : '🔊';
     ui.hudSom.title = mudo ? 'Ligar o som (M)' : 'Desligar o som (M)';
+  }
+
+  // ---------- grade numerada (tecla G) ----------
+  // Mostra "coluna,linha" em cada quadrado do chão — os mesmos números do mapa
+  // em blocos/<bloco>.js (coluna = posição na linha de texto, linha = qual linha,
+  // os dois começando do 0). Serve para combinar exatamente onde mudar o mapa.
+  // Também pode ligar pelo endereço: index.html?grade=1
+  // ---------- efeitos visuais (Phaser) ----------
+  // Camadas por cima da arte, para ela não ficar "chapada": sombras projetadas pelos
+  // prédios/muros/árvores, sombra embaixo dos personagens, luz do dia que muda com o
+  // relógio, sombras de nuvens passando, pétalas caindo do ipê e um acabamento de
+  // câmera (cantos escurecidos e cores mais vivas). Liga/desliga no menu de pausa
+  // (para computadores mais fracos); a escolha fica lembrada.
+  let efeitosVisuais = lembrar('vilaPixelEfeitos') !== '0';
+  function alternarEfeitos() {
+    efeitosVisuais = !efeitosVisuais;
+    guardar('vilaPixelEfeitos', efeitosVisuais ? '1' : '0');
+    const m = jogo && jogo.scene.getScene('Mundo');
+    if (m && m.efeitos) m.ligarEfeitos(efeitosVisuais);
+  }
+  // Tiles "altos", que projetam sombra no chão (o sol vem do alto, à esquerda).
+  const PROJETAM_SOMBRA = ['telhadoPx', 'paredePx', 'portaPx', 'janelaVidroPx', 'telhado', 'parede', 'janela', 'porta', 'muro', 'pilar', 'arvore', 'portaLateral',
+    'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bancadaE', 'bancadaD'];
+  // Cor da luz ao longo do dia: [minuto do dia, cor, intensidade]. Entre dois pontos a
+  // cor vai mudando aos poucos. Manhã alaranjada, meio do dia neutro, tarde dourada.
+  const LUZ_DO_DIA = [
+    [6 * 60 + 55, [255, 176, 112], 0.30], [8 * 60, [255, 224, 176], 0.14], [10 * 60, [255, 255, 255], 0],
+    [12 * 60 + 30, [255, 255, 255], 0], [13 * 60 + 30, [255, 216, 144], 0.16], [14 * 60 + 30, [255, 168, 96], 0.30]
+  ];
+  function luzDoMomento(min) {
+    const L = LUZ_DO_DIA;
+    if (min <= L[0][0]) return { cor: L[0][1], forca: L[0][2] };
+    for (let i = 1; i < L.length; i++) if (min <= L[i][0]) {
+      const [m0, c0, a0] = L[i - 1], [m1, c1, a1] = L[i], k = (min - m0) / (m1 - m0);
+      return { cor: c0.map((v, j) => Math.round(v + (c1[j] - v) * k)), forca: a0 + (a1 - a0) * k };
+    }
+    const u = L[L.length - 1];
+    return { cor: u[1], forca: u[2] };
+  }
+
+  let mostrarGrade = PARAMS.get('grade') === '1' || lembrar('vilaPixelGrade') === '1';
+  function alternarGrade() {
+    mostrarGrade = !mostrarGrade;
+    guardar('vilaPixelGrade', mostrarGrade ? '1' : '0');
+    const m = jogo && jogo.scene.getScene('Mundo');
+    if (m && m.grade) { m.grade.setVisible(mostrarGrade); m.mostrarOndeEsta(true); }
+  }
+  // Desenha (uma vez por bloco) a grade com os números num canvas do tamanho do mapa.
+  function texturaDaGrade(cena, b, larg, alt) {
+    const chave = 'grade-' + b.id;
+    if (cena.textures.exists(chave)) return chave;
+    const cv = document.createElement('canvas'); cv.width = larg * T; cv.height = alt * T;
+    const c = cv.getContext('2d');
+    c.strokeStyle = 'rgba(255, 255, 255, 0.45)'; c.lineWidth = 1;
+    for (let x = 0; x <= larg; x++) { c.beginPath(); c.moveTo(x * T + 0.5, 0); c.lineTo(x * T + 0.5, alt * T); c.stroke(); }
+    for (let y = 0; y <= alt; y++) { c.beginPath(); c.moveTo(0, y * T + 0.5); c.lineTo(larg * T, y * T + 0.5); c.stroke(); }
+    c.font = 'bold 14px monospace'; c.textBaseline = 'top'; c.lineWidth = 3;
+    c.strokeStyle = '#000'; c.fillStyle = '#fff';
+    for (let y = 0; y < alt; y++) for (let x = 0; x < larg; x++) {
+      const t = x + ',' + y;
+      c.strokeText(t, x * T + 4, y * T + 4); c.fillText(t, x * T + 4, y * T + 4);
+    }
+    cena.textures.addCanvas(chave, cv);
+    return chave;
   }
 
   // Cena sem imagem que fica rodando o jogo inteiro só para baixar os sons,
@@ -193,6 +315,9 @@ window.VilaPixel = (function () {
       this.load.setPath(BASE);
       Object.keys(SONS).forEach(k => this.load.audio(k, SONS[k].arquivos));
       this.load.on('loaderror', f => console.warn('[VilaPixel] não deu para carregar o som ' + f.key + ' (abra o jogo por um servidor: npx serve .)'));
+      // cada som passa a valer assim que termina de baixar
+      this.load.on('filecomplete', () => som.carregou());
+      this.sound.mute = mudo;
     }
     create() { this.sound.mute = mudo; som.carregou(); }
   }
@@ -210,7 +335,9 @@ window.VilaPixel = (function () {
   }
 
   // Converte o mapa de texto em índices do tileset.
-  function montarDados(mapa) {
+  // tiles que têm versão "pixel art" (nome + 'Px'), usada nas áreas de `estiloPixel`
+  const VARIANTE_PIXEL = ['telhado', 'parede', 'porta', 'janelaVidro', 'ceramica'];
+  function montarDados(mapa, estiloPixel) {
     const alt = mapa.length, larg = Math.max(...mapa.map(l => l.length));
     const ch = (x, y) => (mapa[y] || '')[x] || '.';
     const dados = [];
@@ -218,8 +345,39 @@ window.VilaPixel = (function () {
       const linha = [];
       for (let x = 0; x < larg; x++) {
         let nome = LEGENDA[ch(x, y)] || 'grama';
+        // teste de estilo "pixel art": nas áreas de `estiloPixel` do bloco, alguns tiles
+        // usam a versão com pontilhado e sombreado (telhadoPx, paredePx...)
+        if (VARIANTE_PIXEL.includes(nome) && (estiloPixel || []).some(r => x >= r.x1 && x <= r.x2 && y >= r.y1 && y <= r.y2)) nome += 'Px';
         if (nome === 'grama') nome = 'grama' + (1 + ((x * 7 + y * 13 + x * y) % 3));
         if (nome === 'fonte') nome = 'fonte' + (ch(x, y - 1) === 'o' ? 'B' : 'T') + (ch(x - 1, y) === 'o' ? 'R' : 'L');
+        // mesa de cimento: 2 tiles de largura (metade E e D) e o comprimento que tiver
+        // no mapa (Topo, Meio... e Base, onde aparece a espessura do tampo e o pé)
+        // pneus do cercado: 2 pneuzinhos por quadrado, em fila — na horizontal se o
+        // vizinho do lado também é pneu, senão na vertical. A cor muda de pneu em pneu.
+        if (nome === 'pneu') {
+          const horiz = ch(x - 1, y) === 'y' || ch(x + 1, y) === 'y';
+          const desce = horiz && ch(x, y + 1) === 'y';   // canto: a fila vira para baixo
+          const grama = k => '.,"'.includes(ch(k, y));
+          // espelhado: fila vertical com a grama à direita (encosta no que está à esquerda,
+          // ex.: um caminho) ou canto em que a fila horizontal segue para a direita
+          const espelho = horiz ? desce && ch(x + 1, y) === 'y' && ch(x - 1, y) !== 'y'
+            : grama(x + 1) && !grama(x - 1);
+          nome = 'pneu' + (horiz ? (desce ? 'HB' : 'H') : 'V') + (espelho ? 'E' : '') + (1 + (2 * (horiz ? x : y)) % 5);
+        }
+        // corredor de cimento gasto: alterna 3 desenhos de rachaduras
+        if (nome === 'cimentoGasto') nome += 1 + (x * 2 + y) % 3;
+        // bebedouro junto do pátio (piso escuro ou mesas do lado): no piso escuro
+        if (nome === 'bebedouro' && [ch(x - 1, y), ch(x + 1, y), ch(x, y - 1), ch(x, y + 1)].some(k => 'Em'.includes(k))) nome = 'bebedouroEscuro';
+        // ping-pong, pebolim e bancada: 2 quadrados de largura (metade E e D)
+        if (nome === 'pingPong' || nome === 'pebolim' || nome === 'bancada') {
+          const c0 = ch(x, y);
+          nome += ch(x - 1, y) === c0 && ch(x - 2, y) !== c0 ? 'D' : 'E';
+        }
+        if (nome === 'mesa') {
+          const lado = ch(x - 1, y) === 'q' && ch(x - 2, y) !== 'q' ? 'D' : 'E';
+          const parte = ch(x, y - 1) !== 'q' ? 'Topo' : ch(x, y + 1) !== 'q' ? 'Base' : 'Meio';
+          nome = 'mesa' + parte + lado;
+        }
         linha.push(idx(nome));
       }
       dados.push(linha);
@@ -230,10 +388,10 @@ window.VilaPixel = (function () {
   // ---------- telas HTML por cima do jogo (diálogo, nome do bloco) ----------
   const ui = {};
   function prepararUI() {
-    ['dialogo', 'dialogoNome', 'dialogoTexto', 'dialogoRetrato', 'dialogoSeta',
+    ['dialogo', 'dialogoNome', 'dialogoTexto', 'dialogoSeta',
       'faixaBloco', 'faixaNome', 'faixaSub', 'hudBloco', 'carregando', 'carregandoTitulo',
       'carregandoFrase', 'carregandoDica', 'menu', 'menuTitulo', 'menuTexto', 'menuOpcoes',
-      'hudSom'].forEach(id => ui[id] = document.getElementById(id));
+      'hudSom', 'hudRelogio'].forEach(id => ui[id] = document.getElementById(id));
     ui.hudSom.onclick = e => { alternarSom(); e.currentTarget.blur(); };
     mudo = !mudo; alternarSom();   // só para mostrar o ícone certo
   }
@@ -292,7 +450,7 @@ window.VilaPixel = (function () {
   async function escolherSerie(obrigatorio) {
     const i = await mostrarMenu({
       titulo: 'Qual é a sua série?',
-      texto: 'As aulas do Mestre Bit são da série que você escolher.',
+      texto: 'As aulas do jogo são da série que você escolher.',
       opcoes: ['1º ano', '2º ano', '3º ano'],
       cancelar: obrigatorio ? null : -1
     });
@@ -303,13 +461,54 @@ window.VilaPixel = (function () {
   }
 
   // tela inicial: espera um clique/tecla (o navegador só deixa tocar som depois disso)
+  // Tela inicial: o estudante digita o nome e escolhe a série. Os dois ficam
+  // lembrados no navegador e já vêm preenchidos na próxima vez. Se o portal abriu
+  // o jogo com ?name= e ?ano=, só pede um clique (o navegador só toca som depois dele).
   async function telaInicial() {
     ui.carregando.hidden = true;
     som.musica(true);
-    await mostrarMenu({ titulo: 'Vila Pixel', texto: 'CEPI João Roberto Moreira', opcoes: ['▶ Jogar'], cancelar: null });
-    if (!serie) await escolherSerie(true);
-    else await carregarConteudo(serie);
+    if (NOME_DA_URL && SERIE_DA_URL) {
+      await mostrarMenu({ titulo: 'CEPI JRM', texto: 'CEPI João Roberto Moreira', opcoes: ['▶ Jogar'], cancelar: null });
+    } else {
+      const r = await telaCadastro();
+      nomeAluno = primeiroNome(r.nome);
+      guardar('vilaPixelNome', r.nome);
+      serie = r.serie;
+      guardar('vilaPixelSerie', serie);
+    }
+    await carregarConteudo(serie);
     som.musica(false);
+  }
+
+  // Formulário da tela inicial (#cadastro no index.html). Devolve { nome, serie }.
+  function telaCadastro() {
+    return new Promise(ok => {
+      const el = id => document.getElementById(id);
+      const tela = el('cadastro'), form = el('cadastroCaixa'), campo = el('cadastroNome'), erro = el('cadastroErro');
+      const botoes = [...document.querySelectorAll('#cadastroSeries button')];
+      let escolhida = null;
+      const marcar = s => {
+        escolhida = s;
+        botoes.forEach(b => b.setAttribute('aria-checked', String(b.dataset.serie === s)));
+      };
+      campo.value = NOME_DA_URL || lembrar('vilaPixelNome') || '';
+      marcar(serie);
+      botoes.forEach(b => { b.onclick = () => { marcar(b.dataset.serie); erro.hidden = true; }; });
+      campo.oninput = () => { erro.hidden = true; };
+      form.onsubmit = e => {
+        e.preventDefault();
+        const nome = campo.value.trim().replace(/\s+/g, ' ');
+        const falta = !nome ? 'Digite o seu nome.' : !escolhida ? 'Escolha a sua série.' : '';
+        if (falta) { erro.textContent = falta; erro.hidden = false; (nome ? botoes[0] : campo).focus(); return; }
+        tela.hidden = true;
+        menuAberto = false;
+        ok({ nome, serie: escolhida });
+      };
+      menuAberto = true;   // as teclas digitadas (M, T, P...) não mexem no jogo
+      tela.hidden = false;
+      campo.focus();
+      campo.select();
+    });
   }
 
   // pausa (ESC ou P): o mundo para e toca a música do menu
@@ -320,11 +519,17 @@ window.VilaPixel = (function () {
     som.passos(null);
     som.musica(true);
     for (;;) {
-      const opcoes = ['Continuar', 'Som: ' + (mudo ? 'desligado' : 'ligado')];
+      const opcoes = ['Continuar', 'Som: ' + (mudo ? 'desligado' : 'ligado'),
+        'Velocidade do tempo: ' + relogio.vel + 'x  (tecla T)',
+        'Grade com números: ' + (mostrarGrade ? 'ligada' : 'desligada') + '  (tecla G)',
+        'Efeitos visuais: ' + (efeitosVisuais ? 'ligados' : 'desligados')];
       if (!SERIE_DA_URL) opcoes.push('Série: ' + nomeSerie(serie));
-      const i = await mostrarMenu({ titulo: 'Pausado', opcoes });
+      const i = await mostrarMenu({ titulo: 'Pausado', texto: 'Dia ' + relogio.dia + ' · ' + hora(relogio.min), opcoes });
       if (i === 1) { alternarSom(); continue; }
-      if (i === 2) { await escolherSerie(false); continue; }
+      if (i === 2) { mudarVelocidade(); continue; }
+      if (i === 3) { alternarGrade(); continue; }
+      if (i === 4) { alternarEfeitos(); continue; }
+      if (i === 5) { await escolherSerie(false); continue; }
       break;
     }
     som.musica(false);
@@ -335,12 +540,22 @@ window.VilaPixel = (function () {
     if (menuAberto || e.repeat) return;
     if (e.key === 'Escape' || e.key === 'p' || e.key === 'P') pausar();
     else if ((e.key === 'm' || e.key === 'M') && ui.hudSom) alternarSom();
+    else if ((e.key === 't' || e.key === 'T') && ui.hudRelogio) mudarVelocidade();
+    else if (e.key === 'g' || e.key === 'G') alternarGrade();
   });
   function mostrarFaixa(bloco) {
-    ui.faixaNome.textContent = bloco.nome;
-    ui.faixaSub.textContent = bloco.subtitulo || '';
     ui.hudBloco.textContent = bloco.nome;
+    mostrarAviso(bloco.nome, 'Dia ' + relogio.dia + (bloco.subtitulo ? ' · ' + bloco.subtitulo : ''));
+  }
+  // faixa grande no alto da tela, que some sozinha (nome do bloco, hora da saída...)
+  function mostrarAviso(titulo, sub) {
+    ui.faixaNome.textContent = titulo;
+    ui.faixaSub.textContent = sub || '';
     ui.faixaBloco.classList.remove('ativa'); void ui.faixaBloco.offsetWidth; ui.faixaBloco.classList.add('ativa');
+  }
+  function mostrarRelogio() {
+    const t = 'Dia ' + relogio.dia + ' · ' + hora(relogio.min) + (relogio.vel > 1 ? ' · ⏩ ' + relogio.vel + 'x' : '');
+    if (ui.hudRelogio.textContent !== t) ui.hudRelogio.textContent = t;
   }
 
   // ---------- tela de carregamento com "Você sabia?" ----------
@@ -394,8 +609,13 @@ window.VilaPixel = (function () {
         .then(() => {
           this.textures.addCanvas('tiles', VilaArte.gerarTileset(pngs.tiles));
           this.textures.addCanvas('balao', VilaArte.gerarBalao());
+          this.textures.addCanvas('porta-aberta', VilaArte.gerarPortaAberta());
+          this.textures.addCanvas('porta-aberta-lateral', VilaArte.gerarPortaLateralAberta());
           this.textures.addCanvas('seta', VilaArte.gerarSeta());
-          this.textures.addCanvas('grade', VilaArte.gerarGrade());
+          ['esquerda', 'direita'].forEach(lado => {   // as duas folhas do portão, em quadros
+            const tex = this.textures.addCanvas('portao-' + lado, VilaArte.gerarFolhaPortao(lado));
+            for (let q = 0; q < VilaArte.QUADROS_PORTAO; q++) tex.add(q, 0, q * T, 0, T, 2 * T);
+          });
           return telaInicial();
         })
         .then(() => telaCarregando(primeiro))
@@ -420,7 +640,7 @@ window.VilaPixel = (function () {
   const quadroParado = dir => VilaArte.DIRECOES.indexOf(dir) * 3;
 
   function corpoNosPes(sprite) {
-    sprite.body.setSize(20, 12).setOffset(6, 18);
+    sprite.body.setSize(40, 24).setOffset(12, 36);
     sprite.body.setCollideWorldBounds(true);
   }
   const pes = s => ({ x: s.x, y: s.y + T / 4 });
@@ -443,11 +663,30 @@ window.VilaPixel = (function () {
 
     create() {
       const b = this.bloco;
-      const dados = montarDados(b.mapa);
+      const dados = montarDados(b.mapa, b.estiloPixel);
       const mapa = this.make.tilemap({ data: dados, tileWidth: T, tileHeight: T });
       const tileset = mapa.addTilesetImage('tiles', 'tiles', T, T, 0, 0);
       this.camada = mapa.createLayer(0, tileset, 0, 0);
       this.camada.setCollision(SOLIDOS.map(idx));
+      // barreiras finas de alguns tiles (em this.corrimaos):
+      // corrimão (atravessa o quadrado pelo meio, na horizontal): uma barreira fina na
+      // linha dele — dá para andar ao longo, mas não atravessar de cima para baixo
+      this.corrimaos = [];
+      this.camada.forEachTile(t => {
+        // mesa de plástico: só o tampo bloqueia (dá para passar entre as mesas)
+        if (t.index === idx('mesaPlastico')) {
+          // estreita (0,3 do quadrado) para sobrar espaço para o estudante passar entre duas mesas
+          const z = this.add.zone(t.pixelX + T / 2, t.pixelY + T * 0.55, T * 0.3, T * 0.3);
+          this.physics.add.existing(z, true);
+          this.corrimaos.push(z);
+          return;
+        }
+        const topo = t.index === idx('borrachaCorrimaoTopo');
+        if (t.index !== idx('borrachaCorrimao') && !topo) return;
+        const z = this.add.zone(t.pixelX + T / 2, t.pixelY + (topo ? T * 0.2 : T * 0.62), T, 12);
+        this.physics.add.existing(z, true);
+        this.corrimaos.push(z);
+      });
       const largPx = mapa.widthInPixels, altPx = mapa.heightInPixels;
       this.physics.world.setBounds(0, 0, largPx, altPx);
 
@@ -470,6 +709,8 @@ window.VilaPixel = (function () {
         n.casa = { x: d.x * T + T / 2, y: d.y * T + T / 4 };
         n.direcao = salvo ? salvo.direcao : 'baixo';
         n.ia = { estado: 'parado', ate: this.time.now + Phaser.Math.Between(300, 2000) };
+        // NPC com `porta: { x, y }`: de vez em quando entra por ela e depois sai
+        if (d.porta) n.proximaPorta = this.time.now + Phaser.Math.Between(8000, 20000);
         corpoNosPes(n);
         n.body.pushable = false;
         n.setFrame(quadroParado(n.direcao));
@@ -477,20 +718,37 @@ window.VilaPixel = (function () {
       this.physics.add.collider(this.npcs, this.camada);
       this.physics.add.collider(this.npcs, this.npcs);
       this.physics.add.collider(this.jogador, this.npcs);
+      this.physics.add.collider(this.jogador, this.corrimaos);
+      this.physics.add.collider(this.npcs, this.corrimaos);
 
-      // portões de grade: a folha é uma imagem com corpo físico que bloqueia
-      // a passagem enquanto está fechada; ao abrir, desliza para o lado (sobre
-      // o muro) e o corpo é desligado. Um portão aberto continua aberto.
+      // portões de grade com duas folhas presas nos pilares. A da esquerda é
+      // fixa (fica sempre fechada); a da direita abre para fora (para a rua).
+      // Fechado: barreiras invisíveis tapam o vão. Aberto: a metade esquerda
+      // continua tapada e a folha da direita, para fora junto do pilar, bloqueia.
+      // Um portão aberto continua aberto.
       mem.portoes = mem.portoes || {};
       this.portoes = {};
+      const ultimoQuadro = VilaArte.QUADROS_PORTAO - 1;
+      const barreira = (x, y, w, h) => {
+        const z = this.add.zone(x, y, w, h);
+        this.physics.add.existing(z, true);
+        this.physics.add.collider(this.jogador, z);
+        this.physics.add.collider(this.npcs, z);
+        return z;
+      };
       (b.portoes || []).forEach(p => {
         const aberto = !!mem.portoes[p.id];
-        const x = p.x * T + T, y = p.y * T + T / 2;
-        const folha = this.physics.add.staticImage(x + (aberto ? 2 * T : 0), y, 'grade').setDepth(y + T / 4);
-        folha.body.enable = !aberto;
-        this.physics.add.collider(this.jogador, folha);
-        this.physics.add.collider(this.npcs, folha);
-        this.portoes[p.id] = { dados: p, folha, aberto };
+        const x0 = p.x * T, y0 = p.y * T, q = aberto ? ultimoQuadro : 0;
+        const fixa = this.add.image(x0, y0, 'portao-esquerda', 0).setOrigin(0, 0).setDepth(y0 + T * 3 / 4);
+        const movel = this.add.image(x0 + T, y0, 'portao-direita', q).setOrigin(0, 0);
+        barreira(x0 + T / 2, y0 + T / 2, T, T);                              // folha fixa: sempre tapada
+        const trava = barreira(x0 + T + T / 2, y0 + T / 2, T, T);            // folha da direita, enquanto fechada
+        const aberta = barreira(x0 + 2 * T - 10, y0 + T + T / 2, 20, T);     // folha da direita, aberta para fora
+        // quem cuida do portão (NPC com `abre: '<id>'`): abre e, depois que o estudante entra, fecha
+        const porteiro = this.npcs.getChildren().find(n => n.dados.abre === p.id) || null;
+        const portao = { dados: p, movel, trava, aberta, aberto, porteiro };
+        this.ajustarPortao(portao);
+        this.portoes[p.id] = portao;
       });
 
       // letreiros pintados no muro (ex.: o nome da escola).
@@ -499,14 +757,74 @@ window.VilaPixel = (function () {
         const chave = 'letreiro-' + b.id + '-' + i;
         if (!this.textures.exists(chave)) this.textures.addCanvas(chave, VilaArte.gerarLetreiro(l.texto, l.cor || '#1f4f8f'));
         const larg = this.textures.get(chave).getSourceImage().width;
-        this.add.image(Math.round(l.x * T - larg / 2), l.y * T + 2, chave).setOrigin(0, 0).setDepth(l.y * T + T - 2);
+        this.add.image(Math.round(l.x * T - larg / 2), l.y * T + 4, chave).setOrigin(0, 0).setDepth(l.y * T + T - 4);
+      });
+
+      // barreira pequena (para o pé de árvores, postes de placa...)
+      const obstaculo = (x, y, w, h) => {
+        const z = this.add.zone(x, y, w, h);
+        this.physics.add.existing(z, true);
+        this.physics.add.collider(this.jogador, z);
+        this.physics.add.collider(this.npcs, z);
+      };
+
+      // árvores grandes, maiores que um quadrado: `arvores: [{ x, y, tipo: 'ipe' }]`.
+      // (x, y) é o quadrado onde fica o pé do tronco. A copa fica por cima de quem passa
+      // atrás da árvore; só o pé do tronco bloqueia. Sombra e flores caídas ficam no chão.
+      (b.arvores || []).forEach(a => {
+        if (!this.textures.exists('ipe')) {
+          const d = VilaArte.gerarIpe();
+          this.textures.addCanvas('ipe', d.arvore);
+          this.textures.addCanvas('ipe-chao', d.chao);
+        }
+        const e = VilaArte.ESCALA, pe = { x: (a.x + 0.5) * T, y: (a.y + 0.85) * T };
+        const canto = { x: pe.x - 20 * e, y: pe.y - VilaArte.PE_IPE * e };   // o tronco fica no x 20 da arte
+        this.add.image(canto.x, canto.y, 'ipe-chao').setOrigin(0, 0).setDepth(1);
+        this.add.image(canto.x, canto.y, 'ipe').setOrigin(0, 0).setDepth(pe.y);
+        obstaculo(pe.x, pe.y - 6, 24, 14);
+      });
+
+      // plaquinhas em pé: `placas: [{ x, y, texto, cor? }]` — x = centro (em quadrados),
+      // y = quadrado onde ficam os pés dos postes. Os postes bloqueiam.
+      (b.placas || []).forEach((pl, i) => {
+        const chave = 'placa-' + b.id + '-' + i;
+        if (!this.textures.exists(chave)) this.textures.addCanvas(chave, VilaArte.gerarPlaca(pl.texto, pl.cor || '#1f4f8f'));
+        const pe = { x: pl.x * T, y: (pl.y + 0.85) * T };
+        const img = this.add.image(pe.x, pe.y, chave).setOrigin(0.5, 1).setDepth(pe.y);
+        obstaculo(pe.x, pe.y - 6, img.width - 8, 12);
+      });
+
+      // tendas (pergolado com folhas): postes nos quadrados (x1,y1), (x2,y1), (x1,y2) e (x2,y2).
+      // A cobertura fica por cima de todo mundo (quem passa embaixo fica na sombra das
+      // folhas) e a sombra manchada fica no chão, por baixo dos personagens.
+      (b.tendas || []).forEach((td, i) => {
+        const chave = 'tenda-' + b.id + '-' + i;
+        if (!this.textures.exists(chave + '-telhado')) {
+          const a = VilaArte.gerarTenda(td.x2 - td.x1, td.y2 - td.y1, 7 + i);
+          this.textures.addCanvas(chave + '-telhado', a.telhado);
+          this.textures.addCanvas(chave + '-sombra', a.sombra);
+          this.textures.addCanvas(chave + '-poste', a.poste);
+        }
+        const e = VilaArte.ESCALA, beiral = VilaArte.BEIRAL_TENDA * e, altura = VilaArte.ALTURA_TENDA * e;
+        const pe = (cx, cy) => ({ x: (cx + 0.5) * T, y: (cy + 0.85) * T });   // pé do poste no quadrado
+        const canto = pe(td.x1, td.y1);
+        this.add.image(canto.x - beiral, canto.y - beiral, chave + '-sombra').setOrigin(0, 0).setDepth(1);
+        this.add.image(canto.x - beiral, canto.y - beiral - altura, chave + '-telhado').setOrigin(0, 0).setDepth(5000).setAlpha(0.88);
+        [[td.x1, td.y1], [td.x2, td.y1], [td.x1, td.y2], [td.x2, td.y2]].forEach(([cx, cy]) => {
+          const p = pe(cx, cy);
+          this.add.image(p.x, p.y, chave + '-poste').setOrigin(0.5, 1).setDepth(p.y);
+          const z = this.add.zone(p.x, p.y - 6, 16, 12);   // só o pé do poste bloqueia
+          this.physics.add.existing(z, true);
+          this.physics.add.collider(this.jogador, z);
+          this.physics.add.collider(this.npcs, z);
+        });
       });
 
       // setas nas saídas
       (b.saidas || []).forEach(s => {
         const leste = s.x * T >= largPx / 2;
-        const seta = this.add.image((s.x + s.w / 2) * T + (leste ? -20 : 20), (s.y + s.h / 2) * T, 'seta').setFlipX(!leste).setDepth(9999);
-        this.tweens.add({ targets: seta, x: seta.x + (leste ? 6 : -6), duration: 450, yoyo: true, repeat: -1 });
+        const seta = this.add.image((s.x + s.w / 2) * T + (leste ? -40 : 40), (s.y + s.h / 2) * T, 'seta').setFlipX(!leste).setDepth(9999);
+        this.tweens.add({ targets: seta, x: seta.x + (leste ? 12 : -12), duration: 450, yoyo: true, repeat: -1 });
       });
 
       this.balao = this.add.image(0, 0, 'balao').setOrigin(0.5, 1).setDepth(10000).setVisible(false);
@@ -527,16 +845,204 @@ window.VilaPixel = (function () {
       ui.dialogo.onclick = () => { if (this.conversa) this.apertouE(); };
       this.events.once('shutdown', () => { ui.dialogo.onclick = null; som.passos(null); this.fecharDialogo(); });
 
+      // grade numerada por cima de tudo (tecla G)
+      this.grade = this.add.image(0, 0, texturaDaGrade(this, b, mapa.width, mapa.height))
+        .setOrigin(0, 0).setDepth(20000).setVisible(mostrarGrade);
+
+      this.criarEfeitos(b, mapa, dados);
+
       mostrarFaixa(b);
+      mostrarRelogio();
+      this.mostrarOndeEsta(true);
     }
 
-    update(tempo) {
+    // ---------- efeitos visuais ----------
+    // Monta as camadas de efeito do bloco (ver `efeitosVisuais`). dados = índices dos tiles.
+    criarEfeitos(b, mapa, dados) {
+      const ef = this.efeitos = { objetos: [], sombras: [], nuvens: [], emissores: [], fx: [] };
+      const larg = mapa.width, alt = mapa.height, W = larg * T, H = alt * T;
+      const alto = new Set(PROJETAM_SOMBRA.map(idx));
+
+      // 1) sombras projetadas: cada tile alto joga uma sombra para baixo e para a direita;
+      //    a borda é borrada (sombra macia) e nada fica sombreado em cima dos próprios prédios
+      const chave = 'sombras-' + b.id;
+      if (!this.textures.exists(chave)) {
+        const bruto = document.createElement('canvas'); bruto.width = W; bruto.height = H;
+        const cb = bruto.getContext('2d'); cb.fillStyle = '#000';
+        const final = document.createElement('canvas'); final.width = W; final.height = H;
+        const cf = final.getContext('2d');
+        dados.forEach((linha, y) => linha.forEach((t, x) => { if (alto.has(t)) cb.fillRect(x * T + T * 0.3, y * T + T * 0.3, T, T); }));
+        cf.filter = 'blur(10px)'; cf.globalAlpha = 0.3; cf.drawImage(bruto, 0, 0);
+        cf.filter = 'none'; cf.globalAlpha = 1; cf.globalCompositeOperation = 'destination-out';
+        dados.forEach((linha, y) => linha.forEach((t, x) => { if (alto.has(t)) cf.fillRect(x * T, y * T, T, T); }));
+        this.textures.addCanvas(chave, final);
+      }
+      ef.objetos.push(this.add.image(0, 0, chave).setOrigin(0, 0).setDepth(1.5));
+
+      // 2) sombra embaixo de cada personagem (segue os pés)
+      [this.jogador, ...this.npcs.getChildren()].forEach(s => {
+        const e = this.add.ellipse(s.x, s.y + 24, 36, 12, 0x000000, 0.28).setDepth(2);
+        ef.sombras.push({ s, e });
+      });
+
+      // 3) sombras de nuvens passando devagar por cima de tudo
+      if (!this.textures.exists('nuvem')) {
+        const cv = document.createElement('canvas'); cv.width = 480; cv.height = 300;
+        const c = cv.getContext('2d');
+        [[170, 150, 140], [290, 140, 120], [230, 110, 110], [330, 180, 90], [120, 180, 90]].forEach(([x, y, r]) => {
+          const g = c.createRadialGradient(x, y, 0, x, y, r);
+          g.addColorStop(0, 'rgba(0,0,0,0.5)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+          c.fillStyle = g; c.fillRect(0, 0, 480, 300);
+        });
+        this.textures.addCanvas('nuvem', cv);
+      }
+      for (let i = 0; i < 3; i++) {
+        const n = this.add.image(Phaser.Math.Between(0, W), Phaser.Math.Between(0, H), 'nuvem')
+          .setScale(1.2 + Math.random() * 0.8).setAlpha(0.18).setDepth(8000);
+        n.velocidade = 8 + Math.random() * 8;   // px por segundo
+        ef.nuvens.push(n);
+      }
+
+      // 4) pétalas amarelas caindo do ipê (partículas do Phaser)
+      if (!this.textures.exists('petala')) {
+        const cv = document.createElement('canvas'); cv.width = 6; cv.height = 4;
+        const c = cv.getContext('2d'); c.fillStyle = '#f6c628'; c.fillRect(0, 0, 6, 4); c.fillStyle = '#fff07a'; c.fillRect(0, 0, 3, 2);
+        this.textures.addCanvas('petala', cv);
+      }
+      (b.arvores || []).filter(a => a.tipo === 'ipe').forEach(a => {
+        const pe = { x: (a.x + 0.5) * T, y: (a.y + 0.85) * T };
+        const em = this.add.particles(pe.x, pe.y - 140, 'petala', {
+          emitZone: { type: 'random', source: new Phaser.Geom.Rectangle(-70, -50, 140, 70) },
+          lifespan: { min: 4000, max: 7000 }, speedX: { min: -18, max: 6 }, speedY: { min: 10, max: 24 },
+          rotate: { min: 0, max: 360 }, alpha: { start: 1, end: 0 }, frequency: 450, quantity: 1
+        }).setDepth(pe.y + 2);
+        ef.emissores.push(em);
+      });
+
+      // 5) luz do dia: uma película colorida por cima de tudo, multiplicando as cores
+      ef.luz = this.add.rectangle(0, 0, 4000, 3000, 0xffffff, 0).setOrigin(0, 0)
+        .setScrollFactor(0).setDepth(9000).setBlendMode(Phaser.BlendModes.MULTIPLY);
+
+      this.ligarEfeitos(efeitosVisuais);
+    }
+
+    // Liga ou desliga todos os efeitos (menu de pausa).
+    ligarEfeitos(ligado) {
+      const ef = this.efeitos;
+      [...ef.objetos, ...ef.nuvens, ef.luz, ...ef.sombras.map(o => o.e)].forEach(o => o.setVisible(ligado));
+      ef.emissores.forEach(em => { em.setVisible(ligado); if (ligado) em.start(); else em.stop(); });
+      // acabamento de câmera (só no WebGL): cantos escurecidos e cores um pouco mais vivas
+      const cam = this.cameras.main;
+      if (cam.postFX) {
+        cam.postFX.clear();
+        if (ligado && this.game.renderer.type === Phaser.WEBGL) {
+          cam.postFX.addVignette(0.5, 0.5, 0.9, 0.18);
+          cam.postFX.addColorMatrix().saturate(0.18);
+        }
+      }
+      if (ligado) this.atualizarEfeitos(0);
+    }
+
+    // A cada quadro: sombras seguem os personagens, nuvens andam, a luz acompanha a hora.
+    atualizarEfeitos(delta) {
+      const ef = this.efeitos;
+      ef.sombras.forEach(({ s, e }) => {
+        e.setPosition(s.x, s.y + 24);
+        e.setVisible(s.visible);
+        e.setAlpha(s.alpha);
+      });
+      const W = this.physics.world.bounds.width;
+      ef.nuvens.forEach(n => {
+        n.x += n.velocidade * delta / 1000;
+        if (n.x - n.displayWidth / 2 > W) n.x = -n.displayWidth / 2;
+      });
+      const { cor, forca } = luzDoMomento(relogio.min);
+      // multiplicar por branco não muda nada; a força mistura a cor da luz com o branco
+      const mistura = cor.map(v => Math.round(255 - (255 - v) * forca));
+      ef.luz.setFillStyle(Phaser.Display.Color.GetColor(...mistura.map(v => Math.max(0, Math.min(255, v)))), forca > 0 ? 1 : 0);
+    }
+
+    // Com a grade ligada, o canto mostra em que quadrado (coluna,linha) estão os pés do estudante.
+    mostrarOndeEsta(forcar) {
+      const p = pes(this.jogador), onde = Math.floor(p.x / T) + ',' + Math.floor(p.y / T);
+      const t = this.bloco.nome + (mostrarGrade ? ' · você está em ' + onde : '');
+      if (forcar || ui.hudBloco.textContent !== t) ui.hudBloco.textContent = t;
+    }
+
+    update(tempo, delta) {
       if (this.trocando) return;
+      this.passarHora(delta);
+      if (mostrarGrade) this.mostrarOndeEsta();
       this.moverJogador();
       this.npcs.getChildren().forEach(n => this.moverNpc(n, tempo));
       [this.jogador, ...this.npcs.getChildren()].forEach(s => s.setDepth(s.y));
       this.atualizarBalao();
+      this.posicionarFala();
       this.conferirSaidas();
+      this.conferirPortoes(tempo);
+      if (efeitosVisuais) this.atualizarEfeitos(delta);
+    }
+
+    // Avança o relógio do jogo e avisa quando chega a hora da saída.
+    passarHora(delta) {
+      relogio.min += Math.min(delta, 100) / 1000 * MINUTOS_POR_SEGUNDO * relogio.vel;   // trava saltos (aba escondida)
+      if (!relogio.avisouSaida && podeSair()) {
+        relogio.avisouSaida = true;
+        if (relogio.entrou) mostrarAviso(hora(FIM_AULAS) + ' · Hora da saída!', 'Fale com o porteiro para sair.');
+      }
+      mostrarRelogio();
+    }
+
+    // Portões: marca quando o estudante entra, não deixa voltar antes da saída,
+    // fecha o portão depois que ele entra e termina o dia quando ele sai depois da saída.
+    conferirPortoes(tempo) {
+      const ESPERA_FECHAR = 1500;
+      Object.values(this.portoes).forEach(p => {
+        const pe = pes(this.jogador), y0 = p.dados.y * T;
+        const passouDoMuro = pe.y < y0 - T / 2, naCalcada = pe.y > y0 + T * 3 / 4;
+        if (passouDoMuro) relogio.entrou = true;
+        // saiu depois do horário: acabou o dia
+        if (relogio.entrou && podeSair() && naCalcada) return this.fimDoDia();
+        // já entrou e ainda não é hora: o vão fica tapado mesmo com a folha aberta
+        if (relogio.entrou && !podeSair() && passouDoMuro) p.trava.body.enable = true;
+
+        // porteiro fecha o portão depois que o estudante entra (não na hora da saída)
+        const n = p.porteiro;
+        if (!p.aberto || p.fechando || !n || n.animando || this.ocupado || podeSair()) return;
+        if (this.conversa && this.conversa.npc === n) return;
+        const dentro = passouDoMuro && Math.hypot(pe.x - (p.dados.x + 1) * T, pe.y - y0) > 1.5 * T;
+        if (!dentro) { p.dentroDesde = null; return; }
+        p.dentroDesde = p.dentroDesde || tempo;
+        if (tempo - p.dentroDesde >= ESPERA_FECHAR) this.fecharPortao(p);
+      });
+    }
+
+    // O estudante saiu depois do horário: tela de "fim do dia" e o dia seguinte
+    // começa já dentro da escola (bloco.inicioDentro), às INICIO_DIA.
+    fimDoDia() {
+      if (this.trocando) return;
+      this.trocando = true;
+      som.passos(null);
+      this.fecharDialogo();
+      this.jogador.setVelocity(0, 0);
+      const b = this.bloco, cam = this.cameras.main;
+      cam.fadeOut(500, 0, 0, 0);
+      cam.once('camerafadeoutcomplete', () => {
+        ui.carregandoTitulo.textContent = 'Fim do Dia ' + relogio.dia + ' — até amanhã, ' + nomeAluno + '!';
+        ui.carregandoDica.hidden = true;
+        ui.carregando.hidden = false;
+        relogio.dia++;
+        relogio.min = INICIO_DIA;
+        relogio.entrou = true;
+        relogio.avisouSaida = false;
+        // NPCs voltam aos lugares de origem e os portões começam fechados
+        const mem = memoria[b.id];
+        if (mem) { mem.npcs = {}; mem.portoes = {}; }
+        setTimeout(() => {
+          ui.carregando.hidden = true;
+          this.scene.restart({ bloco: b.id, chegada: b.inicioDentro || b.inicio });
+        }, 3000);
+      });
     }
 
     moverJogador() {
@@ -567,6 +1073,9 @@ window.VilaPixel = (function () {
     moverNpc(n, tempo) {
       const ia = n.ia;
       if (n.animando) return;   // está numa cena (ex.: abrindo o portão)
+      if (n.dados.porta && tempo > n.proximaPorta && n !== (this.conversa && this.conversa.npc) && n !== this.npcDaAula) {
+        if (this.entrarNaPorta(n)) return;
+      }
       // NPC "fixo" (ex.: o porteiro) fica no posto; só se vira para conversar.
       if (n.dados.fixo || n === (this.conversa && this.conversa.npc) || n === this.npcDaAula) {
         n.setVelocity(0, 0); n.anims.stop(); n.setFrame(quadroParado(n.direcao));
@@ -603,6 +1112,7 @@ window.VilaPixel = (function () {
       // `alcance` (px) deixa falar de mais longe — o porteiro fala por trás do portão.
       let melhor = null, menor = Infinity;
       this.npcs.getChildren().forEach(n => {
+        if (n.animando) return;   // ocupado numa cena (ex.: fechando o portão)
         const q = pes(n), d = Math.hypot(q.x - p.x, q.y - p.y);
         if (d < (n.dados.alcance || DIST_CONVERSA) && d < menor) { menor = d; melhor = n; }
       });
@@ -612,7 +1122,7 @@ window.VilaPixel = (function () {
     atualizarBalao() {
       const n = this.conversa || this.ocupado ? null : this.npcPerto();
       this.balao.setVisible(!!n);
-      if (n) this.balao.setPosition(n.x, n.y - 18);
+      if (n) this.balao.setPosition(n.x, n.y - 36);
     }
 
     // ---------- diálogo ----------
@@ -623,10 +1133,15 @@ window.VilaPixel = (function () {
       if (!n) return;
       // Quem cuida de um portão fechado: fala `antesDeAbrir`, vai até o
       // portão, abre com as mãos e, de volta ao posto, fala `depoisDeAbrir`.
+      // De dentro da escola, só abre a partir da hora da saída (com `antesDeSair`
+      // e `depoisDeSair`); antes disso, conversa normalmente.
       const portao = n.dados.abre && this.portoes[n.dados.abre];
-      if (portao && !portao.aberto) {
-        this.abrirDialogo(n, n.dados.antesDeAbrir || [], () =>
-          this.abrirPortao(portao, n, () => this.abrirDialogo(n, n.dados.depoisDeAbrir || [])));
+      const dentro = portao && pes(this.jogador).y < portao.dados.y * T;
+      if (portao && !portao.aberto && !portao.fechando && (!dentro || podeSair())) {
+        const antes = dentro ? n.dados.antesDeSair : n.dados.antesDeAbrir;
+        const depois = dentro ? n.dados.depoisDeSair : n.dados.depoisDeAbrir;
+        this.abrirDialogo(n, antes || [], () =>
+          this.abrirPortao(portao, n, () => this.abrirDialogo(n, depois || [])));
       } else this.abrirDialogo(n, null, n.dados.aulas ? () => this.abrirAulas(n) : undefined);
     }
 
@@ -651,6 +1166,7 @@ window.VilaPixel = (function () {
           return;
         }
         let quer = await mostrarMenu({ titulo: quem, texto: 'Quer estudar uma matéria do ' + nomeSerie(serie) + ' comigo?', opcoes: ['Quero!', 'Agora não'] });
+        if (quer === 0) som.musica(true, 'missao');   // música de missão durante as aulas
         while (quer === 0 && !this.trocando) {
           const materias = dados.materias.filter(m => (m.conteudos || []).length || (m.questoes || []).length);
           const opcoes = materias.map(m => {
@@ -663,6 +1179,8 @@ window.VilaPixel = (function () {
           if (fim !== 0) break;
         }
       } finally {
+        som.parar('errou');
+        som.musica(false, 'missao');
         this.npcDaAula = null;
         this.ocupado = false;
         n.ia.estado = 'parado';
@@ -691,17 +1209,19 @@ window.VilaPixel = (function () {
         const certa = q.alternativas.find(a => a.id === q.resposta_correta);
         const acertou = q.alternativas[r].id === q.resposta_correta;
         if (acertou) acertos++;
+        else { som.segurar('missao', true); som.tocar('errou'); }   // a música para e toca a vinheta de erro
         await mostrarMenu({
           titulo: acertou ? '✔ Certo!' : '✘ Não foi dessa vez',
           texto: (acertou || !certa ? '' : 'A resposta é ' + certa.id + ') ' + certa.texto + '.\n\n') + (q.explicacao || ''),
           opcoes: ['Continuar']
         });
+        if (!acertou) { som.parar('errou'); som.segurar('missao', false); }
       }
       const chave = serie + '|' + m.nome, antes = mem[chave];
       if (!antes || acertos > antes.acertos) mem[chave] = { acertos, total: questoes.length };
       return mostrarMenu({
         titulo: m.nome + ': ' + acertos + ' de ' + questoes.length,
-        texto: acertos === questoes.length ? 'Gabaritou, ' + NOME_ALUNO + '! Mandou muito bem.'
+        texto: acertos === questoes.length ? 'Gabaritou, ' + nomeAluno + '! Mandou muito bem.'
           : acertos ? 'Bom trabalho! Dá para tentar de novo quando quiser.' : 'Releia as aulas e tente outra vez. Errar faz parte!',
         opcoes: ['Escolher outra matéria', 'Sair']
       });
@@ -719,36 +1239,48 @@ window.VilaPixel = (function () {
         n.anims.play('npc-' + n.dados.id + '-andar-' + p.dir, true);
         n.anims.timeScale = 0.8;
         const alvo = p.x !== undefined ? { x: p.x } : { y: p.y };
-        this.tweens.add({ targets: n, ...alvo, duration: p.d / 80 * 1000, onComplete: proximo });
+        this.tweens.add({ targets: n, ...alvo, duration: p.d / 160 * 1000, onComplete: proximo });
       };
       proximo();
     }
 
-    // O porteiro vai até a grade, segura o trinco e anda puxando o portão
-    // até ele correr por cima do muro; depois volta ao posto.
+    // Liga/desliga as barreiras e acerta a profundidade da folha da direita conforme o portão.
+    ajustarPortao(portao) {
+      const y0 = portao.dados.y * T;
+      portao.trava.body.enable = !portao.aberto;
+      portao.aberta.body.enable = portao.aberto;
+      // fechada fica na linha do muro; aberta avança pela calçada
+      portao.movel.setDepth(portao.aberto ? y0 + 2 * T : y0 + T * 3 / 4);
+    }
+
+    // O porteiro vai até o meio do portão (por dentro), destrava e empurra a
+    // folha da direita, que gira para fora; depois volta ao posto.
     abrirPortao(portao, n, pronto) {
-      const f = portao.folha;
       this.ocupado = true;
       this.jogador.setVelocity(0, 0);
       n.animando = true;
       n.setVelocity(0, 0);
       n.body.enable = false;
       const posto = { x: n.x, y: n.y };
-      const trinco = { x: f.x + 20, y: f.y - 24 };   // logo atrás da grade, no trinco
-      this.andarAte(n, trinco.x, trinco.y, () => {
+      const meio = { x: (portao.dados.x + 1) * T, y: portao.dados.y * T - T / 4 };   // logo atrás do trinco
+      this.andarAte(n, meio.x, meio.y, () => {
         n.direcao = 'baixo'; n.setFrame(quadroParado('baixo'));
         this.time.delayedCall(350, () => {           // destrava...
           this.cameras.main.shake(80, 0.0015);
-          n.anims.play('npc-' + n.dados.id + '-andar-direita', true);
+          n.anims.play('npc-' + n.dados.id + '-andar-baixo', true);
           n.anims.timeScale = 0.5;
-          n.direcao = 'direita';
-          this.tweens.add({ targets: [f, n], x: '+=' + 2 * T, duration: 1500, ease: 'Sine.easeInOut',   // ...e puxa
+          // ...e empurra: o porteiro dá um passo para a frente e a folha da direita gira para fora
+          this.tweens.add({ targets: n, y: '+=' + T / 4, duration: 500, yoyo: true, hold: 500, ease: 'Sine.easeInOut' });
+          portao.movel.setDepth(portao.dados.y * T + T);
+          const giro = { q: 0 };
+          this.tweens.add({ targets: giro, q: VilaArte.QUADROS_PORTAO - 1, duration: 1200, ease: 'Sine.easeOut',
+            onUpdate: () => portao.movel.setFrame(Math.round(giro.q)),
             onComplete: () => {
-              f.body.enable = false;
               portao.aberto = true;
               memoria[this.bloco.id].portoes[portao.dados.id] = true;
-              n.anims.stop(); n.setFrame(quadroParado('direita'));
-              this.time.delayedCall(300, () => this.andarAte(n, posto.x, posto.y, () => {
+              this.ajustarPortao(portao);
+              n.anims.stop(); n.setFrame(quadroParado('baixo'));
+              this.time.delayedCall(500, () => this.andarAte(n, posto.x, posto.y, () => {
                 n.body.reset(n.x, n.y);
                 n.body.enable = true;
                 n.animando = false;
@@ -758,6 +1290,105 @@ window.VilaPixel = (function () {
             } });
         });
       });
+    }
+
+    // Depois que o estudante entra: o porteiro vai até o meio do portão, puxa a
+    // folha da direita de volta, tranca e volta ao posto. O estudante continua
+    // andando enquanto isso (só o porteiro fica ocupado).
+    fecharPortao(portao) {
+      const n = portao.porteiro;
+      portao.fechando = true;
+      n.animando = true;
+      n.setVelocity(0, 0);
+      n.body.enable = false;
+      if (this.conversa && this.conversa.npc === n) this.fecharDialogo();
+      const posto = { x: n.x, y: n.y };
+      const meio = { x: (portao.dados.x + 1) * T, y: portao.dados.y * T - T / 4 };
+      this.andarAte(n, meio.x, meio.y, () => {
+        n.direcao = 'baixo'; n.setFrame(quadroParado('baixo'));
+        this.time.delayedCall(250, () => {
+          // estica o braço para a frente e puxa de volta: a folha gira para dentro do vão
+          this.tweens.add({ targets: n, y: '+=' + T / 4, duration: 400, yoyo: true, hold: 600, ease: 'Sine.easeInOut' });
+          portao.movel.setDepth(portao.dados.y * T + T);
+          const giro = { q: VilaArte.QUADROS_PORTAO - 1 };
+          this.tweens.add({ targets: giro, q: 0, delay: 300, duration: 1200, ease: 'Sine.easeIn',
+            onUpdate: () => portao.movel.setFrame(Math.round(giro.q)),
+            onComplete: () => {
+              this.cameras.main.shake(80, 0.0015);   // bate e tranca
+              portao.aberto = false;
+              portao.dentroDesde = null;
+              memoria[this.bloco.id].portoes[portao.dados.id] = false;
+              this.ajustarPortao(portao);
+              this.time.delayedCall(400, () => this.andarAte(n, posto.x, posto.y, () => {
+                n.body.reset(n.x, n.y);
+                n.body.enable = true;
+                n.animando = false;
+                portao.fechando = false;
+              }));
+            } });
+        });
+      });
+    }
+
+    // Onde parar diante de uma porta, para que lado olhar e como entrar.
+    // Porta comum (na parede da frente): para embaixo dela, olha para cima e entra subindo.
+    // Porta lateral (`lado: 'direita'`, na parede do lado direito do prédio): para à
+    // direita dela, olha para a esquerda e entra andando para a esquerda.
+    comoEntrar(pt) {
+      if (pt.lado === 'direita') return {
+        frente: { x: (pt.x + 1) * T + T * 0.4, y: pt.y * T + T / 4 }, olhar: 'esquerda', sair: 'direita',
+        passo: { x: -T * 0.6, y: 0 }, textura: 'porta-aberta-lateral', profundidade: (pt.y + 1) * T - 1 };
+      return {
+        frente: { x: (pt.x + 0.5) * T, y: (pt.y + 1) * T + T / 4 }, olhar: 'cima', sair: 'baixo',
+        passo: { x: 0, y: -T * 0.55 }, textura: 'porta-aberta', profundidade: (pt.y + 1) * T - 1 };
+    }
+
+    // NPC com `porta` (uma porta { x, y, lado? } ou uma lista delas): sorteia uma porta
+    // perto, anda até a frente dela, a porta abre, ele dá um passo para dentro sumindo
+    // aos poucos e a porta fecha. Depois de um tempo a porta abre de novo e ele sai.
+    // Devolve false se nenhuma porta estiver perto (tenta de novo daqui a pouco).
+    entrarNaPorta(n) {
+      const PERTO = 8 * T;
+      const opcoes = [].concat(n.dados.porta).map(pt => ({ pt, ...this.comoEntrar(pt) }))
+        .filter(o => Math.hypot(n.x - o.frente.x, n.y - o.frente.y) <= PERTO);
+      if (!opcoes.length) { n.proximaPorta = this.time.now + 3000; return false; }
+      const { pt, frente, olhar, sair, passo, textura, profundidade } = Phaser.Utils.Array.GetRandom(opcoes);
+      // porta aberta por cima do tile da porta; quem entra passa por trás dela
+      const aberta = this.add.image(pt.x * T, pt.y * T, textura).setOrigin(0, 0).setDepth(profundidade).setVisible(false);
+      const id = n.dados.id;
+      n.animando = true;
+      n.setVelocity(0, 0);
+      n.body.enable = false;
+      this.andarAte(n, frente.x, frente.y, () => {
+        n.direcao = olhar; n.setFrame(quadroParado(olhar));
+        aberta.setVisible(true);                                   // abre a porta
+        this.time.delayedCall(300, () => {
+          n.anims.play('npc-' + id + '-andar-' + olhar, true);
+          this.tweens.add({ targets: n, x: frente.x + passo.x, y: frente.y + passo.y, alpha: 0, duration: 700,   // entra e some
+            onComplete: () => {
+              n.anims.stop();
+              n.setVisible(false);
+              this.time.delayedCall(300, () => aberta.setVisible(false));              // fecha a porta
+              this.time.delayedCall(Phaser.Math.Between(10000, 25000), () => {        // fica lá dentro
+                aberta.setVisible(true);                                               // abre de novo
+                n.setVisible(true);
+                n.direcao = sair;
+                n.anims.play('npc-' + id + '-andar-' + sair, true);
+                this.tweens.add({ targets: n, x: frente.x, y: frente.y, alpha: 1, duration: 700, delay: 300,   // sai
+                  onComplete: () => {
+                    n.anims.stop(); n.setFrame(quadroParado(sair));
+                    this.time.delayedCall(300, () => aberta.destroy());                // fecha
+                    n.body.reset(n.x, n.y);
+                    n.body.enable = true;
+                    n.animando = false;
+                    n.ia.estado = 'parado'; n.ia.ate = this.time.now + 1500;
+                    n.proximaPorta = this.time.now + Phaser.Math.Between(20000, 45000);
+                  } });
+              });
+            } });
+        });
+      });
+      return true;
     }
 
     // falas/aoFim são opcionais: sem elas, usa a próxima lista de `conversas`.
@@ -778,12 +1409,27 @@ window.VilaPixel = (function () {
       this.jogador.direcao = direcaoPara(n.x - this.jogador.x, n.y - this.jogador.y);
 
       ui.dialogoNome.textContent = nomeDe(n.dados);
-      const r = ui.dialogoRetrato, ctx = r.getContext('2d');
-      ctx.imageSmoothingEnabled = false;
-      ctx.clearRect(0, 0, r.width, r.height);
-      ctx.drawImage(this.textures.get('npc-' + n.dados.id).getSourceImage(), 0, 0, T, T, 0, 0, r.width, r.height);
       ui.dialogo.hidden = false;
       this.escreverFala();
+    }
+
+    // Põe o balão de fala em cima da cabeça de quem está falando (sem sair da
+    // tela). Se não couber em cima (NPC no alto da tela), vai para baixo dos pés.
+    posicionarFala() {
+      if (!this.conversa) return;
+      const n = this.conversa.npc, el = ui.dialogo, view = this.cameras.main.worldView;
+      const tela = this.game.canvas.getBoundingClientRect(), esc = tela.width / this.scale.width;
+      const x = tela.left + (n.x - view.x) * esc;
+      const cabeca = tela.top + (n.y - T / 2 + 4 - view.y) * esc, pe = tela.top + (n.y + T / 2 - view.y) * esc;
+      const w = el.offsetWidth, h = el.offsetHeight, MARGEM = 8, CAUDA = 14, TOPO_LIVRE = 48;   // HUD em cima
+      const left = Math.max(MARGEM, Math.min(innerWidth - w - MARGEM, x - w / 2));
+      let top = cabeca - h - CAUDA;
+      const embaixo = top < TOPO_LIVRE;
+      if (embaixo) top = pe + CAUDA;
+      el.style.left = Math.round(left) + 'px';
+      el.style.top = Math.round(top) + 'px';
+      el.style.setProperty('--cauda', Math.round(Math.max(16, Math.min(w - 16, x - left))) + 'px');
+      el.classList.toggle('embaixo', embaixo);
     }
 
     escreverFala() {
@@ -791,7 +1437,15 @@ window.VilaPixel = (function () {
       let n = 0;
       conv.escrevendo = true;
       ui.dialogoSeta.hidden = true;
+      // fixa largura e altura do balão pela fala inteira, para ele não ficar
+      // mudando de tamanho enquanto as letras aparecem
+      ui.dialogo.style.width = '';
+      ui.dialogoTexto.style.minHeight = '';
+      ui.dialogoTexto.textContent = texto;
+      ui.dialogo.style.width = Math.ceil(ui.dialogo.getBoundingClientRect().width) + 'px';
+      ui.dialogoTexto.style.minHeight = ui.dialogoTexto.offsetHeight + 'px';
       ui.dialogoTexto.textContent = '';
+      this.posicionarFala();
       if (this.maquina) this.maquina.remove();
       this.maquina = this.time.addEvent({
         delay: 28, repeat: texto.length - 1, callback: () => {
@@ -888,6 +1542,6 @@ window.VilaPixel = (function () {
     return jogo;
   }
 
-  return { registrarBloco, carregarBloco, iniciar, zoomInteiro, blocos, memoria, pngs, dialogos, conteudos: conteudoPronto, som,
+  return { registrarBloco, carregarBloco, iniciar, zoomInteiro, blocos, memoria, pngs, dialogos, conteudos: conteudoPronto, som, relogio,
     get jogo() { return jogo; } };
 })();

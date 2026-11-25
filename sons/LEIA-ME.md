@@ -7,6 +7,8 @@
 | `musicas/menu.mp3` | tela inicial e pausa (ESC), em loop |
 | `efeitos/passos.mp3` | enquanto o jogador anda |
 | `efeitos/passos2.mp3` | enquanto o jogador corre (SHIFT) |
+| `musicas/musicamissao.mp3` | durante as aulas e perguntas do Mestre Bit, em loop |
+| `musicas/musicaerrouenigma.mp3` | uma vez, quando o estudante erra uma pergunta (a música de missão pausa) |
 
 - `musicas/`: música de fundo, por exemplo uma por bloco (`bloco-a.ogg`).
 - `efeitos/`: sons curtos (`passo.ogg`, `dialogo.ogg`, `portao.ogg`…).
@@ -22,3 +24,5 @@ anote a fonte de cada um aqui.
 | `musicas/menu.mp3` | Iago | **falta informar** |
 | `efeitos/passos.mp3` | Iago | **falta informar** |
 | `efeitos/passos2.mp3` | Iago | **falta informar** |
+| `musicas/musicamissao.mp3` | (enviado por thzin2466) | **falta informar** |
+| `musicas/musicaerrouenigma.mp3` | (enviado por thzin2466) | **falta informar** |

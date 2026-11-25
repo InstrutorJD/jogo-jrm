@@ -1,4 +1,4 @@
-# jogo-jrm — Vila Pixel
+# jogo-jrm — CEPI JRM
 
 RPG de exploração em pixel art (Phaser 3) ambientado no CEPI João Roberto Moreira.
 
@@ -15,23 +15,34 @@ npx serve .
 Abrir o `index.html` direto também funciona, mas assim o navegador não deixa o jogo usar os PNGs de
 `sprites/`, e o jogo mostra só a arte do `arte.js`.
 
-Para personalizar as falas com o nome do aluno: `index.html?name=Maria`. Para já abrir na série do aluno
-(sem perguntar na tela inicial): `index.html?name=Maria&ano=2`.
+**Tela inicial:** o estudante digita o nome e escolhe a série (1º, 2º ou 3º ano). Os NPCs chamam o estudante
+pelo primeiro nome (`{nome}` nas falas), e as aulas usam a série escolhida. Os dois ficam lembrados no navegador
+e já aparecem preenchidos na próxima vez. Pelo endereço dá para preencher antes: `index.html?name=Maria`
+(o nome já vem escrito) ou `index.html?name=Maria&ano=2` (pula a tela, como faz o portal).
 
 **Controles:** WASD/setas andam · SHIFT corre · E conversa · Espaço/Enter/clique avançam o diálogo ·
-ESC ou P pausa · M liga/desliga o som. Nos menus: setas e Enter (ou os números 1–9).
+ESC ou P pausa · M liga/desliga o som · T acelera o tempo (1x, 2x, 5x, 10x, 30x) · G mostra a grade com o número (coluna,linha) de cada quadrado do mapa — os mesmos números de `blocos/<bloco>.js`, contando do 0; com a grade ligada, o canto mostra em que quadrado o estudante está. Nos menus: setas e Enter (ou os números 1–9).
 
-**Aulas:** o Mestre Bit (Bloco B) mostra as aulas e as perguntas da série escolhida, tiradas de
-`conteudo/conteudos_<n>ano/<n>-ano-completo.json`.
+**Horário e dias:** o relógio do jogo aparece no alto da tela. O Dia 1 começa às 06:55, com o estudante do
+lado de fora; das 07:00 às 14:00 passam 15 minutos reais (o relógio para na pausa; a tecla T ou o menu de pausa aceleram o tempo). Depois de entrar, o
+estudante só sai a partir das 14:00: o Seu Zé abre o portão quando ele pede. Ao sair, termina o dia, e
+do Dia 2 em diante o estudante já começa dentro da escola, às 07:00. Os horários ficam no começo do
+`motor.js` (`INICIO_DIA1`, `INICIO_DIA`, `FIM_AULAS`, `DURACAO_AULAS`).
+
+**Mapa:** por enquanto o jogo tem só o Bloco A (a entrada da escola). Os Blocos B e C e os prédios das
+salas foram removidos (continuam no histórico do git).
+
+**Aulas:** um NPC com `aulas: true` mostra as aulas e as perguntas da série escolhida, tiradas de
+`conteudo/conteudos_<n>ano/<n>-ano-completo.json`. Hoje nenhum NPC do mapa tem isso (era o Mestre Bit, do Bloco B).
 
 ## Estrutura
 
 - `index.html` — página do jogo (interface de diálogo, carregamento e faixas)
 - `motor.js` — motor (cenas, física, NPCs, diálogos, troca de blocos)
-- `arte.js` — arte gerada por código (32 × 32), usada quando falta o PNG em `sprites/`
+- `arte.js` — arte gerada por código (64 × 64), usada quando falta o PNG em `sprites/`
 - `curiosidades.js` — frases "Você sabia?" da tela de carregamento
 - `blocos/` — um arquivo por área do mapa, carregado sob demanda
-- `sprites/` — arte em PNG 32 × 32 feita no Piskel (`personagens/`, `tiles/`), usada pelo jogo quando existe
+- `sprites/` — arte em PNG 64 × 64 feita no Piskel (`personagens/`, `tiles/`), usada pelo jogo quando existe
 - `dialogos/` — falas dos personagens (`<id>.json`; substituem as `conversas` do bloco)
 - `sons/` — músicas e efeitos sonoros
 - `conteudo/` — aulas e perguntas por série, usadas pelo Mestre Bit e nas telas de carregamento
@@ -48,7 +59,7 @@ As regras estão no [INSTRUCOES.md](INSTRUCOES.md) (arte em **64 × 64**). Para 
    tiles e personagens (`.png` / `.piskel`), diálogos (`.json`) e sons (`.ogg` / `.mp3`).
 2. Rode `node ferramentas/verificar-tiles.js`. Ele confere cada arquivo contra o INSTRUCOES.md e
    **corrige só o que dá para corrigir sem perder qualidade**: escala 2x/4x, frames em grade, PNG dentro
-   do .piskel, nome do arquivo, arte no tamanho antigo 16 × 16 (ampliada 2x, com aviso), JSON com vírgula
+   do .piskel, nome do arquivo, arte nos tamanhos antigos 32 × 32 e 16 × 16 (ampliada 2x/4x, com aviso), JSON com vírgula
    sobrando ou aspas curvas, extensão de áudio trocada. O que exigiria perder qualidade (encolher um
    desenho, converter um .wav) vai para **refazer**.
 3. O terminal lista todas as **correções feitas**, para avisar os alunos. O relatório

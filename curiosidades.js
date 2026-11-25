@@ -1,4 +1,4 @@
-// Vila Pixel — frases "Você sabia?" das telas de carregamento.
+// CEPI JRM — frases "Você sabia?" das telas de carregamento.
 // Edite à vontade: uma frase por linha, curtinha (cabe em ~3 linhas da tela).
 // O jogo sorteia uma diferente a cada carregamento, sem repetir seguidas.
 window.VILA_CURIOSIDADES = [

@@ -1,4 +1,4 @@
-# Instruções para os alunos — Vila Pixel
+# Instruções para os alunos — CEPI JRM
 
 # Grupos
 
@@ -25,7 +25,7 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 | O que você vai fazer | Pasta | Formato |
 |---|---|---|
 | Chão do mapa (grama, terra, cimento) | `sprites/tiles/` | PNG 64 × 64 |
-| Personagem | `sprites/personagens/` | PNG 64 x 64 (7 frames) |
+| Personagem | `sprites/personagens/` | PNG 448 × 64 (7 frames de 64 × 64) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
 | Falas de um personagem | `dialogos/` | JSON |
 | Conteúdo das aulas e enigmas | `conteudos_1ano/enigmas`, `conteudos_2ano/enigmas`, `conteudos_3ano/enigmas` | MD ou JSON |
@@ -49,7 +49,7 @@ Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
 | `ana_teo.json` | `falasTeo.txt` |
 
 **Configuração do Piskel**, para toda arte:
-- **Resize** (painel da direita): o tamanho de cada frame é **64 x 64**. Arquivos antigos em 16 × 16 ainda são aceitos, mas ficam com pixels maiores;
+- **Resize** (painel da direita): o tamanho de cada frame é **64 x 64**. Arquivos antigos em 32 × 32 ou 16 × 16 ainda são aceitos, mas ficam com pixels maiores;
 - **Export → PNG**, sempre com **Scale 1x**. Não aumente: o jogo amplia sozinho;
 - **Save** também o projeto **.piskel** e entregue junto. Ele serve de reserva e permite editar depois.
 - **Nunca** entregue em JPG: ele borra o pixel art.
@@ -71,7 +71,7 @@ Um tile é uma peça de **64 × 64 px** que se repete para formar o chão. O jog
 1. Exatamente **64 x 64 px**, com **1 frame só**.
 2. **Pinte todos os pixels.** Pixel transparente vira um buraco preto no jogo.
 3. **Tem que emendar.** O tile se repete lado a lado, então a borda da esquerda precisa combinar com a da direita, e a de cima com a de baixo.
-   - Para testar: crie um canvas de 96 × 96, cole o seu tile 9 vezes (3 × 3) e veja se aparece uma "costura".
+   - Para testar: crie um canvas de 192 × 192, cole o seu tile 9 vezes (3 × 3) e veja se aparece uma "costura".
 4. Use cores parecidas com as da turma. Combine a paleta antes de começar.
 
 **Exportar:** Export → PNG → Scale **1x** → Download.
@@ -99,25 +99,23 @@ Por isso o personagem precisa ser **simétrico**, sem mochila ou franja de um la
 **Regras:**
 1. Cada frame com **64 × 64 px**. Nenhum frame pode ficar vazio.
 2. **Fundo transparente**: pinte só o personagem.
-3. **Pés embaixo**: os pés ficam perto da linha 29, e o corpo centralizado no quadro.
+3. **Pés embaixo**: os pés ficam perto da linha 58, e o corpo centralizado no quadro.
    A colisão do jogo fica nos pés, então um boneco "flutuando" atravessa as paredes.
 4. O **frame 1** (de frente, parado) é o que aparece na caixa de diálogo.
 5. Para combinar com o resto do jogo, use o contorno escuro `#2a1d1a`.
 
 **Exportar:** Export → PNG → **Spritesheet** com **Columns = 7** e **Rows = 1**, Scale **1x** → Download.
-O arquivo final deve ter **64 × 64 px**.
+O arquivo final deve ter **448 × 64 px** (7 frames lado a lado).
 
 **Nome:** o id do personagem. Use `jogador` para o personagem principal ou o id de um NPC:
 
 | id | Personagem | Onde fica |
 |---|---|---|
-| `jogador` | o aluno (personagem principal) | — |
+| `jogador` | o estudante (personagem principal) | — |
 | `seuZe` | Seu Zé, o porteiro | Bloco A |
-| `tiaSuzana` | Tia Suzana | anda pelos blocos |
+| `tiaSuzana` | Tia Suzana | Bloco A |
+| `cida` | Dona Cida | Bloco A |
 | `teo` | Téo | Bloco A |
-| `bit` | Mestre Bit | Bloco B |
-| `lia` | Lia | Bloco B |
-| `nina` | Nina | Bloco C |
 
 Na entrega: `seu-nome_jogador.png`.
 
@@ -158,7 +156,7 @@ Veja a lista de ids na seção de Personagens.
 **Como funciona:**
 - Cada linha de `conversas` é **uma conversa**. Na primeira vez que o jogador fala com o personagem, sai a 1ª conversa; na segunda vez, a 2ª, e assim por diante. Depois da última, volta para a primeira.
 - Dentro de cada conversa, cada frase entre aspas é **uma caixa de diálogo**. O jogador aperta **E** para passar para a próxima.
-- `{nome}` vira o primeiro nome do aluno que está jogando, e `{horario}` vira a hora (ex.: 07:30).
+- `{nome}` (ou `{estudante}`) vira o primeiro nome do estudante que está jogando, `{horario}` vira a hora do jogo (ex.: 07:30) e `{dia}` vira o número do dia (ex.: 2).
   Outras palavras entre `{ }` aparecem do jeito que estão na tela.
 
 **Regras:**
@@ -203,7 +201,7 @@ Na entrega: `seu-nome_tema-da-aula.md` ou `seu-nome_enigma-materia.json`.
 ## Antes de entregar: checklist
 
 - [ ] O nome do arquivo está em minúsculas, sem espaço e sem acento, e começa com o meu nome?
-- [ ] É do tamanho certo? (tile 64 × 64 · personagem 64 x 64)
+- [ ] É do tamanho certo? (tile 64 × 64 · personagem 448 × 64, 7 frames de 64 × 64)
 - [ ] Exportei em **Scale 1x**?
 - [ ] Entreguei o **.piskel** junto com o PNG?
 - [ ] Som: mandei o **.ogg** e o **.mp3**, e informei a fonte?
