@@ -753,7 +753,8 @@ function verificarPastas(raizJogo) {
   const sons = conteudo(path.join(raizJogo, 'sons'));
   if (sons) {
     for (const f of sons) conferir(f, () => {
-      const ext = path.extname(f).toLowerCase(), tipo = path.basename(path.dirname(f));
+      // o tipo é a primeira pasta dentro de sons/ (efeitos podem ter subpastas: passos/, portas/...)
+      const ext = path.extname(f).toLowerCase(), tipo = path.relative(path.join(raizJogo, 'sons'), f).split(path.sep)[0];
       nomeSeguro(f);
       if (!['musicas', 'efeitos'].includes(tipo)) aviso(f, 'coloque dentro de sons/musicas/ ou sons/efeitos/');
       if (!EXT_SOM.includes(ext)) return aviso(f, 'o jogo não usa este arquivo (só .ogg e .mp3)');

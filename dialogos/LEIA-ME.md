@@ -1,7 +1,8 @@
 # dialogos/
 
-Falas dos personagens, um arquivo por personagem: `dialogos/<id>.json` (ids na seção de Personagens do
-`INSTRUCOES.md`). Quando o arquivo existe e está certo, o jogo usa as falas dele; senão, usa as
+Falas dos personagens, um arquivo por personagem: `dialogos/<grupo>/<id>.json` (ids na seção de Personagens do
+`INSTRUCOES.md`). Grupos: `coordenacao/`, `professores/` (e `alunos/`); o jogo procura o arquivo nessas
+subpastas, nesta ordem, e também direto em `dialogos/`. Quando o arquivo existe e está certo, o jogo usa as falas dele; senão, usa as
 `conversas` escritas em `blocos/<bloco>.js`.
 
 - Cada lista de falas é uma conversa; a cada vez que o jogador fala com o NPC, ele usa a próxima.

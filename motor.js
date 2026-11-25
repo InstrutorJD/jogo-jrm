@@ -142,19 +142,27 @@ window.VilaPixel = (function () {
   // do bloco (e o "nome" dele, se não estiver vazio). Senão, valem as do bloco.
   const dialogos = {};
   const conversaValida = c => Array.isArray(c) && c.length && c.every(f => typeof f === 'string' && f.trim());
+  // As falas ficam em subpastas por grupo (ver INSTRUCOES.md): o jogo procura o
+  // <id>.json em cada uma, nesta ordem, e usa o primeiro que achar.
+  const PASTAS_DIALOGOS = ['coordenacao/', 'professores/', 'alunos/', ''];
+  function buscarDialogo(id, i = 0) {
+    if (i >= PASTAS_DIALOGOS.length) return Promise.resolve(null);
+    const caminho = 'dialogos/' + PASTAS_DIALOGOS[i] + id + '.json';
+    return fetch(BASE + caminho)
+      .then(r => r.ok ? r.json().then(d => ({ d, caminho })) : buscarDialogo(id, i + 1))
+      .catch(e => { console.warn('[VilaPixel] ' + caminho + ': ' + e.message); return buscarDialogo(id, i + 1); });
+  }
   function carregarDialogos(ids) {
     return Promise.all(ids.filter(id => !(id in dialogos)).map(id => {
       dialogos[id] = null;
-      return fetch(BASE + 'dialogos/' + id + '.json')
-        .then(r => r.ok ? r.json() : null)
-        .then(d => {
-          if (!d) return;
-          const conversas = Array.isArray(d.conversas) ? d.conversas.filter(conversaValida) : [];
-          if (!conversas.length) return console.warn('[VilaPixel] dialogos/' + id + '.json não tem conversas válidas — usando as falas do bloco.');
-          dialogos[id] = { nome: typeof d.nome === 'string' && d.nome.trim() ? d.nome.trim() : null, conversas };
-          console.log('[VilaPixel] usando dialogos/' + id + '.json');
-        })
-        .catch(e => console.warn('[VilaPixel] dialogos/' + id + '.json: ' + e.message));
+      return buscarDialogo(id).then(achado => {
+        if (!achado) return;
+        const { d, caminho } = achado;
+        const conversas = Array.isArray(d.conversas) ? d.conversas.filter(conversaValida) : [];
+        if (!conversas.length) return console.warn('[VilaPixel] ' + caminho + ' não tem conversas válidas — usando as falas do bloco.');
+        dialogos[id] = { nome: typeof d.nome === 'string' && d.nome.trim() ? d.nome.trim() : null, conversas };
+        console.log('[VilaPixel] usando ' + caminho);
+      });
     }));
   }
   const falasDe = d => (dialogos[d.id] && dialogos[d.id].conversas) || d.conversas;
@@ -178,10 +186,14 @@ window.VilaPixel = (function () {
   // Quando chegar a cópia .ogg, ponha ela antes da .mp3 na lista.
   // Ordem = ordem de download: os pequenos primeiro, para os passos não esperarem as músicas.
   const SONS = {
-    // trecho: [início, fim] em segundos — só essa parte toca, em loop. Os arquivos de passos
-    // têm silêncio no começo (o de correr tem 6 s quase mudos), então usamos só onde há passos.
-    passos: { arquivos: ['sons/efeitos/passos.mp3'], volume: 0.5, loop: true, trecho: [0.56, 3.84] },
-    correr: { arquivos: ['sons/efeitos/passos2.mp3'], volume: 0.5, loop: true, trecho: [6.18, 7.74] },
+    // trecho: [início, fim] em segundos — só essa parte toca. Vários arquivos têm silêncio no
+    // começo ou no fim, então usamos só a parte com som.
+    passos: { arquivos: ['sons/efeitos/passos/passos.mp3'], volume: 0.5, loop: true, trecho: [0.56, 3.84] },        // andando no piso
+    grama:  { arquivos: ['sons/efeitos/passos/andargrama.mp3'], volume: 0.9, loop: true, trecho: [1, 30] },         // andando na grama
+    correr: { arquivos: ['sons/efeitos/passos/passos3.mp3'], volume: 0.5, loop: true, trecho: [0, 0.95] },          // correndo (SHIFT)
+    dialogo: { arquivos: ['sons/efeitos/dialogos/somdialogo.mp3'], volume: 0.3, loop: true, trecho: [0, 4.3] },    // enquanto as letras aparecem
+    porta:  { arquivos: ['sons/efeitos/portas/abrirporta.mp3'], volume: 0.5, loop: false, trecho: [0, 1.3] },       // porta de sala abrindo
+    portao: { arquivos: ['sons/efeitos/portas/abrirportao.mp3'], volume: 0.5, loop: false },                        // portão da escola
     errou:  { arquivos: ['sons/musicas/musicaerrouenigma.mp3'], volume: 0.5, loop: false },  // errou a pergunta
     menu:   { arquivos: ['sons/musicas/menu.mp3'], volume: 0.45, loop: true },              // tela inicial e pausa
     missao: { arquivos: ['sons/musicas/musicamissao.mp3'], volume: 0.35, loop: true }       // aulas do Mestre Bit
@@ -209,20 +221,26 @@ window.VilaPixel = (function () {
       else if (s.isPlaying || s.isPaused) s.stop();
     },
     // som curto, uma vez (se ainda não baixou, simplesmente não toca)
-    tocar(k) { const s = this.item(k); if (s) s.play(); },
+    tocar(k) { const s = this.item(k); if (s) this.iniciar(k, s); },
     parar(k) { const s = this.sons[k]; if (s && s.isPlaying) s.stop(); },
+    // som em loop que liga e desliga (ex.: o som de diálogo enquanto as letras aparecem)
+    laco(k, ligar) {
+      const s = this.item(k);
+      if (!s) return;
+      if (ligar) { if (!s.isPlaying) this.iniciar(k, s); } else if (s.isPlaying) s.stop();
+    },
     // pausa/retoma uma música sem voltar ao começo
     segurar(k, sim) {
       const s = this.sons[k];
       if (!s) return;
       if (sim && s.isPlaying) s.pause(); else if (!sim && s.isPaused && this.querMusica[k]) s.resume();
     },
-    // tipo: 'passos' (andando), 'correr' (com SHIFT) ou null (parado).
+    // tipo: 'passos' (andando no piso), 'grama' (andando na grama), 'correr' (com SHIFT) ou null (parado).
     // Ao parar, o som só pausa: na volta continua de onde estava, sem recomeçar o ritmo.
     passos(tipo) {
       if (tipo === this.passo) return;
       this.passo = tipo;
-      ['passos', 'correr'].forEach(k => {
+      ['passos', 'grama', 'correr'].forEach(k => {
         const s = this.item(k);
         if (!s) return;
         if (k === tipo) { if (s.isPaused) s.resume(); else if (!s.isPlaying) this.iniciar(k, s); }
@@ -1045,6 +1063,13 @@ window.VilaPixel = (function () {
       });
     }
 
+    // O estudante está com os pés na grama? (para o som dos passos)
+    pisandoNaGrama() {
+      const p = pes(this.jogador), t = this.camada.getTileAtWorldXY(p.x, p.y);
+      const nome = t ? VilaArte.TILES[t.index] : '';
+      return /^grama|^flores$/.test(nome);
+    }
+
     moverJogador() {
       const j = this.jogador, k = this.teclas;
       let vx = 0, vy = 0;
@@ -1057,7 +1082,7 @@ window.VilaPixel = (function () {
       const vel = k.SHIFT.isDown ? VEL_CORRENDO : VEL_JOGADOR;
       const v = new Phaser.Math.Vector2(vx, vy).normalize().scale(vel);
       j.setVelocity(v.x, v.y);
-      som.passos(vx || vy ? (k.SHIFT.isDown ? 'correr' : 'passos') : null);
+      som.passos(vx || vy ? (k.SHIFT.isDown ? 'correr' : this.pisandoNaGrama() ? 'grama' : 'passos') : null);
       if (vx || vy) {
         j.direcao = vx ? (vx < 0 ? 'esquerda' : 'direita') : (vy < 0 ? 'cima' : 'baixo');
         j.anims.play('jogador-andar-' + j.direcao, true);
@@ -1272,6 +1297,7 @@ window.VilaPixel = (function () {
           // ...e empurra: o porteiro dá um passo para a frente e a folha da direita gira para fora
           this.tweens.add({ targets: n, y: '+=' + T / 4, duration: 500, yoyo: true, hold: 500, ease: 'Sine.easeInOut' });
           portao.movel.setDepth(portao.dados.y * T + T);
+          som.tocar('portao');
           const giro = { q: 0 };
           this.tweens.add({ targets: giro, q: VilaArte.QUADROS_PORTAO - 1, duration: 1200, ease: 'Sine.easeOut',
             onUpdate: () => portao.movel.setFrame(Math.round(giro.q)),
@@ -1310,6 +1336,7 @@ window.VilaPixel = (function () {
           // estica o braço para a frente e puxa de volta: a folha gira para dentro do vão
           this.tweens.add({ targets: n, y: '+=' + T / 4, duration: 400, yoyo: true, hold: 600, ease: 'Sine.easeInOut' });
           portao.movel.setDepth(portao.dados.y * T + T);
+          som.tocar('portao');
           const giro = { q: VilaArte.QUADROS_PORTAO - 1 };
           this.tweens.add({ targets: giro, q: 0, delay: 300, duration: 1200, ease: 'Sine.easeIn',
             onUpdate: () => portao.movel.setFrame(Math.round(giro.q)),
@@ -1343,6 +1370,11 @@ window.VilaPixel = (function () {
         passo: { x: 0, y: -T * 0.55 }, textura: 'porta-aberta', profundidade: (pt.y + 1) * T - 1 };
     }
 
+    // Toca um som só se o estudante estiver perto de onde ele acontece.
+    somPerto(k, x, y, alcance = 8 * T) {
+      if (Math.hypot(this.jogador.x - x, this.jogador.y - y) <= alcance) som.tocar(k);
+    }
+
     // NPC com `porta` (uma porta { x, y, lado? } ou uma lista delas): sorteia uma porta
     // perto, anda até a frente dela, a porta abre, ele dá um passo para dentro sumindo
     // aos poucos e a porta fecha. Depois de um tempo a porta abre de novo e ele sai.
@@ -1362,6 +1394,7 @@ window.VilaPixel = (function () {
       this.andarAte(n, frente.x, frente.y, () => {
         n.direcao = olhar; n.setFrame(quadroParado(olhar));
         aberta.setVisible(true);                                   // abre a porta
+        this.somPerto('porta', frente.x, frente.y);
         this.time.delayedCall(300, () => {
           n.anims.play('npc-' + id + '-andar-' + olhar, true);
           this.tweens.add({ targets: n, x: frente.x + passo.x, y: frente.y + passo.y, alpha: 0, duration: 700,   // entra e some
@@ -1371,6 +1404,7 @@ window.VilaPixel = (function () {
               this.time.delayedCall(300, () => aberta.setVisible(false));              // fecha a porta
               this.time.delayedCall(Phaser.Math.Between(10000, 25000), () => {        // fica lá dentro
                 aberta.setVisible(true);                                               // abre de novo
+                this.somPerto('porta', frente.x, frente.y);
                 n.setVisible(true);
                 n.direcao = sair;
                 n.anims.play('npc-' + id + '-andar-' + sair, true);
@@ -1446,6 +1480,7 @@ window.VilaPixel = (function () {
       ui.dialogoTexto.style.minHeight = ui.dialogoTexto.offsetHeight + 'px';
       ui.dialogoTexto.textContent = '';
       this.posicionarFala();
+      som.laco('dialogo', true);   // som de diálogo enquanto as letras aparecem
       if (this.maquina) this.maquina.remove();
       this.maquina = this.time.addEvent({
         delay: 28, repeat: texto.length - 1, callback: () => {
@@ -1457,6 +1492,7 @@ window.VilaPixel = (function () {
     }
     terminouFala() {
       if (this.maquina) this.maquina.remove();
+      som.laco('dialogo', false);
       this.conversa.escrevendo = false;
       ui.dialogoTexto.textContent = preencher(this.conversa.falas[this.conversa.i]);
       ui.dialogoSeta.hidden = false;
@@ -1470,6 +1506,7 @@ window.VilaPixel = (function () {
     }
     fecharDialogo() {
       if (this.maquina) this.maquina.remove();
+      som.laco('dialogo', false);
       const conv = this.conversa;
       if (conv) {
         conv.npc.ia.estado = 'parado';

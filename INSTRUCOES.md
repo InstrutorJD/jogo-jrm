@@ -125,7 +125,7 @@ Na entrega: `seu-nome_jogador.png`.
 | Pasta | O que vai | Tamanho máximo |
 |---|---|---|
 | `sons/musicas/` | música de fundo, em loop (ex.: `bloco-a.ogg`) | 5 MB |
-| `sons/efeitos/` | sons curtos: `passo` em `sons/efeitos/passos, `dialogo` em `sons/efeitos/dialogo`, `portao` em `sons/efeitos/portas` … | 300 KB |
+| `sons/efeitos/` | sons curtos: `passo` em `sons/efeitos/passos/`, `dialogo` em `sons/efeitos/dialogos/`, `portao` em `sons/efeitos/portas/` … | 300 KB |
 
 **Regras:**
 1. Entregue **duas cópias** de cada som: **.ogg** e **.mp3**, com o mesmo nome (`passo.ogg` + `passo.mp3`). O iPhone não toca .ogg.
