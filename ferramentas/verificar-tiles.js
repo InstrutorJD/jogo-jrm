@@ -299,6 +299,10 @@ function verificarPersonagem(entrada) {
     // grade 4×4: linhas baixo, direita, cima, esquerda; colunas passo, parado, passo, parado
     q = [1, 0, 9, 8, 5, 6, 4].map(i => q[i]);
     r.avisos.push('veio numa grade 4×4 (baixo, direita, cima, esquerda): usei o parado e um passo de baixo e de cima e 3 quadros da direita, sem mexer nos desenhos — o 2º passo de baixo/cima e a esquerda são espelhados pelo jogo; confira se a 2ª linha olha para a direita');
+  } else if (q.length === 20 && cols === 5) {
+    // grade 5×4: linhas baixo, esquerda, direita, cima; colunas parado, passo, parado, passo, parado
+    q = [0, 1, 15, 16, 10, 11, 13].map(i => q[i]);
+    r.avisos.push('veio numa grade 5×4 (baixo, esquerda, direita, cima): usei o parado e um passo de baixo e de cima e o parado e os 2 passos da direita, sem mexer nos desenhos — a esquerda e o 2º passo de baixo/cima são espelhados pelo jogo');
   } else if (q.length !== QUADROS_PERSONAGEM) {
     r.erro = `tem ${q.length} frame(s), precisa de ${QUADROS_PERSONAGEM} (ver INSTRUCOES.md, seção Personagens)`;
     return r;

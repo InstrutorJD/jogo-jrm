@@ -115,6 +115,8 @@ O arquivo final deve ter **448 × 64 px** (7 frames lado a lado).
 | `tiaSuzana` | Tia Suzana | Bloco A |
 | `cida` | Dona Cida | Bloco A |
 | `teo` | Téo | Bloco A |
+| `josimar` | Diretor Josimar (falas em `dialogos/coordenacao/`) | anda pela escola |
+| `jose` | Prof. José Moreira, de inglês (falas em `dialogos/professores/`) | anda pela escola |
 
 Na entrega: `seu-nome_jogador.png`.
 

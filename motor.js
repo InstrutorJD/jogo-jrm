@@ -1073,16 +1073,18 @@ window.VilaPixel = (function () {
     moverJogador() {
       const j = this.jogador, k = this.teclas;
       let vx = 0, vy = 0;
+      const ex = entradaExtra();   // controle (gamepad) e analógico de toque
       if (!this.conversa && !this.ocupado) {
-        if (k.A.isDown || k.LEFT.isDown) vx -= 1;
-        if (k.D.isDown || k.RIGHT.isDown) vx += 1;
-        if (k.W.isDown || k.UP.isDown) vy -= 1;
-        if (k.S.isDown || k.DOWN.isDown) vy += 1;
+        if (k.A.isDown || k.LEFT.isDown || ex.dx < -ZONA_MORTA) vx -= 1;
+        if (k.D.isDown || k.RIGHT.isDown || ex.dx > ZONA_MORTA) vx += 1;
+        if (k.W.isDown || k.UP.isDown || ex.dy < -ZONA_MORTA) vy -= 1;
+        if (k.S.isDown || k.DOWN.isDown || ex.dy > ZONA_MORTA) vy += 1;
       }
-      const vel = k.SHIFT.isDown ? VEL_CORRENDO : VEL_JOGADOR;
+      const correndo = k.SHIFT.isDown || ex.correr;
+      const vel = correndo ? VEL_CORRENDO : VEL_JOGADOR;
       const v = new Phaser.Math.Vector2(vx, vy).normalize().scale(vel);
       j.setVelocity(v.x, v.y);
-      som.passos(vx || vy ? (k.SHIFT.isDown ? 'correr' : this.pisandoNaGrama() ? 'grama' : 'passos') : null);
+      som.passos(vx || vy ? (correndo ? 'correr' : this.pisandoNaGrama() ? 'grama' : 'passos') : null);
       if (vx || vy) {
         j.direcao = vx ? (vx < 0 ? 'esquerda' : 'direita') : (vy < 0 ? 'cima' : 'baixo');
         j.anims.play('jogador-andar-' + j.direcao, true);
@@ -1556,8 +1558,103 @@ window.VilaPixel = (function () {
     return { z, w: Math.ceil(innerWidth / z), h: Math.ceil(innerHeight / z) };
   }
 
+  // ---------- controle (gamepad) e toque (celular/tablet) ----------
+  // Os dois viram os mesmos comandos do teclado: o movimento entra direto no
+  // moverJogador() (entradaExtra) e os botões "apertam" as teclas (E, Enter, Esc,
+  // setas), então conversas, menus e pausa funcionam do mesmo jeito.
+  //   Controle: analógico/direcional anda (nos menus, escolhe) · A fala/avança/confirma ·
+  //             B segurado corre (nos menus, volta) · Start pausa
+  //   Toque:    analógico na esquerda · botões E, Correr (segurar) e pausa na direita
+  const ZONA_MORTA = 0.35;
+  const toque = { dx: 0, dy: 0, correr: false };
+  const controle = { dx: 0, dy: 0, correr: false, antes: {} };
+  function entradaExtra() {
+    const usa = (a, b) => (Math.abs(a) > Math.abs(b) ? a : b);
+    return { dx: usa(toque.dx, controle.dx), dy: usa(toque.dy, controle.dy), correr: toque.correr || controle.correr };
+  }
+  const TECLAS = { e: ['e', 'KeyE', 69], enter: ['Enter', 'Enter', 13], esc: ['Escape', 'Escape', 27],
+    cima: ['ArrowUp', 'ArrowUp', 38], baixo: ['ArrowDown', 'ArrowDown', 40] };
+  function apertar(nome) {
+    const [key, code, keyCode] = TECLAS[nome];
+    const op = { key, code, keyCode, which: keyCode, bubbles: true, cancelable: true };
+    document.dispatchEvent(new KeyboardEvent('keydown', op));
+    document.dispatchEvent(new KeyboardEvent('keyup', op));
+  }
+
+  // Lê o primeiro controle a cada quadro da tela (funciona também nos menus).
+  function lerControle() {
+    const pads = navigator.getGamepads ? [...navigator.getGamepads()].filter(Boolean) : [];
+    const p = pads[0];
+    if (p) {
+      const b = i => !!(p.buttons[i] && p.buttons[i].pressed);
+      let dx = p.axes[0] || 0, dy = p.axes[1] || 0;
+      if (b(14)) dx = -1; if (b(15)) dx = 1; if (b(12)) dy = -1; if (b(13)) dy = 1;   // direcional
+      const novo = (nome, ativo) => { const era = controle.antes[nome]; controle.antes[nome] = ativo; return ativo && !era; };
+      const ap = { a: novo('a', b(0)), b: novo('b', b(1)), start: novo('start', b(9)),
+        cima: novo('cima', dy < -0.5), baixo: novo('baixo', dy > 0.5), esq: novo('esq', dx < -0.5), dir: novo('dir', dx > 0.5) };
+      const cadastro = !document.getElementById('cadastro').hidden;
+      controle.dx = menuAberto ? 0 : dx; controle.dy = menuAberto ? 0 : dy;
+      controle.correr = !menuAberto && b(1);
+      if (cadastro) {                       // tela inicial: escolhe a série e começa
+        const botoes = [...document.querySelectorAll('#cadastroSeries button')];
+        const atual = botoes.findIndex(x => x.getAttribute('aria-checked') === 'true');
+        if (ap.esq || ap.dir) botoes[Math.max(0, Math.min(botoes.length - 1, (atual < 0 ? 0 : atual + (ap.dir ? 1 : -1))))].click();
+        if (ap.a) document.getElementById('cadastroCaixa').requestSubmit();
+      } else if (menuAberto) {              // menus: setas, confirmar, voltar
+        if (ap.cima) apertar('cima');
+        if (ap.baixo) apertar('baixo');
+        if (ap.a) apertar('enter');
+        if (ap.b || ap.start) apertar('esc');
+      } else {                              // jogando: falar/avançar e pausa
+        if (ap.a) apertar('e');
+        if (ap.start) apertar('esc');
+      }
+    }
+    requestAnimationFrame(lerControle);
+  }
+
+  // Controles na tela para celular/tablet. Aparecem sozinhos em aparelhos com toque;
+  // ?toque=1 na URL força aparecer, ?toque=0 esconde.
+  function prepararToque() {
+    const pedido = PARAMS.get('toque');
+    const temToque = pedido ? pedido === '1' : ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (!temToque) return;
+    const el = id => document.getElementById(id);
+    document.body.classList.add('toque');
+    el('toque').hidden = false;
+    // analógico: a distância do dedo ao centro vira a direção (-1 a 1)
+    const base = el('toqueAnalogico'), alavanca = el('toqueAlavanca'), R = 50;
+    let dedo = null, cx = 0, cy = 0;
+    const mover = e => {
+      let dx = e.clientX - cx, dy = e.clientY - cy;
+      const d = Math.hypot(dx, dy);
+      if (d > R) { dx *= R / d; dy *= R / d; }
+      alavanca.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+      toque.dx = dx / R; toque.dy = dy / R;
+    };
+    base.addEventListener('pointerdown', e => {
+      dedo = e.pointerId;
+      const r = base.getBoundingClientRect(); cx = r.left + r.width / 2; cy = r.top + r.height / 2;
+      try { base.setPointerCapture(dedo); } catch (erro) { /* ponteiro que não dá para prender: segue sem */ }
+      mover(e); e.preventDefault();
+    });
+    base.addEventListener('pointermove', e => { if (e.pointerId === dedo) mover(e); });
+    const soltar = e => { if (e.pointerId !== dedo) return; dedo = null; toque.dx = toque.dy = 0; alavanca.style.transform = ''; };
+    base.addEventListener('pointerup', soltar);
+    base.addEventListener('pointercancel', soltar);
+    // botões
+    const correr = el('toqueCorrer');
+    correr.addEventListener('pointerdown', e => { toque.correr = true; correr.classList.add('apertado'); e.preventDefault(); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => correr.addEventListener(t, () => { toque.correr = false; correr.classList.remove('apertado'); }));
+    el('toqueAcao').addEventListener('pointerdown', e => { apertar('e'); e.preventDefault(); });
+    el('toquePausa').addEventListener('pointerdown', e => { apertar('esc'); e.preventDefault(); });
+  }
+
   function iniciar(elemento) {
     prepararUI();
+    prepararToque();
+    requestAnimationFrame(lerControle);
+    addEventListener('gamepadconnected', () => mostrarAviso('🎮 Controle conectado', 'A fala · B corre · Start pausa'));
     const tela = tamanhoDaTela();
     jogo = new Phaser.Game({
       type: Phaser.AUTO,

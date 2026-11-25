@@ -119,6 +119,24 @@ VilaPixel.registrarBloco({
         ['Ei! Aposto que eu corro mais rápido que você!', '...Segura o SHIFT e tenta me alcançar.'],
         ['Você sabia que dá para andar na diagonal? Eu descobri sozinho!']
       ]
+    },
+    {
+      // Diretor Josimar: anda pela escola, pela área da secretaria e do pátio de jogos.
+      // Falas em dialogos/coordenacao/josimar.json (estas são a reserva).
+      id: 'josimar', nome: 'Diretor Josimar', x: 19, y: 7, raio: 7,
+      cores: { pele: '#f1c27d', cabelo: '#f1c27d', camisa: '#c0392b', calca: '#1f3a5f' },
+      conversas: [
+        ['Bom dia, {nome}! Tudo certo por aqui?']
+      ]
+    },
+    {
+      // Professor José Moreira (inglês): anda pela frente das salas de aula.
+      // Falas em dialogos/professores/jose.json (estas são a reserva).
+      id: 'jose', nome: 'Prof. José Moreira', x: 31, y: 16, raio: 6,
+      cores: { pele: '#a0643c', cabelo: '#3b2a20', camisa: '#9ccc3c', calca: '#1b1b1b' },
+      conversas: [
+        ['Good morning, {nome}! How are you?']
+      ]
     }
   ]
 });

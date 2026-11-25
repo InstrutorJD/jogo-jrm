@@ -23,6 +23,13 @@ e já aparecem preenchidos na próxima vez. Pelo endereço dá para preencher an
 **Controles:** WASD/setas andam · SHIFT corre · E conversa · Espaço/Enter/clique avançam o diálogo ·
 ESC ou P pausa · M liga/desliga o som · T acelera o tempo (1x, 2x, 5x, 10x, 30x) · G mostra a grade com o número (coluna,linha) de cada quadrado do mapa — os mesmos números de `blocos/<bloco>.js`, contando do 0; com a grade ligada, o canto mostra em que quadrado o estudante está. Nos menus: setas e Enter (ou os números 1–9).
 
+**Controle (gamepad):** analógico ou direcional anda · **A** fala/avança/confirma · **B** segurado corre (nos menus, volta) ·
+**Start** pausa. Na tela inicial, esquerda/direita escolhem a série e A começa (o nome precisa ser digitado).
+
+**Celular e tablet:** em aparelhos com toque aparecem um analógico (esquerda) e os botões **E** (falar/avançar),
+**CORRER** (segurar) e **pausa** (direita). Melhor jogar com o aparelho deitado. Para testar no computador:
+`index.html?toque=1` (e `?toque=0` esconde os botões).
+
 **Horário e dias:** o relógio do jogo aparece no alto da tela. O Dia 1 começa às 06:55, com o estudante do
 lado de fora; das 07:00 às 14:00 passam 15 minutos reais (o relógio para na pausa; a tecla T ou o menu de pausa aceleram o tempo). Depois de entrar, o
 estudante só sai a partir das 14:00: o Seu Zé abre o portão quando ele pede. Ao sair, termina o dia, e

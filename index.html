@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>CEPI JRM</title>
   <style>
     * { box-sizing: border-box; }
@@ -128,6 +130,29 @@
       #dialogoTexto { font-size: 14px; }
       #faixaNome { font-size: 20px; }
     }
+
+    /* controles na tela (celular/tablet): analógico à esquerda, botões à direita */
+    body.toque { touch-action: none; -webkit-user-select: none; user-select: none; }
+    body.toque #hudAjuda { display: none; }
+    #toque { position: fixed; inset: 0; z-index: 8; pointer-events: none; }
+    #toque > * { pointer-events: auto; touch-action: none; -webkit-tap-highlight-color: transparent; }
+    #toqueAnalogico {
+      position: absolute; left: max(20px, env(safe-area-inset-left)); bottom: max(20px, env(safe-area-inset-bottom));
+      width: 140px; height: 140px; border-radius: 50%;
+      background: rgba(42, 29, 26, .35); border: 3px solid rgba(255, 248, 231, .55);
+    }
+    #toqueAlavanca {
+      position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px 0 0 -30px; border-radius: 50%;
+      background: rgba(255, 248, 231, .8); border: 3px solid #2a1d1a; pointer-events: none;
+    }
+    #toque button {
+      position: absolute; border-radius: 50%; font: inherit; font-weight: bold; color: #2a1d1a;
+      background: rgba(255, 248, 231, .8); border: 3px solid #2a1d1a; box-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+    }
+    #toque button:active, #toque button.apertado { background: #f6d34a; transform: translateY(2px); box-shadow: 0 1px 0 rgba(0, 0, 0, .35); }
+    #toqueAcao { right: max(24px, env(safe-area-inset-right)); bottom: max(48px, env(safe-area-inset-bottom)); width: 78px; height: 78px; font-size: 28px; }
+    #toqueCorrer { right: max(116px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); width: 66px; height: 66px; font-size: 10px; }
+    #toquePausa { right: 12px; top: 56px; width: 44px; height: 44px; font-size: 16px; border-radius: 10px; }
   </style>
 </head>
 <body>
@@ -137,6 +162,14 @@
   <div id="hudRelogio"></div>
   <button id="hudSom" type="button" title="Desligar o som (M)">🔊</button>
   <div id="hudAjuda">ESC pausa · M som · T tempo · G grade</div>
+
+  <!-- controles na tela para celular/tablet (o motor.js mostra só em aparelhos com toque) -->
+  <div id="toque" hidden>
+    <div id="toqueAnalogico" aria-label="Andar"><div id="toqueAlavanca"></div></div>
+    <button id="toqueCorrer" type="button" aria-label="Correr (segure)">CORRER</button>
+    <button id="toqueAcao" type="button" aria-label="Falar / avançar">E</button>
+    <button id="toquePausa" type="button" aria-label="Pausa">❚❚</button>
+  </div>
 
   <!-- tela inicial: nome (os NPCs chamam o estudante por ele) e série (aulas) -->
   <div id="cadastro" hidden>
