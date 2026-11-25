@@ -27,7 +27,7 @@ Cada parte do jogo tem a sua pasta. Leia a seção da sua tarefa antes de começ
 | Chão do mapa (grama, terra, cimento) | `sprites/tiles/` | PNG 64 × 64 |
 | Personagem | `sprites/personagens/` | PNG 64 x 64 (7 frames) |
 | Música ou efeito sonoro | `sons/musicas/` ou `sons/efeitos/` | OGG + MP3 |
-| Falas de um personagem | `dialogos/` | JSON |
+| Falas de um personagem | `dialogos/professores/` ou `dialogos/coordenacao/` | JSON |
 | Conteúdo das aulas e enigmas | `conteudo/conteudos_1ano/`, `conteudo/conteudos_2ano/`, `conteudo/conteudos_3ano/` (enigmas em `enigmas/`) | JSON |
 
 **Como entregar:** coloque cada arquivo na pasta indicada na tabela acima e entregue ao professor. Ele passa tudo pelo verificador. Se algo estiver errado, o relatório mostra o que precisa ser corrigido.
@@ -141,8 +141,14 @@ Na entrega: `seu-nome_jogador.png`.
 
 ## 4. Diálogos — `dialogos/`
 
-Cada personagem tem um arquivo **.json** com o **id** dele no nome (`teo.json`, `cida.json`…).
-Veja a lista de ids na seção de Personagens.
+Organize cada arquivo **.json** na subpasta do grupo do personagem:
+
+| Pasta | Quem fica nela |
+|---|---|
+| `dialogos/professores/` | professores |
+| `dialogos/coordenacao/` | equipe da coordenação |
+
+O nome do arquivo deve ser o **id** do personagem (`teo.json`, `cida.json`…). Veja a lista de ids na seção de Personagens. Por exemplo: `dialogos/professores/<id>.json` ou `dialogos/coordenacao/seuZe.json`.
 
 ```json
 {
@@ -173,7 +179,7 @@ Veja a lista de ids na seção de Personagens.
 4. Para testar, cole o arquivo em um validador de JSON (por exemplo, jsonlint.com) antes de entregar.
 5. A fala precisa combinar com o personagem e com a escola, e não pode ter ofensa nem piada com colegas.
 
-Na entrega: `seu-nome_teo.json`.
+Na entrega, comece o nome do arquivo com o seu nome, por exemplo `seu-nome_seuZe.json`. Ao organizar os arquivos do jogo, deixe apenas o id no nome e coloque-o na subpasta correspondente, por exemplo `dialogos/coordenacao/seuZe.json`.
 
 ---
 
