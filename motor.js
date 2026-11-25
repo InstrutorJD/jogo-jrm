@@ -32,9 +32,10 @@ window.VilaPixel = (function () {
     'a': 'areia', 'x': 'ponte', 'M': 'muro', 'P': 'pilar', 'G': 'trilho',
     'c': 'calcada', 'e': 'asfalto', 'z': 'faixa', 'k': 'bicicletaVermelha', 'K': 'bicicletaAzul',
     'q': 'mesa', 'n': 'borracha', 'y': 'pneu', 'v': 'janelaVidro', 'B': 'bebedouro', 'L': 'portaLateral', 'J': 'telhadoPortaLateral', 'H': 'paredeLateral', 'h': 'telhadoLateral',
-    'i': 'borrachaCorrimao', 'I': 'borrachaCorrimaoTopo', 'C': 'ceramica', 'm': 'mesaPlastico', 'E': 'ceramicaEscura', 'Q': 'bancada', 'Y': 'ipe', 't': 'pingPong', 'f': 'pebolim', 'g': 'cimentoGasto'
+    'i': 'borrachaCorrimao', 'I': 'borrachaCorrimaoTopo', 'C': 'ceramica', 'm': 'mesaPlastico', 'E': 'ceramicaEscura', 'Q': 'bancada', 'Y': 'ipe', 't': 'pingPong', 'f': 'pebolim', 'g': 'cimentoGasto',
+    'T': 'mesaMadeira', '*': 'canteiro', '_': 'bancoCimento', 'A': 'arvoreTerra', 'S': 'portaoCorrer', 'O': 'pneuTrator', 'U': 'lavatorio'
   };
-  const SOLIDOS = ['telhadoPx', 'paredePx', 'portaPx', 'janelaVidroPx', 'bebedouroEscuro', 'bancadaE', 'bancadaD', 'ipe', 'pingPongE', 'pingPongD', 'pebolimE', 'pebolimD', 'portaLateral', 'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bebedouro', 'arvore', 'agua', 'cerca', 'pedra', 'telhado', 'parede', 'janela', 'porta',
+  const SOLIDOS = ['lavatorioE', 'lavatorioD', 'mesaMadeira', 'canteiro', 'arvoreTerra', 'pneuTratorA', 'pneuTratorB', 'portaoCorrerE', 'portaoCorrerD', 'bebedouroEscuro', 'bancadaE', 'bancadaD', 'ipe', 'pingPongE', 'pingPongD', 'pebolimE', 'pebolimD', 'portaLateral', 'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bebedouro', 'arvore', 'agua', 'cerca', 'pedra', 'telhado', 'parede', 'janela', 'porta',
     'banco', 'fonteTL', 'fonteTR', 'fonteBL', 'fonteBR', 'muro', 'pilar',
     'bicicletaVermelha', 'bicicletaAzul', 'mesaTopoE', 'mesaTopoD', 'mesaMeioE', 'mesaMeioD', 'mesaBaseE', 'mesaBaseD',
     'pneuH1', 'pneuH2', 'pneuH3', 'pneuH4', 'pneuH5', 'pneuV1', 'pneuV2', 'pneuV3', 'pneuV4', 'pneuV5',
@@ -280,8 +281,8 @@ window.VilaPixel = (function () {
     if (m && m.efeitos) m.ligarEfeitos(efeitosVisuais);
   }
   // Tiles "altos", que projetam sombra no chão (o sol vem do alto, à esquerda).
-  const PROJETAM_SOMBRA = ['telhadoPx', 'paredePx', 'portaPx', 'janelaVidroPx', 'telhado', 'parede', 'janela', 'porta', 'muro', 'pilar', 'arvore', 'portaLateral',
-    'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bancadaE', 'bancadaD'];
+  const PROJETAM_SOMBRA = ['telhado', 'parede', 'janela', 'porta', 'muro', 'pilar', 'arvore', 'arvoreTerra', 'portaLateral',
+    'telhadoPortaLateral', 'paredeLateral', 'telhadoLateral', 'janelaVidro', 'bancadaE', 'bancadaD', 'lavatorioE', 'lavatorioD'];
   // Cor da luz ao longo do dia: [minuto do dia, cor, intensidade]. Entre dois pontos a
   // cor vai mudando aos poucos. Manhã alaranjada, meio do dia neutro, tarde dourada.
   const LUZ_DO_DIA = [
@@ -353,9 +354,7 @@ window.VilaPixel = (function () {
   }
 
   // Converte o mapa de texto em índices do tileset.
-  // tiles que têm versão "pixel art" (nome + 'Px'), usada nas áreas de `estiloPixel`
-  const VARIANTE_PIXEL = ['telhado', 'parede', 'porta', 'janelaVidro', 'ceramica'];
-  function montarDados(mapa, estiloPixel) {
+  function montarDados(mapa) {
     const alt = mapa.length, larg = Math.max(...mapa.map(l => l.length));
     const ch = (x, y) => (mapa[y] || '')[x] || '.';
     const dados = [];
@@ -363,9 +362,6 @@ window.VilaPixel = (function () {
       const linha = [];
       for (let x = 0; x < larg; x++) {
         let nome = LEGENDA[ch(x, y)] || 'grama';
-        // teste de estilo "pixel art": nas áreas de `estiloPixel` do bloco, alguns tiles
-        // usam a versão com pontilhado e sombreado (telhadoPx, paredePx...)
-        if (VARIANTE_PIXEL.includes(nome) && (estiloPixel || []).some(r => x >= r.x1 && x <= r.x2 && y >= r.y1 && y <= r.y2)) nome += 'Px';
         if (nome === 'grama') nome = 'grama' + (1 + ((x * 7 + y * 13 + x * y) % 3));
         if (nome === 'fonte') nome = 'fonte' + (ch(x, y - 1) === 'o' ? 'B' : 'T') + (ch(x - 1, y) === 'o' ? 'R' : 'L');
         // mesa de cimento: 2 tiles de largura (metade E e D) e o comprimento que tiver
@@ -387,10 +383,14 @@ window.VilaPixel = (function () {
         // bebedouro junto do pátio (piso escuro ou mesas do lado): no piso escuro
         if (nome === 'bebedouro' && [ch(x - 1, y), ch(x + 1, y), ch(x, y - 1), ch(x, y + 1)].some(k => 'Em'.includes(k))) nome = 'bebedouroEscuro';
         // ping-pong, pebolim e bancada: 2 quadrados de largura (metade E e D)
-        if (nome === 'pingPong' || nome === 'pebolim' || nome === 'bancada') {
+        if (nome === 'pingPong' || nome === 'pebolim' || nome === 'bancada' || nome === 'portaoCorrer' || nome === 'lavatorio') {
           const c0 = ch(x, y);
           nome += ch(x - 1, y) === c0 && ch(x - 2, y) !== c0 ? 'D' : 'E';
         }
+        // banco de cimento fino: pontas (E, D) e meio (M), conforme os vizinhos na linha
+        // horta de pneus de trator: alterna dois desenhos (as cebolas mudam de lugar)
+        if (nome === 'pneuTrator') nome += (x + y) % 2 ? 'B' : 'A';
+        if (nome === 'bancoCimento') nome += ch(x - 1, y) !== '_' ? 'E' : ch(x + 1, y) !== '_' ? 'D' : 'M';
         if (nome === 'mesa') {
           const lado = ch(x - 1, y) === 'q' && ch(x - 2, y) !== 'q' ? 'D' : 'E';
           const parte = ch(x, y - 1) !== 'q' ? 'Topo' : ch(x, y + 1) !== 'q' ? 'Base' : 'Meio';
@@ -681,7 +681,13 @@ window.VilaPixel = (function () {
 
     create() {
       const b = this.bloco;
-      const dados = montarDados(b.mapa, b.estiloPixel);
+      const dados = montarDados(b.mapa);
+      // onde estão as copas das árvores (de onde caem as folhas, ver criarEfeitos)
+      const arvorezinhas = [idx('arvore'), idx('arvoreTerra')];
+      this.copas = [];
+      dados.forEach((linha, y) => linha.forEach((t, x) => {
+        if (arvorezinhas.includes(t)) this.copas.push({ cx: x * T + T / 2, cy: y * T + T * 0.45, area: [-22, -16, 44, 26], prof: y * T + T });
+      }));
       const mapa = this.make.tilemap({ data: dados, tileWidth: T, tileHeight: T });
       const tileset = mapa.addTilesetImage('tiles', 'tiles', T, T, 0, 0);
       this.camada = mapa.createLayer(0, tileset, 0, 0);
@@ -695,6 +701,13 @@ window.VilaPixel = (function () {
         if (t.index === idx('mesaPlastico')) {
           // estreita (0,3 do quadrado) para sobrar espaço para o estudante passar entre duas mesas
           const z = this.add.zone(t.pixelX + T / 2, t.pixelY + T * 0.55, T * 0.3, T * 0.3);
+          this.physics.add.existing(z, true);
+          this.corrimaos.push(z);
+          return;
+        }
+        // banco de cimento fino: só a laje bloqueia (dá para andar na frente e atrás dele)
+        if (['bancoCimentoE', 'bancoCimentoM', 'bancoCimentoD'].map(idx).includes(t.index)) {
+          const z = this.add.zone(t.pixelX + T / 2, t.pixelY + T * 0.6, T, 16);
           this.physics.add.existing(z, true);
           this.corrimaos.push(z);
           return;
@@ -786,19 +799,24 @@ window.VilaPixel = (function () {
         this.physics.add.collider(this.npcs, z);
       };
 
-      // árvores grandes, maiores que um quadrado: `arvores: [{ x, y, tipo: 'ipe' }]`.
+      // árvores grandes, maiores que um quadrado: `arvores: [{ x, y, tipo: 'ipe' | 'grande' }]`.
       // (x, y) é o quadrado onde fica o pé do tronco. A copa fica por cima de quem passa
       // atrás da árvore; só o pé do tronco bloqueia. Sombra e flores caídas ficam no chão.
       (b.arvores || []).forEach(a => {
-        if (!this.textures.exists('ipe')) {
-          const d = VilaArte.gerarIpe();
-          this.textures.addCanvas('ipe', d.arvore);
-          this.textures.addCanvas('ipe-chao', d.chao);
+        // ipê-amarelo ou árvore grande verde (com o tronco à mostra)
+        const [chave, gerar, peArte] = a.tipo === 'grande'
+          ? ['arvoreGrande', VilaArte.gerarArvoreGrande, VilaArte.PE_ARVORE_GRANDE]
+          : ['ipe', VilaArte.gerarIpe, VilaArte.PE_IPE];
+        if (!this.textures.exists(chave)) {
+          const d = gerar();
+          this.textures.addCanvas(chave, d.arvore);
+          this.textures.addCanvas(chave + '-chao', d.chao);
         }
         const e = VilaArte.ESCALA, pe = { x: (a.x + 0.5) * T, y: (a.y + 0.85) * T };
-        const canto = { x: pe.x - 20 * e, y: pe.y - VilaArte.PE_IPE * e };   // o tronco fica no x 20 da arte
-        this.add.image(canto.x, canto.y, 'ipe-chao').setOrigin(0, 0).setDepth(1);
-        this.add.image(canto.x, canto.y, 'ipe').setOrigin(0, 0).setDepth(pe.y);
+        const canto = { x: pe.x - 20 * e, y: pe.y - peArte * e };   // o tronco fica no x 20 da arte
+        this.add.image(canto.x, canto.y, chave + '-chao').setOrigin(0, 0).setDepth(1);
+        this.add.image(canto.x, canto.y, chave).setOrigin(0, 0).setDepth(pe.y);
+        this.copas.push({ tipo: a.tipo, cx: pe.x, cy: canto.y + 16 * e, area: [-60, -40, 120, 60], prof: pe.y });
         obstaculo(pe.x, pe.y - 6, 24, 14);
       });
 
@@ -810,6 +828,20 @@ window.VilaPixel = (function () {
         const pe = { x: pl.x * T, y: (pl.y + 0.85) * T };
         const img = this.add.image(pe.x, pe.y, chave).setOrigin(0.5, 1).setDepth(pe.y);
         obstaculo(pe.x, pe.y - 6, img.width - 8, 12);
+      });
+
+      // corredores de cimento por cima do chão (podem ser na diagonal):
+      // `corredores: [{ pontos: [[x, y], ...], largura }]` — em quadrados. Dá para andar neles.
+      (b.corredores || []).forEach((cr, i) => {
+        const chave = 'corredor-' + b.id + '-' + i, d = VilaArte.gerarCorredor(cr.pontos, cr.largura || 0.7);
+        if (!this.textures.exists(chave)) this.textures.addCanvas(chave, d.img);
+        this.add.image(d.x * T, d.y * T, chave).setOrigin(0, 0).setDepth(1);
+      });
+      // quadras esportivas no chão: `quadras: [{ x1, y1, x2, y2 }]` (quadrados de canto a canto)
+      (b.quadras || []).forEach((q, i) => {
+        const chave = 'quadra-' + b.id + '-' + i;
+        if (!this.textures.exists(chave)) this.textures.addCanvas(chave, VilaArte.gerarQuadra(q.x2 - q.x1 + 1, q.y2 - q.y1 + 1));
+        this.add.image(q.x1 * T, q.y1 * T, chave).setOrigin(0, 0).setDepth(1.1);
       });
 
       // tendas (pergolado com folhas): postes nos quadrados (x1,y1), (x2,y1), (x1,y2) e (x2,y2).
@@ -937,7 +969,21 @@ window.VilaPixel = (function () {
         ef.emissores.push(em);
       });
 
-      // 5) luz do dia: uma película colorida por cima de tudo, multiplicando as cores
+      // 5) folhas caindo das árvores (verdes e, de vez em quando, uma seca). O ipê já solta pétalas.
+      ['folha', 'folha-seca'].forEach((k, i) => { if (!this.textures.exists(k)) this.textures.addCanvas(k, VilaArte.gerarFolha(i === 1)); });
+      (this.copas || []).filter(cp => cp.tipo !== 'ipe').forEach(cp => {
+        const grande = !!cp.tipo, [ax, ay, aw, ah] = cp.area;
+        const em = this.add.particles(cp.cx, cp.cy, Math.random() < 0.25 ? 'folha-seca' : 'folha', {
+          emitZone: { type: 'random', source: new Phaser.Geom.Rectangle(ax, ay, aw, ah) },
+          lifespan: grande ? { min: 3500, max: 6000 } : { min: 1800, max: 3000 },
+          speedX: { min: -22, max: 6 }, speedY: { min: 14, max: 28 },
+          rotate: { start: 0, end: Phaser.Math.Between(-360, 360) }, alpha: { start: 1, end: 0 },
+          frequency: grande ? 900 : Phaser.Math.Between(3500, 8000), quantity: 1
+        }).setDepth(cp.prof + 1);
+        ef.emissores.push(em);
+      });
+
+      // 6) luz do dia: uma película colorida por cima de tudo, multiplicando as cores
       ef.luz = this.add.rectangle(0, 0, 4000, 3000, 0xffffff, 0).setOrigin(0, 0)
         .setScrollFactor(0).setDepth(9000).setBlendMode(Phaser.BlendModes.MULTIPLY);
 
